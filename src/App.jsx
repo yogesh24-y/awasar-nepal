@@ -3111,7 +3111,7 @@ function App() {
                   );
 
                   if (!opportunity) return null;
-
+{/* Latest Awasar Nepal update */}
                   return (
                     <div className="saved-item" key={title}>
                       <div>
