@@ -13570,3 +13570,1439 @@ textarea {
 .about-language-close {
   flex-shrink: 0;
 }
+
+/* =========================================================
+   MOBILE ADMIN BUTTON
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .admin-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0 !important;
+    margin: 0;
+
+    border-radius: 12px;
+
+    background: #1e293b;
+    color: white;
+
+    font-size: 0;
+    line-height: 1;
+
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .admin-btn::first-letter {
+    font-size: 18px;
+  }
+
+}
+/* =========================================
+   MOBILE ADMIN BUTTON
+========================================= */
+
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  background: #1e293b;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.admin-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.admin-text {
+  display: inline;
+}
+
+.admin-btn:hover {
+  background: #0f172a;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .admin-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0 !important;
+    margin: 0;
+    border-radius: 12px;
+    background: #1e293b;
+    color: #ffffff;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .admin-icon {
+    display: inline-flex;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .admin-text {
+    display: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .admin-btn {
+    width: 39px;
+    height: 39px;
+    border-radius: 11px;
+  }
+
+  .admin-icon {
+    font-size: 17px;
+  }
+}
+/* =========================================
+   AWASAR NEPAL — PROFESSIONAL ADMIN DASHBOARD
+   ========================================= */
+
+.admin-dashboard-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+/* ---------- SIDEBAR ---------- */
+
+.admin-sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #101827;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+}
+
+.admin-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.admin-brand-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #e11d48;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+}
+
+.admin-sidebar-brand strong {
+  display: block;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.admin-sidebar-brand span {
+  display: block;
+  margin-top: 3px;
+  font-size: 10px;
+  color: #94a3b8;
+  letter-spacing: 2px;
+}
+
+/* ---------- MENU ---------- */
+
+.admin-sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 28px;
+}
+
+.admin-sidebar-menu button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.admin-sidebar-menu button:hover {
+  background: rgba(255,255,255,0.06);
+  color: #ffffff;
+}
+
+.admin-sidebar-menu button.active {
+  background: #e11d48;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(225,29,72,0.22);
+}
+
+.admin-sidebar-menu button:first-letter {
+  font-size: 17px;
+}
+
+/* ---------- BACK BUTTON ---------- */
+
+.admin-back-website {
+  margin-top: auto;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  color: #cbd5e1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.admin-back-website:hover {
+  background: rgba(255,255,255,0.09);
+  color: #ffffff;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+
+.admin-main-content {
+  flex: 1;
+  min-width: 0;
+  padding: 32px;
+}
+
+/* ---------- TOP BAR ---------- */
+
+.admin-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.admin-eyebrow {
+  color: #e11d48;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.admin-topbar h1 {
+  margin: 7px 0 5px;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.admin-topbar p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.admin-user-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 10px 14px;
+  border-radius: 13px;
+  box-shadow: 0 4px 15px rgba(15,23,42,0.04);
+}
+
+.admin-user-badge > span {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #fff1f2;
+}
+
+.admin-user-badge strong {
+  display: block;
+  font-size: 13px;
+}
+
+.admin-user-badge small {
+  display: block;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* ---------- WELCOME ---------- */
+
+.admin-welcome-card {
+  background: linear-gradient(135deg, #14213d, #243b64);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 145px;
+  margin-bottom: 22px;
+  overflow: hidden;
+  position: relative;
+}
+
+.admin-welcome-card span {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  opacity: 0.75;
+}
+
+.admin-welcome-card h2 {
+  margin: 8px 0;
+  font-size: 24px;
+}
+
+.admin-welcome-card p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 14px;
+  max-width: 600px;
+}
+
+.admin-welcome-icon {
+  font-size: 64px;
+  opacity: 0.9;
+  padding-right: 20px;
+}
+
+/* ---------- OVERVIEW CARDS ---------- */
+
+.admin-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.admin-overview-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 4px 15px rgba(15,23,42,0.03);
+}
+
+.overview-icon {
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #f1f5f9;
+  font-size: 19px;
+  flex-shrink: 0;
+}
+
+.admin-overview-card small {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.admin-overview-card strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 24px;
+}
+
+/* ---------- DASHBOARD CARDS ---------- */
+
+.admin-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.admin-panel-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 4px 15px rgba(15,23,42,0.03);
+}
+
+.admin-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.admin-card-heading span,
+.admin-section-title span,
+.admin-team-heading span {
+  font-size: 10px;
+  color: #e11d48;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.admin-card-heading h3 {
+  margin: 5px 0 0;
+  font-size: 17px;
+}
+
+.admin-card-heading button {
+  border: none;
+  background: transparent;
+  color: #e11d48;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-panel-card p {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 14px 0 0;
+}
+
+/* ---------- SECTION PAGE ---------- */
+
+.admin-section-page {
+  animation: adminFadeIn 0.25s ease;
+}
+
+@keyframes adminFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admin-section-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.admin-section-title h2 {
+  margin: 6px 0;
+  font-size: 23px;
+}
+
+.admin-section-title p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.admin-primary-action {
+  border: none;
+  background: #e11d48;
+  color: #ffffff;
+  padding: 11px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.admin-primary-action:hover {
+  opacity: 0.9;
+}
+
+/* ---------- PLACEHOLDER ---------- */
+
+.admin-management-placeholder {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 30px;
+}
+
+.placeholder-icon {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.admin-management-placeholder h3 {
+  margin: 5px 0;
+  font-size: 19px;
+}
+
+.admin-management-placeholder p {
+  max-width: 500px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ---------- ROLE CARDS ---------- */
+
+.admin-role-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.admin-role-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 4px 15px rgba(15,23,42,0.03);
+}
+
+.admin-role-card > span {
+  font-size: 25px;
+}
+
+.admin-role-card h3 {
+  margin: 13px 0 7px;
+  font-size: 18px;
+}
+
+.admin-role-card p {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 62px;
+}
+
+.admin-role-card strong {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #e11d48;
+}
+
+.admin-role-card.owner-role {
+  border-color: #fecdd3;
+  background: #fffafb;
+}
+
+/* ---------- TEAM PANEL ---------- */
+
+.admin-team-panel {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 17px;
+  padding: 22px;
+}
+
+.admin-team-heading {
+  margin-bottom: 18px;
+}
+
+.admin-team-heading h3 {
+  margin: 5px 0 0;
+  font-size: 18px;
+}
+
+.admin-member-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 14px;
+  border: 1px solid #edf0f4;
+  border-radius: 12px;
+  background: #fafbfc;
+}
+
+.admin-member-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff1f2;
+  flex-shrink: 0;
+}
+
+.admin-member-info {
+  flex: 1;
+}
+
+.admin-member-info strong {
+  display: block;
+  font-size: 13px;
+}
+
+.admin-member-info span {
+  display: block;
+  margin-top: 3px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.admin-role-badge {
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: #fef2f2;
+  color: #be123c;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+.owner-badge {
+  background: #fff1f2;
+  color: #be123c;
+}
+
+/* ---------- INVITATIONS ---------- */
+
+.admin-invitation-dashboard-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(15,23,42,0.03);
+}
+
+.invitation-dashboard-icon {
+  font-size: 38px;
+}
+
+.admin-invitation-dashboard-card h3 {
+  margin: 12px 0 5px;
+}
+
+.admin-invitation-dashboard-card > strong {
+  display: block;
+  font-size: 36px;
+  margin: 5px 0;
+}
+
+.admin-invitation-dashboard-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* ---------- SETTINGS ---------- */
+
+.admin-settings-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 21px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.admin-settings-card strong {
+  font-size: 15px;
+}
+
+.admin-settings-card p {
+  margin: 7px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.settings-status {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #ecfdf5;
+  color: #047857;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 1000px) {
+  .admin-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-role-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard-page {
+    display: block;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    min-height: auto;
+    position: relative;
+    padding: 14px;
+  }
+
+  .admin-sidebar-brand {
+    padding: 5px 6px 14px;
+  }
+
+  .admin-sidebar-menu {
+    flex-direction: row;
+    overflow-x: auto;
+    margin-top: 14px;
+    padding-bottom: 4px;
+  }
+
+  .admin-sidebar-menu button {
+    width: auto;
+    min-width: max-content;
+    padding: 10px 12px;
+  }
+
+  .admin-back-website {
+    margin-top: 12px;
+  }
+
+  .admin-main-content {
+    padding: 20px 14px;
+  }
+
+  .admin-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-topbar h1 {
+    font-size: 25px;
+  }
+
+  .admin-user-badge {
+    width: 100%;
+  }
+
+  .admin-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-section-title {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-primary-action {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-welcome-card {
+    padding: 22px;
+  }
+
+  .admin-welcome-card h2 {
+    font-size: 20px;
+  }
+
+  .admin-welcome-icon {
+    display: none;
+  }
+
+  .admin-member-card {
+    align-items: flex-start;
+  }
+
+  .admin-role-badge {
+    margin-left: auto;
+  }
+
+  .admin-settings-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+/* =========================================
+   PROFESSIONAL ADMIN INVITATION MODAL
+   ========================================= */
+
+.admin-invite-modal {
+  width: min(480px, calc(100vw - 32px));
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 25px 70px rgba(15, 23, 42, 0.25);
+  border: 1px solid #eef0f4;
+  animation: adminInviteModalIn 0.22s ease;
+}
+
+@keyframes adminInviteModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Close button */
+
+.admin-invite-modal .login-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-invite-modal .login-close:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Icon */
+
+.admin-invite-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: #fff1f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+  margin-bottom: 18px;
+}
+
+/* Heading */
+
+.admin-invite-modal h2 {
+  margin: 0;
+  font-size: 25px;
+  color: #14213d;
+  letter-spacing: -0.4px;
+}
+
+.admin-invite-description {
+  margin: 8px 0 25px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Labels */
+
+.admin-invite-modal label {
+  display: block;
+  margin: 0 0 7px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Inputs */
+
+.admin-invite-modal input,
+.admin-invite-modal select {
+  width: 100%;
+  height: 48px;
+  box-sizing: border-box;
+  border: 1px solid #dfe4ea;
+  border-radius: 11px;
+  background: #fafbfc;
+  padding: 0 14px;
+  font-size: 14px;
+  color: #172033;
+  outline: none;
+  transition: 0.2s ease;
+  margin-bottom: 18px;
+}
+
+.admin-invite-modal input::placeholder {
+  color: #94a3b8;
+}
+
+.admin-invite-modal input:focus,
+.admin-invite-modal select:focus {
+  border-color: #e11d48;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.08);
+}
+
+/* Role information */
+
+.admin-role-info-box {
+  display: flex;
+  gap: 11px;
+  padding: 13px;
+  margin: -5px 0 20px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #edf0f4;
+}
+
+.admin-role-info-icon {
+  font-size: 18px;
+}
+
+.admin-role-info-box strong {
+  display: block;
+  color: #334155;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.admin-role-info-box span {
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Create invitation button */
+
+.send-admin-invite-btn {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 12px;
+  background: #e11d48;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 8px 20px rgba(225, 29, 72, 0.18);
+}
+
+.send-admin-invite-btn:hover {
+  background: #be123c;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(225, 29, 72, 0.22);
+}
+
+.send-admin-invite-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .admin-invite-modal {
+    width: calc(100vw - 24px);
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .admin-invite-modal h2 {
+    font-size: 22px;
+  }
+
+  .admin-invite-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
+  }
+}
+/* =========================================================
+   PROFESSIONAL ADMIN INVITATIONS
+   ========================================================= */
+
+.admin-invitation-list-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* SUMMARY CARDS */
+
+.admin-invitation-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.admin-invitation-summary > div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+}
+
+.invitation-summary-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  font-size: 21px;
+  flex-shrink: 0;
+}
+
+.admin-invitation-summary small {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.admin-invitation-summary strong {
+  display: block;
+  color: #14213d;
+  font-size: 25px;
+  line-height: 1;
+}
+
+/* MAIN TABLE CARD */
+
+.admin-invitation-table-card {
+  background: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.admin-invitation-table-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 23px 24px;
+  border-bottom: 1px solid #eef1f5;
+}
+
+.admin-invitation-table-heading span {
+  display: block;
+  color: #e11d48;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.admin-invitation-table-heading h3 {
+  margin: 0;
+  color: #14213d;
+  font-size: 19px;
+}
+
+/* INVITATION ROW */
+
+.admin-invitation-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-invitation-row {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 24px;
+  border-bottom: 1px solid #f0f2f5;
+  transition: background 0.2s ease;
+}
+
+.admin-invitation-row:last-child {
+  border-bottom: none;
+}
+
+.admin-invitation-row:hover {
+  background: #fafbfc;
+}
+
+/* AVATAR */
+
+.admin-invitation-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: #fff1f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+}
+
+/* DETAILS */
+
+.admin-invitation-details {
+  min-width: 0;
+}
+
+.admin-invitation-details strong {
+  display: block;
+  color: #172033;
+  font-size: 14px;
+  font-weight: 750;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-invitation-details span {
+  display: block;
+  color: #64748b;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.admin-invitation-details small {
+  display: block;
+  color: #94a3b8;
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+/* STATUS */
+
+.admin-invitation-status {
+  min-width: 78px;
+  text-align: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.admin-invitation-status.pending {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.admin-invitation-status.accepted {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.admin-invitation-status.cancelled {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* CANCEL BUTTON */
+
+.admin-cancel-invitation-btn {
+  border: 1px solid #fecdd3;
+  background: #fff1f2;
+  color: #be123c;
+  height: 36px;
+  padding: 0 13px;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-cancel-invitation-btn:hover {
+  background: #ffe4e6;
+  border-color: #fda4af;
+  transform: translateY(-1px);
+}
+
+/* EMPTY STATE */
+
+.admin-invitation-table-card .admin-empty-opportunities {
+  padding: 55px 25px;
+  text-align: center;
+}
+
+.admin-invitation-table-card .admin-empty-opportunities > div {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.admin-invitation-table-card .admin-empty-opportunities h3 {
+  margin: 0 0 6px;
+  color: #334155;
+  font-size: 17px;
+}
+
+.admin-invitation-table-card .admin-empty-opportunities p {
+  margin: 0 auto;
+  max-width: 430px;
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .admin-invitation-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-invitation-row {
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+  }
+
+  .admin-cancel-invitation-btn {
+    grid-column: 2 / -1;
+    justify-self: start;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .admin-invitation-summary {
+    gap: 12px;
+  }
+
+  .admin-invitation-summary > div {
+    padding: 16px;
+    border-radius: 15px;
+  }
+
+  .invitation-summary-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .admin-invitation-table-card {
+    border-radius: 16px;
+  }
+
+  .admin-invitation-table-heading {
+    padding: 18px;
+  }
+
+  .admin-invitation-row {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+    padding: 16px 18px;
+  }
+
+  .admin-invitation-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+  }
+
+  .admin-invitation-status {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .admin-cancel-invitation-btn {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+/* =========================================================
+   INVITATION ACCEPT PAGE
+   ========================================================= */
+
+.invitation-accept-page {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(225, 29, 72, 0.10), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(20, 33, 61, 0.10), transparent 35%),
+    #f8fafc;
+}
+
+.invitation-accept-card {
+  width: min(470px, 100%);
+  padding: 42px 38px;
+  background: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 26px;
+  text-align: center;
+  box-shadow: 0 25px 70px rgba(15, 23, 42, 0.14);
+  animation: invitationCardIn 0.3s ease;
+}
+
+@keyframes invitationCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.invitation-accept-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff1f2;
+  font-size: 32px;
+}
+
+.invitation-accept-label {
+  display: block;
+  margin-bottom: 9px;
+  color: #e11d48;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.invitation-accept-card h1 {
+  margin: 0;
+  color: #14213d;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+}
+
+.invitation-accept-card p {
+  margin: 14px auto 27px;
+  max-width: 380px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.invitation-accept-btn {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 13px;
+  background: #e11d48;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(225, 29, 72, 0.20);
+  transition: 0.2s ease;
+}
+
+.invitation-accept-btn:hover {
+  background: #be123c;
+  transform: translateY(-1px);
+  box-shadow: 0 13px 30px rgba(225, 29, 72, 0.25);
+}
+
+.invitation-accept-btn:active {
+  transform: translateY(0);
+}
+
+.invitation-accept-card small {
+  display: block;
+  margin-top: 17px;
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .invitation-accept-page {
+    padding: 16px;
+  }
+
+  .invitation-accept-card {
+    padding: 34px 22px;
+    border-radius: 21px;
+  }
+
+  .invitation-accept-card h1 {
+    font-size: 25px;
+  }
+
+  .invitation-accept-card p {
+    font-size: 12px;
+  }
+
+  .invitation-accept-icon {
+    width: 62px;
+    height: 62px;
+    font-size: 28px;
+  }
+}

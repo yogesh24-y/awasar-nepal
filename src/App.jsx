@@ -308,6 +308,21 @@ function App() {
 
   const [showSubmitOpportunity, setShowSubmitOpportunity] = useState(false);
   const [showAdminPanel, setShowAdminPanel] = useState(false);
+
+  const [inviteId, setInviteId] = useState(null);
+const [acceptingInvitation, setAcceptingInvitation] = useState(false);
+const [invitationResult, setInvitationResult] = useState(null);
+
+const [adminPage, setAdminPage] = useState("dashboard");
+  const [opportunityFilter, setOpportunityFilter] =
+  useState("pending");
+
+  const [showInviteAdmin, setShowInviteAdmin] = useState(false);
+const [inviteAdminEmail, setInviteAdminEmail] = useState("");
+const [inviteAdminRole, setInviteAdminRole] = useState("Admin");
+
+const [adminInvitations, setAdminInvitations] = useState([]);
+const [loadingAdminInvitations, setLoadingAdminInvitations] = useState(false);
   const [adminFilter, setAdminFilter] = useState("pending");
   const adminEmails = [
     "yogeshgautam30664@gmail.com",
@@ -348,6 +363,43 @@ function App() {
 
     fetchSubmissions();
   }, []);
+
+  useEffect(() => {
+  const params = new URLSearchParams(window.location.search);
+  const invitationId = params.get("invite");
+
+  if (invitationId) {
+    setInviteId(invitationId);
+  }
+}, []);
+
+  const loadAdminInvitations = async () => {
+  try {
+    setLoadingAdminInvitations(true);
+
+    const { data, error } = await supabase
+      .from("admin_invites")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("Admin invitations load error:", error);
+      return;
+    }
+
+    setAdminInvitations(data || []);
+  } catch (error) {
+    console.error("Admin invitations error:", error);
+  } finally {
+    setLoadingAdminInvitations(false);
+  }
+};
+
+useEffect(() => {
+  if (currentPage === "admin" && isAdmin) {
+    loadAdminInvitations();
+  }
+}, [currentPage, isAdmin]);
 
   const [submitForm, setSubmitForm] = useState({
     title: "",
@@ -932,8 +984,45 @@ function App() {
     });
   };
   return (
-    <div className="app">
 
+    <div className="app">
+{inviteId && (
+  <div className="invitation-accept-page">
+
+    <div className="invitation-accept-card">
+
+      <div className="invitation-accept-icon">
+        📩
+      </div>
+
+      <span className="invitation-accept-label">
+        AWASAR NEPAL
+      </span>
+
+      <h1>You’ve been invited</h1>
+
+      <p>
+        You have been invited to help manage Awasar Nepal.
+        Sign in with the invited email address to continue.
+      </p>
+
+      <button
+        className="invitation-accept-btn"
+        onClick={() => {
+          setShowLogin(true);
+        }}
+      >
+        Sign In & Accept →
+      </button>
+
+      <small>
+        🔐 Secure invitation · Role-based access
+      </small>
+
+    </div>
+
+  </div>
+)}
       {showAboutLanguage && (
   <div className="about-language-overlay">
 
@@ -1170,12 +1259,18 @@ function App() {
           </button>
 
           {isAdmin && (
-            <button
-              className="admin-btn"
-              onClick={() => setShowAdminPanel(true)}
-            >
-              👑 Admin
-            </button>
+           <button
+  className="admin-btn"
+  onClick={() => {
+  setAdminPage("dashboard");
+  setCurrentPage("admin");
+}}
+  title="Admin Panel"
+  aria-label="Admin Panel"
+>
+  <span className="admin-icon">👑</span>
+  <span className="admin-text">Admin</span>
+</button>
           )}
 
           {loggedInUser ? (
@@ -1800,6 +1895,845 @@ function App() {
             </button>
           </section>
         </main>
+        ) : currentPage === "admin" ? (
+
+  <main className="admin-dashboard-page">
+
+    {/* Admin Sidebar */}
+    <aside className="admin-sidebar">
+
+      <div className="admin-sidebar-brand">
+        <div className="admin-brand-icon">👑</div>
+
+        <div>
+          <strong>AWASAR</strong>
+          <span>ADMIN</span>
+        </div>
+      </div>
+
+      <div className="admin-sidebar-menu">
+
+        <button
+          className={adminPage === "dashboard" ? "active" : ""}
+          onClick={() => setAdminPage("dashboard")}
+        >
+          📊
+          <span>Dashboard</span>
+        </button>
+
+        <button
+          className={adminPage === "opportunities" ? "active" : ""}
+          onClick={() => setAdminPage("opportunities")}
+        >
+          🎯
+          <span>Opportunities</span>
+        </button>
+
+        <button
+          className={adminPage === "team" ? "active" : ""}
+          onClick={() => setAdminPage("team")}
+        >
+          👥
+          <span>Team & Access</span>
+        </button>
+
+        <button
+          className={adminPage === "invitations" ? "active" : ""}
+          onClick={() => setAdminPage("invitations")}
+        >
+          📩
+          <span>Invitations</span>
+        </button>
+
+        <button
+          className={adminPage === "settings" ? "active" : ""}
+          onClick={() => setAdminPage("settings")}
+        >
+          ⚙️
+          <span>Settings</span>
+        </button>
+
+      </div>
+
+      <button
+        className="admin-back-website"
+        onClick={() => {
+          setCurrentPage("home");
+          window.scrollTo(0, 0);
+        }}
+      >
+        ← Back to Website
+      </button>
+
+    </aside>
+
+
+    {/* Admin Main Content */}
+    <section className="admin-main-content">
+
+      <div className="admin-topbar">
+
+        <div>
+          <span className="admin-eyebrow">
+            AWASAR NEPAL CONTROL CENTER
+          </span>
+
+          <h1>
+            {adminPage === "dashboard" && "Admin Dashboard"}
+            {adminPage === "opportunities" && "Opportunity Management"}
+            {adminPage === "team" && "Team & Access"}
+            {adminPage === "invitations" && "Admin Invitations"}
+            {adminPage === "settings" && "Admin Settings"}
+          </h1>
+
+          <p>
+            Manage Awasar Nepal from one secure workspace.
+          </p>
+        </div>
+
+        <div className="admin-user-badge">
+          <span>👑</span>
+
+          <div>
+            <strong>{loggedInUser || "Admin"}</strong>
+            <small>Owner</small>
+          </div>
+        </div>
+
+      </div>
+
+
+      {/* Dashboard */}
+      {adminPage === "dashboard" && (
+
+        <div className="admin-dashboard-content">
+
+          <div className="admin-welcome-card">
+
+            <div>
+              <span>WELCOME BACK 👋</span>
+
+              <h2>
+                Awasar Nepal Control Center
+              </h2>
+
+              <p>
+                Monitor opportunities, submissions and your
+                administration team from here.
+              </p>
+            </div>
+
+            <div className="admin-welcome-icon">
+              🇳🇵
+            </div>
+
+          </div>
+
+
+          <div className="admin-overview-grid">
+
+            <div className="admin-overview-card">
+              <span className="overview-icon">🎯</span>
+
+              <div>
+                <small>Total Opportunities</small>
+                <strong>{allOpportunities.length}</strong>
+              </div>
+            </div>
+
+
+            <div className="admin-overview-card">
+              <span className="overview-icon">🟡</span>
+
+              <div>
+                <small>Pending Submissions</small>
+                <strong>
+                  {
+                    submittedOpportunities.filter(
+                      (item) => item.status === "pending"
+                    ).length
+                  }
+                </strong>
+              </div>
+            </div>
+
+
+            <div className="admin-overview-card">
+              <span className="overview-icon">✅</span>
+
+              <div>
+                <small>Published</small>
+                <strong>
+                  {
+                    submittedOpportunities.filter(
+                      (item) => item.status === "approved"
+                    ).length
+                  }
+                </strong>
+              </div>
+            </div>
+
+
+            <div className="admin-overview-card">
+              <span className="overview-icon">👥</span>
+
+              <div>
+                <small>Admin Invitations</small>
+                <strong>
+                  {
+                    adminInvitations.filter(
+                      (invite) => invite.status === "pending"
+                    ).length
+                  }
+                </strong>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div className="admin-dashboard-grid">
+
+            <div className="admin-panel-card">
+
+              <div className="admin-card-heading">
+
+                <div>
+                  <span>CONTENT</span>
+                  <h3>Opportunity Management</h3>
+                </div>
+
+                <button
+                  onClick={() => setAdminPage("opportunities")}
+                >
+                  View All →
+                </button>
+
+              </div>
+
+              <p>
+                Review submitted opportunities and manage
+                published content.
+              </p>
+
+            </div>
+
+
+            <div className="admin-panel-card">
+
+              <div className="admin-card-heading">
+
+                <div>
+                  <span>TEAM</span>
+                  <h3>Team & Access</h3>
+                </div>
+
+                <button
+                  onClick={() => setAdminPage("team")}
+                >
+                  Manage →
+                </button>
+
+              </div>
+
+              <p>
+                Control Admin and Editor access to Awasar Nepal.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
+
+      {/* Opportunities */}
+      {adminPage === "opportunities" && (
+
+        <div className="admin-section-page">
+
+          <div className="admin-section-title">
+
+            <div>
+              <span>CONTENT MANAGEMENT</span>
+
+              <h2>Opportunity Management</h2>
+
+              <p>
+                Review and manage opportunities submitted to
+                Awasar Nepal.
+              </p>
+              <div className="admin-opportunity-tabs">
+
+  <button
+    className={
+      opportunityFilter === "pending"
+        ? "active"
+        : ""
+    }
+    onClick={() => setOpportunityFilter("pending")}
+  >
+    🟡 Pending
+    <span>
+      {
+        submittedOpportunities.filter(
+          (item) => item.status === "pending"
+        ).length
+      }
+    </span>
+  </button>
+
+  <button
+    className={
+      opportunityFilter === "approved"
+        ? "active"
+        : ""
+    }
+    onClick={() => setOpportunityFilter("approved")}
+  >
+    ✅ Approved
+    <span>
+      {
+        submittedOpportunities.filter(
+          (item) => item.status === "approved"
+        ).length
+      }
+    </span>
+  </button>
+
+  <button
+    className={
+      opportunityFilter === "declined"
+        ? "active"
+        : ""
+    }
+    onClick={() => setOpportunityFilter("declined")}
+  >
+    ❌ Declined
+    <span>
+      {
+        submittedOpportunities.filter(
+          (item) => item.status === "declined"
+        ).length
+      }
+    </span>
+  </button>
+
+</div>
+
+<div className="admin-opportunity-list">
+
+  {submittedOpportunities
+    .filter(
+      (item) => item.status === opportunityFilter
+    )
+    .length === 0 ? (
+
+    <div className="admin-empty-opportunities">
+      <div>📭</div>
+      <h3>
+        No {opportunityFilter} opportunities
+      </h3>
+      <p>
+        There are currently no opportunities in this
+        section.
+      </p>
+    </div>
+
+  ) : (
+
+    submittedOpportunities
+      .filter(
+        (item) => item.status === opportunityFilter
+      )
+      .map((item) => (
+
+        <div
+          className="admin-opportunity-card"
+          key={item.id}
+        >
+
+          <div className="admin-opportunity-icon">
+            {item.icon || "📌"}
+          </div>
+
+          <div className="admin-opportunity-info">
+
+            <div className="admin-opportunity-top">
+
+              <span className="admin-opportunity-category">
+                {item.category || item.type || "OPPORTUNITY"}
+              </span>
+
+              <span
+                className={
+                  "admin-status-badge " +
+                  opportunityFilter
+                }
+              >
+                {opportunityFilter.toUpperCase()}
+              </span>
+
+            </div>
+
+            <h3>
+              {item.title}
+            </h3>
+
+            <p>
+              {item.organization ||
+                "Organization not specified"}
+            </p>
+
+            <div className="admin-opportunity-meta">
+
+              <span>
+                📍 {item.location || "Nepal"}
+              </span>
+
+              <span>
+                📅 {item.deadline || "No deadline"}
+              </span>
+
+            </div>
+
+          </div>
+
+          <div className="admin-opportunity-actions">
+
+            <button
+              className="admin-view-btn"
+              onClick={() => {
+                setSelectedOpportunity(item);
+              }}
+            >
+              View
+            </button>
+
+            {opportunityFilter === "pending" && (
+              <>
+                <button
+                  className="admin-approve-btn"
+                  onClick={() => approveOpportunity(item.id)}
+                >
+                  ✓ Approve
+                </button>
+
+                <button
+                  className="admin-decline-btn"
+                  onClick={() => declineOpportunity(item.id)}
+                >
+                  Decline
+                </button>
+              </>
+            )}
+
+          </div>
+
+        </div>
+
+      ))
+
+  )}
+
+</div>
+            </div>
+
+            <button
+              className="admin-primary-action"
+              onClick={() => setAdminPage("dashboard")}
+            >
+              ← Dashboard
+            </button>
+
+          </div>
+
+
+    
+
+      </div>
+
+      )}
+
+
+      {/* Team */}
+      {adminPage === "team" && (
+
+        <div className="admin-section-page">
+
+          <div className="admin-section-title">
+
+            <div>
+              <span>TEAM & ACCESS</span>
+
+              <h2>Admin Management</h2>
+
+              <p>
+                Manage administrators and their permissions.
+              </p>
+            </div>
+
+            <button
+              className="admin-primary-action"
+              onClick={() => setShowInviteAdmin(true)}
+            >
+              + Invite Admin
+            </button>
+
+          </div>
+
+
+          <div className="admin-role-grid">
+
+            <div className="admin-role-card owner-role">
+              <span>👑</span>
+
+              <h3>Owner</h3>
+
+              <p>
+                Full access to the entire Awasar Nepal
+                administration system.
+              </p>
+
+              <strong>FULL ACCESS</strong>
+            </div>
+
+
+            <div className="admin-role-card">
+              <span>🛡️</span>
+
+              <h3>Admin</h3>
+
+              <p>
+                Full management of opportunities and
+                submissions.
+              </p>
+
+              <strong>FULL MANAGEMENT</strong>
+            </div>
+
+
+            <div className="admin-role-card">
+              <span>✏️</span>
+
+              <h3>Editor</h3>
+
+              <p>
+                Create and edit opportunity content without
+                access to team security settings.
+              </p>
+
+              <strong>CONTENT MANAGEMENT</strong>
+            </div>
+
+          </div>
+
+
+          <div className="admin-team-panel">
+
+            <div className="admin-team-heading">
+
+              <div>
+                <span>ACCESS CONTROL</span>
+                <h3>Current Team</h3>
+              </div>
+
+            </div>
+
+            <div className="admin-member-card">
+
+              <div className="admin-member-avatar">
+                👑
+              </div>
+
+              <div className="admin-member-info">
+                <strong>Website Owner</strong>
+                <span>Owner · Full Access</span>
+              </div>
+
+              <span className="admin-role-badge owner-badge">
+                OWNER
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
+
+      {/* Invitations */}
+      {adminPage === "invitations" && (
+
+        <div className="admin-section-page">
+
+          <div className="admin-section-title">
+
+            <div>
+              <span>TEAM & ACCESS</span>
+
+              <h2>Admin Invitations</h2>
+
+              <p>
+                Invite trusted people to help manage Awasar Nepal.
+              </p>
+            </div>
+
+            <button
+              className="admin-primary-action"
+              onClick={() => setShowInviteAdmin(true)}
+            >
+              + Invite Admin
+            </button>
+
+          </div>
+
+
+          <div className="admin-invitation-list-page">
+
+  <div className="admin-invitation-summary">
+    <div>
+      <span className="invitation-summary-icon">📩</span>
+      <div>
+        <small>Pending Invitations</small>
+        <strong>
+          {
+            adminInvitations.filter(
+              (invite) => invite.status === "pending"
+            ).length
+          }
+        </strong>
+      </div>
+    </div>
+
+    <div>
+      <span className="invitation-summary-icon">✅</span>
+      <div>
+        <small>Accepted</small>
+        <strong>
+          {
+            adminInvitations.filter(
+              (invite) => invite.status === "accepted"
+            ).length
+          }
+        </strong>
+      </div>
+    </div>
+
+    <div>
+      <span className="invitation-summary-icon">❌</span>
+      <div>
+        <small>Cancelled</small>
+        <strong>
+          {
+            adminInvitations.filter(
+              (invite) => invite.status === "cancelled"
+            ).length
+          }
+        </strong>
+      </div>
+    </div>
+  </div>
+
+  <div className="admin-invitation-table-card">
+
+    <div className="admin-invitation-table-heading">
+      <div>
+        <span>INVITATION MANAGEMENT</span>
+        <h3>All Invitations</h3>
+      </div>
+    </div>
+
+    {adminInvitations.length === 0 ? (
+
+      <div className="admin-empty-opportunities">
+        <div>📭</div>
+        <h3>No invitations yet</h3>
+        <p>
+          Create an invitation to add someone to your
+          Awasar Nepal administration team.
+        </p>
+      </div>
+
+    ) : (
+
+      <div className="admin-invitation-list">
+
+        {adminInvitations.map((invite) => (
+
+          <div
+            className="admin-invitation-row"
+            key={invite.id}
+          >
+
+            <div className="admin-invitation-avatar">
+              {invite.role === "admin" ? "🛡️" : "✏️"}
+            </div>
+
+            <div className="admin-invitation-details">
+
+              <strong>{invite.email}</strong>
+
+              <span>
+                {invite.role === "admin"
+                  ? "Admin · Full Management"
+                  : "Editor · Content Management"}
+              </span>
+
+              <small>
+                Created{" "}
+                {invite.created_at
+                  ? new Date(
+                      invite.created_at
+                    ).toLocaleDateString()
+                  : "Recently"}
+              </small>
+
+            </div>
+
+            <span
+              className={
+                "admin-invitation-status " +
+                invite.status
+              }
+            >
+              {invite.status}
+            </span>
+
+            {invite.status === "pending" && (
+
+              <button
+                className="admin-cancel-invitation-btn"
+                onClick={async () => {
+
+                  const confirmed = window.confirm(
+                    "Cancel this invitation?"
+                  );
+
+                  if (!confirmed) return;
+
+                  const { error } = await supabase
+                    .from("admin_invites")
+                    .update({
+                      status: "cancelled",
+                    })
+                    .eq("id", invite.id);
+
+                  if (error) {
+                    console.error(
+                      "Cancel invitation error:",
+                      error
+                    );
+
+                    alert(
+                      `Could not cancel invitation:\n${error.message}`
+                    );
+
+                    return;
+                  }
+
+                  setAdminInvitations((prev) =>
+                    prev.map((item) =>
+                      item.id === invite.id
+                        ? {
+                            ...item,
+                            status: "cancelled",
+                          }
+                        : item
+                    )
+                  );
+
+                }}
+              >
+                Cancel
+              </button>
+
+            )}
+
+          </div>
+
+        ))}
+
+      </div>
+
+    )}
+
+  </div>
+
+</div>
+
+        </div>
+
+      )}
+
+
+      {/* Settings */}
+      {adminPage === "settings" && (
+
+        <div className="admin-section-page">
+
+          <div className="admin-section-title">
+
+            <div>
+              <span>SYSTEM</span>
+
+              <h2>Admin Settings</h2>
+
+              <p>
+                Manage administration preferences and security.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div className="admin-settings-card">
+
+            <div>
+              <strong>🔐 Security</strong>
+
+              <p>
+                Admin access is protected by Supabase
+                authentication and role-based permissions.
+              </p>
+            </div>
+
+            <span className="settings-status">
+              Protected
+            </span>
+
+          </div>
+
+
+          <div className="admin-settings-card">
+
+            <div>
+              <strong>🇳🇵 Awasar Nepal</strong>
+
+              <p>
+                Administration system for the Awasar Nepal
+                opportunity platform.
+              </p>
+            </div>
+
+            <span className="settings-status">
+              Active
+            </span>
+
+          </div>
+
+        </div>
+
+      )}
+
+    </section>
+
+  </main>
+
       ) : currentPage === "opportunities" ? (
         <main className="explore-page">
           <section className="explore-hero">
@@ -2787,6 +3721,96 @@ function App() {
               </button>
             </div>
 
+            <div className="admin-management">
+  <div className="admin-management-header">
+    <div>
+      <span className="admin-section-label">TEAM & ACCESS</span>
+      <h3>👥 Admin Management</h3>
+      <p>
+        Manage who can access the Awasar Nepal admin panel.
+      </p>
+    </div>
+
+    <button
+      className="invite-admin-btn"
+      onClick={() => setShowInviteAdmin(true)}
+    >
+      ➕ Invite Admin
+    </button>
+  </div>
+
+  <div className="current-admins">
+    <h4>Current Admins</h4>
+
+    <div className="admin-member-card">
+      <div className="admin-member-avatar">👑</div>
+
+      <div className="admin-member-info">
+        <strong>Website Owner</strong>
+        <span>Owner · Full Access</span>
+      </div>
+
+      <span className="admin-role-badge owner-badge">
+        OWNER
+      </span>
+    </div>
+  </div>
+
+  <div className="pending-admin-invitations">
+    <div className="pending-invite-heading">
+      <h4>Pending Invitations</h4>
+
+      <span>
+        {adminInvitations.filter(
+          (invite) => invite.status === "pending"
+        ).length}
+      </span>
+    </div>
+
+    {adminInvitations.filter(
+      (invite) => invite.status === "pending"
+    ).length === 0 ? (
+      <div className="no-admin-invitations">
+        📭 No pending invitations
+      </div>
+    ) : (
+      <div className="admin-invitation-list">
+        {adminInvitations
+          .filter((invite) => invite.status === "pending")
+          .map((invite) => (
+            <div
+              className="admin-invitation-card"
+              key={invite.id}
+            >
+              <div>
+                <strong>{invite.email}</strong>
+                <span>{invite.role}</span>
+              </div>
+
+              <button
+                className="cancel-invite-btn"
+                onClick={() => {
+                  const updated = adminInvitations.filter(
+                    (item) => item.id !== invite.id
+                  );
+
+                  setAdminInvitations(updated);
+
+                  localStorage.setItem(
+                    "awasarNepalAdminInvitations",
+                    JSON.stringify(updated)
+                  );
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          ))}
+      </div>
+    )}
+  </div>
+</div>
+
             <div className="admin-list">
               {loadingSubmissions && (
                 <p className="admin-empty">⏳ Loading submissions...</p>
@@ -2909,6 +3933,138 @@ function App() {
                   ))
               )}
             </div>
+          </div>
+        </div>
+      )}
+
+      {showInviteAdmin && (
+        <div className="login-overlay">
+          <div className="admin-invite-modal">
+
+            <button
+              className="login-close"
+              onClick={() => {
+                setShowInviteAdmin(false);
+                setInviteAdminEmail("");
+                setInviteAdminRole("Admin");
+              }}
+            >
+              ×
+            </button>
+
+            <div className="admin-invite-icon">
+              👥
+            </div>
+
+            <h2>Invite New Admin</h2>
+
+            <p className="admin-invite-description">
+              Send an invitation to someone you trust to help manage
+              Awasar Nepal.
+            </p>
+
+            <label>Email Address</label>
+
+            <input
+              type="email"
+              placeholder="admin@example.com"
+              value={inviteAdminEmail}
+              onChange={(e) => setInviteAdminEmail(e.target.value)}
+            />
+
+
+<div className="admin-role-info-box">
+  <div className="admin-role-info-icon">
+    🔐
+  </div>
+
+  <div>
+    <strong>Secure role-based access</strong>
+    <span>
+      Admin gets full management access. Editor can manage
+      opportunity content but cannot manage team security.
+    </span>
+  </div>
+</div>
+
+            <label>Role</label>
+
+            <select
+              value={inviteAdminRole}
+              onChange={(e) => setInviteAdminRole(e.target.value)}
+            >
+              <option value="Admin">
+                Admin — Full Management
+              </option>
+
+              <option value="Editor">
+                Editor — Opportunity Management
+              </option>
+            </select>
+
+            <button
+  className="send-admin-invite-btn"
+  onClick={async () => {
+    const email = inviteAdminEmail.trim().toLowerCase();
+
+    if (!email) {
+      alert("Please enter an email address.");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    try {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        alert("You must be logged in.");
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("admin_invites")
+        .insert([
+          {
+            email: email,
+            role: inviteAdminRole.toLowerCase(),
+            invited_by: user.id,
+            status: "pending",
+          },
+        ])
+        .select()
+        .single();
+
+      if (error) {
+        console.error("Invitation error:", error);
+
+        alert(
+  `Invitation failed:\n${error.message}\nCode: ${error.code || "N/A"}`
+);
+        return;
+      }
+
+      setAdminInvitations((prev) => [data, ...prev]);
+
+      setInviteAdminEmail("");
+      setInviteAdminRole("Admin");
+      setShowInviteAdmin(false);
+
+      alert("Admin invitation created successfully! 🎉");
+    } catch (error) {
+      console.error("Unexpected invitation error:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  }}
+>
+  📩 Create Invitation
+</button>
+
           </div>
         </div>
       )}
@@ -3113,6 +4269,8 @@ function App() {
                   if (!opportunity) return null;
 {/* Latest Awasar Nepal update */}
                   return (
+
+                
                     <div className="saved-item" key={title}>
                       <div>
                         <strong>{opportunity.title}</strong>
