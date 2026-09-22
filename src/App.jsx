@@ -1528,10 +1528,11 @@ useEffect(() => {
           <span>🔔</span>
           <span>My Deadline Alerts</span>
         </button>
-
-      </div>
-    </>
-  )}
+</div>
+   
+   </div>
+ )}
+  
 </div>
 
   </div>
@@ -1596,6 +1597,7 @@ useEffect(() => {
     </div>
   </>
 )}
+
 {/* =========================
     ACCOUNT & SECURITY
 ========================== */}
