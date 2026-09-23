@@ -1297,7 +1297,6 @@ useEffect(() => {
     ⌄
   </span>
 </button>
-
 {showUserMenu && (
   <div className="user-dropdown">
 
@@ -1307,47 +1306,240 @@ useEffect(() => {
   {/* =========================
       MAIN MENU
   ========================== */}
-{accountMenuPage === "main" && (
-  <>
-    <button
-      className="account-menu-item"
-      onClick={() => setAccountMenuPage("dashboard")}
-    >
-      <span className="account-menu-icon">👤</span>
-      <span className="account-menu-label">My Dashboard</span>
-      <span className="account-menu-arrow">›</span>
-    </button>
+  {accountMenuPage === "main" && (
+    <>
+      <button
+        className="account-menu-item"
+        onClick={() => setAccountMenuPage("dashboard")}
+      >
+        <span className="account-menu-icon">👤</span>
+        <span className="account-menu-label">My Dashboard</span>
+        <span className="account-menu-arrow">›</span>
+      </button>
 
-    <div className="account-menu-divider"></div>
+      <button
+        className="account-menu-item"
+        onClick={() => setAccountMenuPage("settings")}
+      >
+        <span className="account-menu-icon">⚙️</span>
+        <span className="account-menu-label">Settings & Privacy</span>
+        <span className="account-menu-arrow">›</span>
+      </button>
 
-    <button
-      className="account-menu-item account-menu-logout"
-      onClick={() => {
-        setLoggedInUser("");
-        setLoggedInEmail("");
+      <button
+        className="account-menu-item"
+        onClick={() => setAccountMenuPage("help")}
+      >
+        <span className="account-menu-icon">❓</span>
+        <span className="account-menu-label">Help & Support</span>
+        <span className="account-menu-arrow">›</span>
+      </button>
 
-        localStorage.removeItem("awasarNepalLoggedIn");
-        localStorage.removeItem("awasarNepalUser");
+      <button
+        className="account-menu-item"
+        onClick={() => setAccountMenuPage("display")}
+      >
+        <span className="account-menu-icon">🖥️</span>
+        <span className="account-menu-label">
+          Display & Accessibility
+        </span>
+        <span className="account-menu-arrow">›</span>
+      </button>
 
-        setShowUserMenu(false);
-        setAccountMenuPage("main");
+      <button
+        className="account-menu-item"
+        onClick={() => setAccountMenuPage("feedback")}
+      >
+        <span className="account-menu-icon">💬</span>
+        <span className="account-menu-label">Give Feedback</span>
+        <span className="account-menu-arrow">›</span>
+      </button>
 
-        alert("You have been logged out.");
-      }}
-    >
-      <span className="account-menu-icon">🚪</span>
-      <span className="account-menu-label">Log Out</span>
-    </button>
-  </>
-)}
+      <div className="account-menu-divider"></div>
+
+      <button
+        className="account-menu-item account-menu-logout"
+        onClick={() => {
+          setLoggedInUser("");
+          setLoggedInEmail("");
+
+          localStorage.removeItem("awasarNepalLoggedIn");
+          localStorage.removeItem("awasarNepalUser");
+
+          setShowUserMenu(false);
+          setAccountMenuPage("main");
+
+          alert("You have been logged out.");
+        }}
+      >
+        <span className="account-menu-icon">🚪</span>
+        <span className="account-menu-label">Log Out</span>
+      </button>
+    </>
+  )}
 
 
-  
+  {/* =========================
+      GIVE FEEDBACK
+  ========================== */}
+  {accountMenuPage === "feedback" && (
+    <>
+      <div className="account-submenu-header">
+        <button
+          className="account-submenu-back"
+          onClick={() => setAccountMenuPage("main")}
+        >
+          ←
+        </button>
+
+        <span className="account-submenu-title">
+          💬 Give Feedback
+        </span>
+      </div>
+
+      <div className="account-submenu-list">
+
+        <button
+          className="account-submenu-item"
+          onClick={() => {
+            setShowUserMenu(false);
+            setAccountMenuPage("main");
+            alert("Rate Your Experience is coming soon.");
+          }}
+        >
+          <span>⭐</span>
+          <span>Rate Your Experience</span>
+        </button>
+
+        <button
+          className="account-submenu-item"
+          onClick={() => {
+            setShowUserMenu(false);
+            setAccountMenuPage("main");
+            alert("Suggest a Feature is coming soon.");
+          }}
+        >
+          <span>💡</span>
+          <span>Suggest a Feature</span>
+        </button>
+
+        <button
+          className="account-submenu-item"
+          onClick={() => {
+            setShowUserMenu(false);
+            setAccountMenuPage("main");
+            alert("Report a Bug is coming soon.");
+          }}
+        >
+          <span>🐛</span>
+          <span>Report a Bug</span>
+        </button>
+
+        <button
+          className="account-submenu-item"
+          onClick={() => {
+            setShowUserMenu(false);
+            setAccountMenuPage("main");
+            alert("General Feedback is coming soon.");
+          }}
+        >
+          <span>💬</span>
+          <span>General Feedback</span>
+        </button>
+
+      </div>
+    </>
+  )}
+
 
   {/* =========================
       DASHBOARD
   ========================== */}
-{accountMenuPage === "dashboard" && (
+  {accountMenuPage === "dashboard" && (
+    <>
+      <div className="account-submenu-header">
+        <button
+          className="account-submenu-back"
+          onClick={() => setAccountMenuPage("main")}
+        >
+          ←
+        </button>
+
+        <span className="account-submenu-title">
+          👤 My Dashboard
+        </span>
+      </div>
+
+      <div className="account-submenu-list">
+
+        <button
+          className="account-submenu-item"
+          onClick={() => {
+            setShowEditProfile(true);
+            setShowUserMenu(false);
+            setAccountMenuPage("main");
+          }}
+        >
+          <span>✏️</span>
+          <span>Edit Profile</span>
+        </button>
+
+        <button
+          className="account-submenu-item"
+          onClick={() => {
+            setShowUserMenu(false);
+            alert("Saved Opportunities is coming soon.");
+          }}
+        >
+          <span>❤️</span>
+          <span>Saved Opportunities</span>
+        </button>
+
+        <button
+          className="account-submenu-item"
+          onClick={() => {
+            setShowUserMenu(false);
+            alert("My Applications is coming soon.");
+          }}
+        >
+          <span>📋</span>
+          <span>My Applications</span>
+        </button>
+
+        <button
+          className="account-submenu-item"
+          onClick={() => {
+            setShowUserMenu(false);
+            alert("Recently Viewed is coming soon.");
+          }}
+        >
+          <span>🕐</span>
+          <span>Recently Viewed</span>
+        </button>
+
+        <button
+          className="account-submenu-item"
+          onClick={() => {
+            setShowUserMenu(false);
+            alert("My Deadline Alerts is coming soon.");
+          }}
+        >
+          <span>🔔</span>
+          <span>My Deadline Alerts</span>
+        </button>
+
+      </div>
+    </>
+  )}
+
+</div>
+
+  </div>
+)}
+{/* =========================
+    SETTINGS & PRIVACY
+========================== */}
+{accountMenuPage === "settings" && (
   <>
     <div className="account-submenu-header">
       <button
@@ -1358,7 +1550,66 @@ useEffect(() => {
       </button>
 
       <span className="account-submenu-title">
-        👤 My Dashboard
+        ⚙️ Settings & Privacy
+      </span>
+    </div>
+
+    <div className="account-submenu-list">
+
+      <button
+        className="account-submenu-item"
+        onClick={() => setAccountMenuPage("security")}
+      >
+        <span>🔐</span>
+        <span>Account & Security</span>
+        <span className="account-menu-arrow">›</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => setAccountMenuPage("privacy")}
+      >
+        <span>👤</span>
+        <span>Profile Privacy</span>
+        <span className="account-menu-arrow">›</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => setAccountMenuPage("notifications")}
+      >
+        <span>🔔</span>
+        <span>Notifications</span>
+        <span className="account-menu-arrow">›</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => setAccountMenuPage("account-management")}
+      >
+        <span>🗑️</span>
+        <span>Account Management</span>
+        <span className="account-menu-arrow">›</span>
+      </button>
+
+    </div>
+  </>
+)}
+{/* =========================
+    ACCOUNT & SECURITY
+========================== */}
+{accountMenuPage === "security" && (
+  <>
+    <div className="account-submenu-header">
+      <button
+        className="account-submenu-back"
+        onClick={() => setAccountMenuPage("settings")}
+      >
+        ←
+      </button>
+
+      <span className="account-submenu-title">
+        🔐 Account & Security
       </span>
     </div>
 
@@ -1367,68 +1618,334 @@ useEffect(() => {
       <button
         className="account-submenu-item"
         onClick={() => {
-          setShowEditProfile(true);
           setShowUserMenu(false);
-          setAccountMenuPage("main");
+          alert("Change Password is coming soon.");
         }}
       >
-        <span>✏️</span>
-        <span>Edit Profile</span>
+        <span>🔑</span>
+        <span>Change Password</span>
       </button>
 
       <button
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          setAccountMenuPage("main");
-          alert("Saved Opportunities is coming soon.");
+          alert("Email & Phone settings are coming soon.");
         }}
       >
-        <span>❤️</span>
-        <span>Saved Opportunities</span>
+        <span>📧</span>
+        <span>Email & Phone</span>
       </button>
 
       <button
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          setAccountMenuPage("main");
-          alert("My Applications is coming soon.");
+          alert("Login & Security settings are coming soon.");
         }}
       >
-        <span>📋</span>
-        <span>My Applications</span>
-      </button>
-
-      <button
-        className="account-submenu-item"
-        onClick={() => {
-          setShowUserMenu(false);
-          setAccountMenuPage("main");
-          alert("Recently Viewed is coming soon.");
-        }}
-      >
-        <span>🕐</span>
-        <span>Recently Viewed</span>
-      </button>
-
-      <button
-        className="account-submenu-item"
-        onClick={() => {
-          setShowUserMenu(false);
-          setAccountMenuPage("main");
-          alert("My Deadline Alerts is coming soon.");
-        }}
-      >
-        <span>🔔</span>
-        <span>My Deadline Alerts</span>
+        <span>🔒</span>
+        <span>Login & Security</span>
       </button>
 
     </div>
   </>
 )}
+{/* =========================
+    PROFILE PRIVACY
+========================== */}
+{accountMenuPage === "privacy" && (
+  <>
+    <div className="account-submenu-header">
+      <button
+        className="account-submenu-back"
+        onClick={() => setAccountMenuPage("settings")}
+      >
+        ←
+      </button>
 
-      
+      <span className="account-submenu-title">
+        👤 Profile Privacy
+      </span>
+    </div>
+
+    <div className="account-submenu-list">
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Profile Visibility settings are coming soon.");
+        }}
+      >
+        <span>👁️</span>
+        <span>Profile Visibility</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Personal Information settings are coming soon.");
+        }}
+      >
+        <span>🪪</span>
+        <span>Personal Information</span>
+      </button>
+
+    </div>
+  </>
+)}
+{/* =========================
+    NOTIFICATIONS
+========================== */}
+{accountMenuPage === "notifications" && (
+  <>
+    <div className="account-submenu-header">
+      <button
+        className="account-submenu-back"
+        onClick={() => setAccountMenuPage("settings")}
+      >
+        ←
+      </button>
+
+      <span className="account-submenu-title">
+        🔔 Notifications
+      </span>
+    </div>
+
+    <div className="account-submenu-list">
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Opportunity Alerts settings are coming soon.");
+        }}
+      >
+        <span>🎯</span>
+        <span>Opportunity Alerts</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Application Updates settings are coming soon.");
+        }}
+      >
+        <span>📋</span>
+        <span>Application Updates</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Email Notifications settings are coming soon.");
+        }}
+      >
+        <span>📧</span>
+        <span>Email Notifications</span>
+      </button>
+
+    </div>
+  </>
+)}
+{/* =========================
+    ACCOUNT MANAGEMENT
+========================== */}
+{accountMenuPage === "account-management" && (
+  <>
+    <div className="account-submenu-header">
+      <button
+        className="account-submenu-back"
+        onClick={() => setAccountMenuPage("settings")}
+      >
+        ←
+      </button>
+
+      <span className="account-submenu-title">
+        🗑️ Account Management
+      </span>
+    </div>
+
+    <div className="account-submenu-list">
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Download My Data is coming soon.");
+        }}
+      >
+        <span>⬇️</span>
+        <span>Download My Data</span>
+      </button>
+
+      <button
+        className="account-submenu-item account-menu-danger"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Delete Account feature is coming soon.");
+        }}
+      >
+        <span>🗑️</span>
+        <span>Delete Account</span>
+      </button>
+
+    </div>
+  </>
+)}
+{/* =========================
+    HELP & SUPPORT
+========================== */}
+{accountMenuPage === "help" && (
+  <>
+    <div className="account-submenu-header">
+      <button
+        className="account-submenu-back"
+        onClick={() => setAccountMenuPage("main")}
+      >
+        ←
+      </button>
+
+      <span className="account-submenu-title">
+        ❓ Help & Support
+      </span>
+    </div>
+
+    <div className="account-submenu-list">
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Help Center is coming soon.");
+        }}
+      >
+        <span>❓</span>
+        <span>Help Center</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Frequently Asked Questions are coming soon.");
+        }}
+      >
+        <span>📖</span>
+        <span>Frequently Asked Questions (FAQ)</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Contact Support is coming soon.");
+        }}
+      >
+        <span>📩</span>
+        <span>Contact Support</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Report a Problem is coming soon.");
+        }}
+      >
+        <span>🐛</span>
+        <span>Report a Problem</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("How Awasar Nepal Works is coming soon.");
+        }}
+      >
+        <span>📚</span>
+        <span>How Awasar Nepal Works</span>
+      </button>
+
+    </div>
+  </>
+)}
+{/* =========================
+    DISPLAY & ACCESSIBILITY
+========================== */}
+{accountMenuPage === "display" && (
+  <>
+    <div className="account-submenu-header">
+      <button
+        className="account-submenu-back"
+        onClick={() => setAccountMenuPage("main")}
+      >
+        ←
+      </button>
+
+      <span className="account-submenu-title">
+        🖥️ Display & Accessibility
+      </span>
+    </div>
+
+    <div className="account-submenu-list">
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Appearance settings are coming soon.");
+        }}
+      >
+        <span>🌙</span>
+        <span>Appearance</span>
+        <span className="account-menu-arrow">›</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Language settings are coming soon.");
+        }}
+      >
+        <span>🌐</span>
+        <span>Language</span>
+        <span className="account-menu-arrow">›</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Text Size settings are coming soon.");
+        }}
+      >
+        <span>🔤</span>
+        <span>Text Size</span>
+        <span className="account-menu-arrow">›</span>
+      </button>
+
+      <button
+        className="account-submenu-item"
+        onClick={() => {
+          setShowUserMenu(false);
+          alert("Accessibility settings are coming soon.");
+        }}
+      >
+        <span>♿</span>
+        <span>Accessibility</span>
+        <span className="account-menu-arrow">›</span>
+      </button>
+
+    </div>
+  </>
+)}
             </div>
           ) : (
             <>
