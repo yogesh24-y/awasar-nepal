@@ -227,6 +227,7 @@ function App() {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [showDeleteAccountModal, setShowDeleteAccountModal] = useState(false);
+  const [showHelpCenter, setShowHelpCenter] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [showNewPassword, setShowNewPassword] = useState(false);
 const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -290,6 +291,7 @@ const [opportunityNotifications, setOpportunityNotifications] = useState(true);
 
   const [loggedInEmail, setLoggedInEmail] = useState("");
   const [showDashboard, setShowDashboard] = useState(false);
+  const [dashboardView, setDashboardView] = useState("main");
   const [showAIFinder, setShowAIFinder] = useState(false);
   const [aiInterest, setAiInterest] = useState("");
   const [aiEducation, setAiEducation] = useState("");
@@ -1504,9 +1506,10 @@ useEffect(() => {
         <button
           className="account-submenu-item"
           onClick={() => {
-            setShowUserMenu(false);
-            alert("Saved Opportunities is coming soon.");
-          }}
+  setShowUserMenu(false);
+  setAccountMenuPage("main");
+  setShowDashboard(true);
+}}
         >
           <span>❤️</span>
           <span>Saved Opportunities</span>
@@ -1516,7 +1519,8 @@ useEffect(() => {
           className="account-submenu-item"
           onClick={() => {
             setShowUserMenu(false);
-            alert("My Applications is coming soon.");
+            setAccountMenuPage("main");
+            setShowDashboard(true);
           }}
         >
           <span>📋</span>
@@ -1889,7 +1893,7 @@ useEffect(() => {
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          alert("Help Center is coming soon.");
+          setShowHelpCenter(true);
         }}
       >
         <span>❓</span>
@@ -2016,6 +2020,73 @@ useEffect(() => {
  )}
          </div>
        </div>
+)}
+
+{showHelpCenter && (
+  <div className="help-center-overlay">
+    <div className="help-center-modal">
+
+      <div className="help-center-header">
+        <div>
+          <h3>❓ Help Center</h3>
+          <p>Find answers and learn how to use Awasar Nepal.</p>
+        </div>
+
+        <button
+          className="help-center-close"
+          onClick={() => setShowHelpCenter(false)}
+          aria-label="Close"
+        >
+          ×
+        </button>
+      </div>
+
+      <div className="help-center-search">
+        <span>🔍</span>
+        <input
+          type="text"
+          placeholder="Search help..."
+        />
+      </div>
+
+      <div className="help-center-section">
+        <h4>🚀 Getting Started</h4>
+
+        <button className="help-center-item">
+          <span>👤</span>
+          <span>How to create an account</span>
+          <span>›</span>
+        </button>
+
+        <button className="help-center-item">
+          <span>🔎</span>
+          <span>How to find opportunities</span>
+          <span>›</span>
+        </button>
+
+        <button className="help-center-item">
+          <span>❤️</span>
+          <span>How to save opportunities</span>
+          <span>›</span>
+        </button>
+
+        <button className="help-center-item">
+          <span>📩</span>
+          <span>How to apply</span>
+          <span>›</span>
+        </button>
+      </div>
+
+      <div className="help-center-contact">
+        <span>📩</span>
+        <div>
+          <strong>Still need help?</strong>
+          <p>Contact our support team for assistance.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 )}
 
 {showDeleteAccountModal && (

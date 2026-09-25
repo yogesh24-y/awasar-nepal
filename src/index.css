@@ -18300,3 +18300,139 @@ padding: 14px 6px 10px;
 
   overflow-y: auto !important;
 }
+
+/* =========================
+   HELP CENTER
+========================= */
+
+.help-center-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9999999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.help-center-modal {
+  width: min(520px, 100%);
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+  padding: 24px;
+}
+
+.help-center-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.help-center-header h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.help-center-header p {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.help-center-close {
+  border: none;
+  background: #f1f5f9;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.help-center-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 24px;
+}
+
+.help-center-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+}
+
+.help-center-section h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.help-center-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 28px 1fr 20px;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 12px;
+  border: none;
+  border-bottom: 1px solid #e2e8f0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.help-center-item:hover {
+  background: #f8fafc;
+}
+
+.help-center-contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.help-center-contact strong {
+  display: block;
+}
+
+.help-center-contact p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .help-center-overlay {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .help-center-modal {
+    width: 100%;
+    max-height: 90vh;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+  }
+}
+
