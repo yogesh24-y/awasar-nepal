@@ -225,6 +225,22 @@ function App() {
   const [loginMessage, setLoginMessage] = useState("");
   const [loggedInUser, setLoggedInUser] = useState("");
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [showDeleteAccountModal, setShowDeleteAccountModal] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
+  const [showNewPassword, setShowNewPassword] = useState(false);
+const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+const [showEmailPhoneModal, setShowEmailPhoneModal] = useState(false);
+const [currentUserEmail, setCurrentUserEmail] = useState("");
+
+const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+const [profilePrivate, setProfilePrivate] = useState(false);
+
+const [showNotificationsModal, setShowNotificationsModal] = useState(false);
+const [deadlineNotifications, setDeadlineNotifications] = useState(true);
+const [opportunityNotifications, setOpportunityNotifications] = useState(true);
+
   const [accountMenuPage, setAccountMenuPage] = useState("main");
   const [isCheckingLogin, setIsCheckingLogin] = useState(true);
 
@@ -1297,6 +1313,7 @@ useEffect(() => {
     ⌄
   </span>
 </button>
+
 {showUserMenu && (
   <div className="user-dropdown">
 
@@ -1532,10 +1549,7 @@ useEffect(() => {
     </>
   )}
 
-</div>
 
-  </div>
-)}
 {/* =========================
     SETTINGS & PRIVACY
 ========================== */}
@@ -1566,22 +1580,28 @@ useEffect(() => {
       </button>
 
       <button
-        className="account-submenu-item"
-        onClick={() => setAccountMenuPage("privacy")}
-      >
-        <span>👤</span>
-        <span>Profile Privacy</span>
-        <span className="account-menu-arrow">›</span>
-      </button>
+  className="account-submenu-item"
+  onClick={() => {
+    setShowUserMenu(false);
+    setShowPrivacyModal(true);
+  }}
+>
+  <span>👤</span>
+  <span>Profile Privacy</span>
+  <span className="account-menu-arrow">›</span>
+</button>
 
       <button
-        className="account-submenu-item"
-        onClick={() => setAccountMenuPage("notifications")}
-      >
-        <span>🔔</span>
-        <span>Notifications</span>
-        <span className="account-menu-arrow">›</span>
-      </button>
+  className="account-submenu-item"
+  onClick={() => {
+    setShowUserMenu(false);
+    setShowNotificationsModal(true);
+  }}
+>
+  <span>🔔</span>
+  <span>Notifications</span>
+  <span className="account-menu-arrow">›</span>
+</button>
 
       <button
         className="account-submenu-item"
@@ -1616,26 +1636,37 @@ useEffect(() => {
     <div className="account-submenu-list">
 
       <button
-        className="account-submenu-item"
-        onClick={() => {
-          setShowUserMenu(false);
-          alert("Change Password is coming soon.");
-        }}
-      >
-        <span>🔑</span>
-        <span>Change Password</span>
-      </button>
+  className="account-submenu-item"
+  onClick={() => {
+    setShowUserMenu(false);
+    setShowPasswordModal(true);
+  }}
+>
+  <span>🔑</span>
+  <span>Change Password</span>
+</button>
 
-      <button
-        className="account-submenu-item"
-        onClick={() => {
-          setShowUserMenu(false);
-          alert("Email & Phone settings are coming soon.");
-        }}
-      >
-        <span>📧</span>
-        <span>Email & Phone</span>
-      </button>
+     <button
+  className="account-submenu-item"
+  onClick={async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      alert("You must be logged in.");
+      return;
+    }
+
+    setCurrentUserEmail(user.email || "");
+    setShowUserMenu(false);
+    setShowEmailPhoneModal(true);
+  }}
+>
+  <span>📧</span>
+  <span>Email & Phone</span>
+  <span className="account-menu-arrow">›</span>
+</button>
 
       <button
         className="account-submenu-item"
@@ -1773,30 +1804,67 @@ useEffect(() => {
     <div className="account-submenu-list">
 
       <button
-        className="account-submenu-item"
-        onClick={() => {
-          setShowUserMenu(false);
-          alert("Download My Data is coming soon.");
-        }}
-      >
-        <span>⬇️</span>
-        <span>Download My Data</span>
-      </button>
+  className="account-submenu-item"
+  onClick={async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-      <button
-        className="account-submenu-item account-menu-danger"
-        onClick={() => {
-          setShowUserMenu(false);
-          alert("Delete Account feature is coming soon.");
-        }}
-      >
-        <span>🗑️</span>
-        <span>Delete Account</span>
-      </button>
+    if (!user) {
+      alert("You must be logged in.");
+      return;
+    }
 
+    const accountData = {
+      account: {
+        email: user.email || "",
+        userId: user.id || "",
+        createdAt: user.created_at || "",
+      },
+      profile: user.user_metadata || {},
+    };
+
+    const fileContent = JSON.stringify(accountData, null, 2);
+
+    const blob = new Blob([fileContent], {
+      type: "application/json",
+    });
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "awasar-nepal-my-data.json";
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+
+    setShowUserMenu(false);
+
+    alert("Your Awasar Nepal account data has been downloaded.");
+  }}
+>
+  <span>⬇️</span>
+  <span>Download My Data</span>
+</button>
+<button
+  className="account-submenu-item account-menu-danger"
+  onClick={() => {
+    setShowUserMenu(false);
+    setShowDeleteAccountModal(true);
+  }}
+>
+  <span>🗑️</span>
+  <span>Delete Account</span>
+</button>
+     
     </div>
   </>
 )}
+
 {/* =========================
     HELP & SUPPORT
 ========================== */}
@@ -1945,7 +2013,199 @@ useEffect(() => {
 
     </div>
   </>
+ )}
+         </div>
+       </div>
 )}
+
+{showDeleteAccountModal && (
+  <div className="delete-account-overlay">
+
+    <div className="delete-account-modal">
+
+      <div className="delete-account-header">
+
+        <div className="delete-account-icon">
+          🗑️
+        </div>
+
+        <button
+          className="delete-account-close"
+          onClick={() => setShowDeleteAccountModal(false)}
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <div className="delete-account-body">
+
+        <h3>Delete Account</h3>
+
+        <p className="delete-account-warning">
+          Are you sure you want to delete your Awasar Nepal account?
+        </p>
+
+        <div className="delete-account-info">
+          <span>⚠️</span>
+
+          <p>
+            Account deletion is a permanent action. Your account
+            information may no longer be available after deletion.
+          </p>
+        </div>
+
+        <div className="delete-account-actions">
+
+          <button
+            type="button"
+            className="delete-account-cancel"
+            onClick={() => setShowDeleteAccountModal(false)}
+          >
+            Cancel
+          </button>
+
+          <button
+            type="button"
+            className="delete-account-confirm"
+            onClick={() => {
+              alert(
+                "Account deletion is not available yet. Your account has not been deleted."
+              );
+            }}
+          >
+            Delete Account
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+)}
+
+      {showPasswordModal && (
+  <div className="password-modal-overlay">
+    <div className="email-phone-modal">
+
+      <div className="email-phone-modal-header">
+        <div>
+          <h3>🔐 Change Password</h3>
+          <p>Update your password to keep your account secure.</p>
+        </div>
+
+        <button
+          className="password-modal-close"
+          onClick={() => setShowPasswordModal(false)}
+          aria-label="Close"
+        >
+          ×
+        </button>
+      </div>
+
+      <div className="password-form-group">
+        <label>New Password</label>
+
+        <div className="password-input-wrapper">
+          
+<input
+  type={showNewPassword ? "text" : "password"}
+  placeholder="Enter new password"
+  className="password-modal-input"
+  value={newPassword}
+  onChange={(e) => setNewPassword(e.target.value)}
+/>
+          <button
+  type="button"
+  className="password-eye-btn"
+  onClick={() => setShowNewPassword(!showNewPassword)}
+  aria-label={showNewPassword ? "Hide password" : "Show password"}
+>
+  {showNewPassword ? "🙈" : "👁"}
+</button>
+
+        </div>
+      </div>
+
+      <div className="password-form-group">
+        <label>Confirm New Password</label>
+
+        <div className="password-input-wrapper">
+
+        <input
+  type={showConfirmPassword ? "text" : "password"}
+  placeholder="Confirm new password"
+  className="password-modal-input"
+  value={confirmPassword}
+  onChange={(e) => setConfirmPassword(e.target.value)}
+/>  
+          <button
+  type="button"
+  className="password-eye-btn"
+  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+  aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+>
+  {showConfirmPassword ? "🙈" : "👁"}
+</button>
+        </div>
+      </div>
+
+      <p className="password-requirement">
+        Password must be at least 6 characters.
+      </p>
+
+      <button
+  className="password-modal-save"
+  onClick={async () => {
+    if (!newPassword || !confirmPassword) {
+      alert("Please enter and confirm your new password.");
+      return;
+    }
+
+    if (newPassword.length < 6) {
+      alert("Password must be at least 6 characters.");
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    const { error } = await supabase.auth.updateUser({
+      password: newPassword,
+    });
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    alert("Password changed successfully!");
+
+    setNewPassword("");
+    setConfirmPassword("");
+    setShowPasswordModal(false);
+  }}
+>
+  Change Password
+</button>
+        
+      <button
+        type="button"
+        className="password-modal-cancel"
+        onClick={() => setShowPasswordModal(false)}
+      >
+        Cancel
+      </button>
+
+    </div>
+  </div>
+)}
+
             </div>
           ) : (
             <>
@@ -5001,6 +5261,314 @@ useEffect(() => {
           </div>
         </div>
       )}
+
+      {showEmailPhoneModal && (
+  <div className="password-modal-overlay">
+    <div className="email-phone-modal">
+
+      <div className="email-phone-modal-header">
+
+        <div className="email-phone-modal-title-row">
+          <div className="email-phone-modal-icon">
+            📧
+          </div>
+
+          <div>
+            <h3>Email & Phone</h3>
+            <p>Manage your account contact information.</p>
+          </div>
+        </div>
+
+        <button
+          className="email-phone-modal-close"
+          onClick={() => setShowEmailPhoneModal(false)}
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <div className="email-phone-modal-body">
+
+        {/* EMAIL */}
+
+        <div className="contact-info-card">
+
+          <div className="contact-info-icon">
+            📧
+          </div>
+
+          <div className="contact-info-content">
+            <span className="contact-info-label">
+              Email Address
+            </span>
+
+            <span className="contact-info-value">
+              {currentUserEmail || "No email available"}
+            </span>
+          </div>
+
+          <span className="contact-verified">
+            ✓ Verified
+          </span>
+
+        </div>
+
+
+        {/* PHONE */}
+
+        <div className="contact-info-card">
+
+          <div className="contact-info-icon">
+            📱
+          </div>
+
+          <div className="contact-info-content">
+
+            <span className="contact-info-label">
+              Phone Number
+            </span>
+
+            <span className="contact-info-value">
+              Not added
+            </span>
+
+          </div>
+
+        </div>
+
+        <div className="contact-coming-soon">
+          <span className="contact-coming-soon-icon">
+            ℹ️
+          </span>
+
+          <span>
+            Phone number management will be available soon.
+          </span>
+        </div>
+
+
+        <button
+          type="button"
+          className="email-phone-modal-action"
+          onClick={() => setShowEmailPhoneModal(false)}
+        >
+          Done
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+)}
+
+{showNotificationsModal && (
+  <div className="password-modal-overlay">
+
+    <div className="notifications-modal">
+
+      <div className="notifications-modal-header">
+
+        <div className="notifications-title-row">
+          <div className="notifications-icon">
+            🔔
+          </div>
+
+          <div>
+            <h3>Notifications</h3>
+            <p>Choose which updates you want to receive.</p>
+          </div>
+        </div>
+
+        <button
+          className="notifications-modal-close"
+          onClick={() => setShowNotificationsModal(false)}
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <div className="notifications-modal-body">
+
+        {/* DEADLINE ALERTS */}
+
+        <div className="notification-setting-card">
+
+          <div className="notification-setting-icon">
+            ⏰
+          </div>
+
+          <div className="notification-setting-content">
+            <strong>Deadline Alerts</strong>
+
+            <p>
+              Get reminders when an opportunity deadline is approaching.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            className={`notification-toggle ${
+              deadlineNotifications ? "active" : ""
+            }`}
+            onClick={() =>
+              setDeadlineNotifications(!deadlineNotifications)
+            }
+            aria-label="Toggle deadline notifications"
+          >
+            <span className="notification-toggle-knob"></span>
+          </button>
+
+        </div>
+
+
+        {/* OPPORTUNITY UPDATES */}
+
+        <div className="notification-setting-card">
+
+          <div className="notification-setting-icon">
+            🎯
+          </div>
+
+          <div className="notification-setting-content">
+            <strong>Opportunity Updates</strong>
+
+            <p>
+              Receive updates about new opportunities matching your interests.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            className={`notification-toggle ${
+              opportunityNotifications ? "active" : ""
+            }`}
+            onClick={() =>
+              setOpportunityNotifications(!opportunityNotifications)
+            }
+            aria-label="Toggle opportunity notifications"
+          >
+            <span className="notification-toggle-knob"></span>
+          </button>
+
+        </div>
+
+
+        <div className="notifications-info-box">
+          <span>🔔</span>
+
+          <p>
+            You can change these notification preferences anytime
+            from your account settings.
+          </p>
+        </div>
+
+
+        <button
+          type="button"
+          className="notifications-done-btn"
+          onClick={() => setShowNotificationsModal(false)}
+        >
+          Done
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+)}
+
+{showPrivacyModal && (
+  <div className="password-modal-overlay">
+
+    <div className="privacy-modal">
+
+      {/* HEADER */}
+      <div className="privacy-modal-header">
+
+        <div className="privacy-title-row">
+          <div className="privacy-icon">
+            🔒
+          </div>
+
+          <div>
+            <h3>Profile Privacy</h3>
+            <p>Control who can see your profile information.</p>
+          </div>
+        </div>
+
+        <button
+          className="privacy-modal-close"
+          onClick={() => setShowPrivacyModal(false)}
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      {/* BODY */}
+      <div className="privacy-modal-body">
+
+        <div className="privacy-setting-card">
+
+          <div className="privacy-setting-icon">
+            👤
+          </div>
+
+          <div className="privacy-setting-content">
+            <strong>Private Profile</strong>
+
+            <p>
+              Keep your profile information private from other users.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            className={`privacy-toggle ${
+              profilePrivate ? "active" : ""
+            }`}
+            onClick={() => setProfilePrivate(!profilePrivate)}
+            aria-label="Toggle private profile"
+          >
+            <span className="privacy-toggle-knob"></span>
+          </button>
+
+        </div>
+
+
+        <div className="privacy-info-box">
+          <span>🛡️</span>
+
+          <p>
+            When your profile is private, other users won't be able
+            to view your profile information.
+          </p>
+        </div>
+
+
+        <button
+          type="button"
+          className="privacy-done-btn"
+          onClick={() => setShowPrivacyModal(false)}
+        >
+          Done
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+)}
+
+
       {showLogin && (
         <div className="login-overlay">
           <div className="login-modal">

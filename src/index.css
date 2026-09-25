@@ -15759,3 +15759,2544 @@ padding: 14px 6px 10px;
   flex: 0 0 26px;
   font-size: 20px;
 }
+/* =========================================================
+   AWASAR NEPAL — PROFESSIONAL PROFILE MENU
+   Responsive: Laptop + Tablet + Mobile
+========================================================= */
+
+.user-dropdown {
+  position: fixed !important;
+  top: 82px !important;
+  right: 24px !important;
+  left: auto !important;
+
+  width: 350px;
+  max-width: calc(100vw - 32px);
+
+  padding: 10px;
+
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid #e5e9f0;
+  border-radius: 18px;
+
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.14),
+    0 4px 14px rgba(15, 23, 42, 0.06);
+
+  z-index: 99999;
+
+  box-sizing: border-box;
+  overflow: hidden;
+
+  animation: awasarProfileMenuIn 0.18s ease-out;
+}
+
+@keyframes awasarProfileMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* Main menu container */
+
+.account-menu-main {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  box-sizing: border-box;
+}
+
+
+/* Main menu buttons */
+
+.account-menu-item {
+  width: 100%;
+  min-height: 54px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 9px 11px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  background: transparent;
+  color: #172033;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    transform 0.16s ease;
+}
+
+.account-menu-item:hover {
+  background: #f5f8fc;
+  border-color: #e8edf4;
+  transform: translateX(2px);
+}
+
+.account-menu-item:active {
+  transform: translateX(1px) scale(0.99);
+}
+
+
+/* Icons */
+
+.account-menu-icon {
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #f3f6fa;
+
+  font-size: 17px;
+}
+
+
+/* Text */
+
+.account-menu-label {
+  flex: 1;
+
+  min-width: 0;
+
+  line-height: 1.35;
+
+  white-space: normal;
+}
+
+
+/* Arrow */
+
+.account-menu-arrow {
+  flex: 0 0 auto;
+
+  margin-left: auto;
+
+  color: #8a95a5;
+
+  font-size: 21px;
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+
+/* Divider */
+
+.account-menu-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 7px 0;
+
+  background: #e9edf2;
+}
+
+
+/* Logout */
+
+.account-menu-logout {
+  width: 100%;
+  min-height: 52px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 9px 11px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  background: transparent;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease;
+}
+
+.account-menu-logout:hover {
+  background: #fff5f5;
+  border-color: #f3dddd;
+}
+
+
+/* =========================================================
+   SUBMENU HEADER
+========================================================= */
+
+.account-submenu-header {
+  width: 100%;
+  min-height: 52px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 5px 3px 10px;
+
+  margin-bottom: 5px;
+
+  border-bottom: 1px solid #edf0f4;
+
+  box-sizing: border-box;
+}
+
+
+.account-submenu-back {
+  width: 36px;
+  height: 36px;
+
+  flex: 0 0 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e2e7ee;
+  border-radius: 10px;
+
+  background: #f6f8fb;
+  color: #334155;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    transform 0.16s ease;
+}
+
+.account-submenu-back:hover {
+  background: #edf2f7;
+  border-color: #d7dee8;
+
+  transform: translateX(-2px);
+}
+
+
+.account-submenu-title {
+  flex: 1;
+
+  min-width: 0;
+
+  color: #172033;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   SUBMENU LIST
+========================================================= */
+
+.account-submenu-list {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+  box-sizing: border-box;
+}
+
+
+.account-submenu-item {
+  width: 100%;
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 8px 10px;
+
+  border: 1px solid transparent;
+  border-radius: 11px;
+
+  background: transparent;
+  color: #263244;
+
+  font-size: 13.5px;
+  font-weight: 500;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    transform 0.16s ease;
+}
+
+.account-submenu-item:hover {
+  background: #f6f8fb;
+  border-color: #e9edf3;
+
+  transform: translateX(2px);
+}
+
+.account-submenu-item > span:first-child {
+  width: 28px;
+  flex: 0 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+}
+
+.account-submenu-item > span:nth-child(2) {
+  flex: 1;
+
+  min-width: 0;
+
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .user-dropdown {
+    top: 76px !important;
+    right: 16px !important;
+
+    width: 330px;
+    max-width: calc(100vw - 28px);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .user-dropdown {
+    top: 70px !important;
+    right: 12px !important;
+    left: 12px !important;
+
+    width: auto;
+    max-width: none;
+
+    padding: 8px;
+
+    border-radius: 16px;
+
+    box-shadow:
+      0 16px 40px rgba(15, 23, 42, 0.15),
+      0 4px 12px rgba(15, 23, 42, 0.06);
+  }
+
+  .account-menu-item {
+    min-height: 52px;
+    padding: 8px 10px;
+
+    font-size: 13.5px;
+  }
+
+  .account-menu-icon {
+    width: 32px;
+    height: 32px;
+
+    flex-basis: 32px;
+
+    font-size: 16px;
+  }
+
+  .account-submenu-header {
+    min-height: 50px;
+    padding-bottom: 8px;
+  }
+
+  .account-submenu-title {
+    font-size: 13.5px;
+  }
+
+  .account-submenu-item {
+    min-height: 46px;
+
+    padding: 8px;
+
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+  .user-dropdown {
+    top: 66px !important;
+    right: 8px !important;
+    left: 8px !important;
+
+    max-width: none;
+  }
+
+  .account-menu-item {
+    min-height: 50px;
+
+    gap: 9px;
+
+    font-size: 13px;
+  }
+
+  .account-menu-label {
+    line-height: 1.25;
+  }
+
+  .account-submenu-item {
+    font-size: 12.5px;
+  }
+}
+/* =========================================================
+   AWASAR NEPAL — PROFILE MENU VISUAL POLISH
+========================================================= */
+
+.user-dropdown {
+  background: rgba(248, 251, 255, 0.97);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+
+  box-shadow:
+    0 24px 65px rgba(15, 23, 42, 0.16),
+    0 8px 24px rgba(37, 99, 235, 0.08);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* Subtle top accent */
+
+.user-dropdown::before {
+  content: "";
+  display: block;
+
+  width: 44px;
+  height: 4px;
+
+  margin: 1px auto 8px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #60a5fa
+  );
+
+  opacity: 0.85;
+}
+
+
+/* Main items */
+
+.account-menu-item {
+  background: rgba(255, 255, 255, 0.55);
+
+  border-color: rgba(226, 232, 240, 0.7);
+}
+
+.account-menu-item:hover {
+  background: rgba(239, 246, 255, 0.9);
+
+  border-color: rgba(147, 197, 253, 0.35);
+
+  box-shadow:
+    0 4px 12px rgba(37, 99, 235, 0.06);
+}
+
+
+/* Icon surface */
+
+.account-menu-icon {
+  background: linear-gradient(
+    145deg,
+    #eef5ff,
+    #f8fbff
+  );
+
+  border: 1px solid #e1ebf8;
+}
+
+
+/* Arrow */
+
+.account-menu-arrow {
+  color: #64748b;
+}
+
+
+/* Divider */
+
+.account-menu-divider {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #dfe6ef,
+    transparent
+  );
+}
+
+
+/* Submenu header */
+
+.account-submenu-header {
+  padding-top: 3px;
+
+  border-bottom-color: #e3e9f1;
+}
+
+
+/* Back button */
+
+.account-submenu-back {
+  background: linear-gradient(
+    145deg,
+    #f1f6fd,
+    #ffffff
+  );
+
+  border-color: #dce6f2;
+
+  box-shadow:
+    0 2px 6px rgba(15, 23, 42, 0.05);
+}
+
+.account-submenu-back:hover {
+  background: #eaf2ff;
+
+  border-color: #bfd7f5;
+
+  color: #2563eb;
+}
+
+
+/* Submenu items */
+
+.account-submenu-item {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.account-submenu-item:hover {
+  background: #f0f6ff;
+
+  border-color: #dceafd;
+
+  box-shadow:
+    0 3px 10px rgba(37, 99, 235, 0.05);
+}
+/* =========================================
+   AWASAR NEPAL — CHANGE PASSWORD MODAL
+========================================= */
+
+.password-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.42);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  animation: passwordOverlayIn 0.2s ease-out;
+}
+
+.password-modal {
+  width: 100%;
+  max-width: 430px;
+  padding: 26px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 22px;
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.22),
+    0 10px 30px rgba(37, 99, 235, 0.10);
+  box-sizing: border-box;
+  animation: passwordModalIn 0.22s ease-out;
+}
+
+.password-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.password-modal-header h3 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.2px;
+}
+
+.password-modal-close {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.password-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+.password-modal-description {
+  margin: 0 0 22px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.password-modal-input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 13px;
+  padding: 0 15px;
+  border: 1px solid #dbe3ee;
+  border-radius: 12px;
+  outline: none;
+  background: #f8fafc;
+  color: #0f172a;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.password-modal-input::placeholder {
+  color: #94a3b8;
+}
+
+.password-modal-input:focus {
+  background: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.10);
+}
+
+.password-modal-save {
+  width: 100%;
+  height: 50px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.password-modal-save:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.22);
+}
+
+.password-modal-save:active {
+  transform: translateY(0);
+}
+
+@keyframes passwordOverlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes passwordModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .password-modal-overlay {
+    padding: 16px;
+    align-items: center;
+  }
+
+  .password-modal {
+    max-width: 100%;
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .password-modal-header h3 {
+    font-size: 19px;
+  }
+
+  .password-modal-input,
+  .password-modal-save {
+    height: 48px;
+  }
+}
+/* =========================================
+   CHANGE PASSWORD — FINAL PROFESSIONAL UI
+========================================= */
+
+.password-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 100000 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 24px !important;
+  box-sizing: border-box !important;
+
+  background: rgba(15, 23, 42, 0.48) !important;
+
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+
+  overflow-y: auto !important;
+}
+
+.password-modal {
+  position: relative !important;
+
+  width: 100% !important;
+  max-width: 440px !important;
+
+  max-height: calc(100vh - 48px) !important;
+  overflow-y: auto !important;
+
+  padding: 28px !important;
+  margin: auto !important;
+
+  background: #ffffff !important;
+
+  border: 1px solid rgba(59, 130, 246, 0.12) !important;
+  border-radius: 22px !important;
+
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.25),
+    0 8px 30px rgba(37, 99, 235, 0.10) !important;
+
+  box-sizing: border-box !important;
+}
+
+/* HEADER */
+
+.password-modal-header {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+
+  gap: 16px !important;
+  margin-bottom: 22px !important;
+}
+
+.password-modal-header h3 {
+  margin: 0 0 7px 0 !important;
+
+  color: #0f172a !important;
+
+  font-size: 21px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+}
+
+.password-modal-header p {
+  margin: 0 !important;
+
+  color: #64748b !important;
+
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+/* CLOSE BUTTON */
+
+.password-modal-close {
+  width: 34px !important;
+  height: 34px !important;
+
+  flex-shrink: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+
+  border: none !important;
+  border-radius: 50% !important;
+
+  background: #f1f5f9 !important;
+  color: #64748b !important;
+
+  font-size: 23px !important;
+  line-height: 1 !important;
+
+  cursor: pointer !important;
+
+  transition: all 0.18s ease !important;
+}
+
+.password-modal-close:hover {
+  background: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* FORM GROUP */
+
+.password-form-group {
+  margin-bottom: 18px !important;
+}
+
+.password-form-group label {
+  display: block !important;
+
+  margin-bottom: 8px !important;
+
+  color: #334155 !important;
+
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+/* INPUT + EYE */
+
+.password-input-wrapper {
+  position: relative !important;
+  width: 100% !important;
+}
+
+.password-modal-input {
+  width: 100% !important;
+  height: 50px !important;
+
+  margin: 0 !important;
+  padding: 0 48px 0 15px !important;
+
+  box-sizing: border-box !important;
+
+  border: 1px solid #dbe3ee !important;
+  border-radius: 12px !important;
+
+  outline: none !important;
+
+  background: #f8fafc !important;
+  color: #0f172a !important;
+
+  font-size: 14px !important;
+
+  transition: all 0.18s ease !important;
+}
+
+.password-modal-input::placeholder {
+  color: #94a3b8 !important;
+}
+
+.password-modal-input:focus {
+  background: #ffffff !important;
+
+  border-color: #2563eb !important;
+
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.10) !important;
+}
+
+/* EYE BUTTON INSIDE INPUT */
+
+.password-eye-btn {
+  position: absolute !important;
+
+  top: 50% !important;
+  right: 12px !important;
+
+  transform: translateY(-50%) !important;
+
+  width: 32px !important;
+  height: 32px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+
+  border: none !important;
+  border-radius: 8px !important;
+
+  background: transparent !important;
+
+  font-size: 17px !important;
+
+  cursor: pointer !important;
+
+  z-index: 2 !important;
+}
+
+.password-eye-btn:hover {
+  background: #eef2ff !important;
+}
+
+/* PASSWORD REQUIREMENT */
+
+.password-requirement {
+  margin: -3px 0 20px 1px !important;
+
+  color: #64748b !important;
+
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+/* CHANGE PASSWORD BUTTON */
+
+.password-modal-save {
+  width: 100% !important;
+  height: 50px !important;
+
+  margin: 0 !important;
+
+  border: none !important;
+  border-radius: 12px !important;
+
+  background: #2563eb !important;
+  color: #ffffff !important;
+
+  font-size: 15px !important;
+  font-weight: 700 !important;
+
+  cursor: pointer !important;
+
+  transition: all 0.18s ease !important;
+}
+
+.password-modal-save:hover {
+  background: #1d4ed8 !important;
+
+  transform: translateY(-1px) !important;
+
+  box-shadow:
+    0 8px 22px rgba(37, 99, 235, 0.22) !important;
+}
+
+/* CANCEL */
+
+.password-modal-cancel {
+  display: block !important;
+
+  width: 100% !important;
+  height: 42px !important;
+
+  margin: 9px 0 0 0 !important;
+
+  border: none !important;
+
+  background: transparent !important;
+  color: #64748b !important;
+
+  font-size: 14px !important;
+  font-weight: 600 !important;
+
+  cursor: pointer !important;
+
+  border-radius: 10px !important;
+
+  transition: all 0.18s ease !important;
+}
+
+.password-modal-cancel:hover {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .password-modal-overlay {
+    padding: 16px !important;
+  }
+
+  .password-modal {
+    max-width: 100% !important;
+
+    padding: 22px 18px !important;
+
+    border-radius: 18px !important;
+  }
+
+  .password-modal-header h3 {
+    font-size: 19px !important;
+  }
+
+  .password-modal-input,
+  .password-modal-save {
+    height: 48px !important;
+  }
+}
+/* =========================================
+   CHANGE PASSWORD — LAYER & POSITION FIX
+========================================= */
+
+.password-modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  z-index: 999999 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 20px !important;
+  box-sizing: border-box !important;
+
+  background: rgba(15, 23, 42, 0.52) !important;
+
+  overflow-y: auto !important;
+}
+
+.password-modal {
+  position: relative !important;
+
+  z-index: 1000000 !important;
+
+  width: 100% !important;
+  max-width: 440px !important;
+
+  max-height: 90vh !important;
+
+  margin: auto !important;
+
+  box-sizing: border-box !important;
+
+  overflow-y: auto !important;
+
+  background: #ffffff !important;
+
+  border-radius: 22px !important;
+
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.30),
+    0 12px 35px rgba(15, 23, 42, 0.16) !important;
+}
+
+/* Make sure the modal stays above the whole homepage */
+.password-modal-overlay,
+.password-modal-overlay * {
+  isolation: isolate;
+}
+
+/* =========================================================
+   AWASAR NEPAL — EMAIL & PHONE PROFESSIONAL MODAL
+========================================================= */
+
+.email-phone-modal {
+  width: 100%;
+  max-width: 470px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.28),
+    0 12px 35px rgba(37, 99, 235, 0.12);
+  animation: emailPhoneModalIn 0.22s ease-out;
+}
+
+@keyframes emailPhoneModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---------- HEADER ---------- */
+
+.email-phone-modal-header {
+  position: relative;
+  padding: 24px 24px 20px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(239, 246, 255, 0.95),
+      rgba(248, 250, 252, 0.98)
+    );
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.email-phone-modal-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-right: 35px;
+}
+
+.email-phone-modal-icon {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(37, 99, 235, 0.10);
+  font-size: 22px;
+  box-shadow:
+    inset 0 0 0 1px rgba(37, 99, 235, 0.08);
+}
+
+.email-phone-modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 750;
+  color: #0f172a;
+  letter-spacing: -0.2px;
+}
+
+.email-phone-modal-header p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+/* ---------- CLOSE BUTTON ---------- */
+
+.email-phone-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #64748b;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.email-phone-modal-close:hover {
+  background: #eff6ff;
+  color: #2563eb;
+  transform: rotate(3deg);
+}
+
+/* ---------- BODY ---------- */
+
+.email-phone-modal-body {
+  padding: 22px 24px 24px;
+}
+
+/* ---------- INFORMATION CARDS ---------- */
+
+.contact-info-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 16px;
+  background: #f8fafc;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.contact-info-card:hover {
+  background: #f8fbff;
+  border-color: rgba(59, 130, 246, 0.20);
+  transform: translateY(-1px);
+}
+
+.contact-info-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #ffffff;
+  font-size: 19px;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+}
+
+.contact-info-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.contact-info-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.contact-info-value {
+  display: block;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- VERIFIED BADGE ---------- */
+
+.contact-verified {
+  flex-shrink: 0;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: #ecfdf5;
+  color: #047857;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* ---------- PHONE COMING SOON ---------- */
+
+.contact-coming-soon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  padding: 11px 13px;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.contact-coming-soon-icon {
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+/* ---------- CLOSE ACTION ---------- */
+
+.email-phone-modal-action {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 8px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.20);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.email-phone-modal-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 11px 24px rgba(37, 99, 235, 0.26);
+}
+
+.email-phone-modal-action:active {
+  transform: translateY(0);
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+  .email-phone-modal {
+    max-width: 100%;
+    border-radius: 20px;
+  }
+
+  .email-phone-modal-header {
+    padding: 20px 18px 17px;
+  }
+
+  .email-phone-modal-body {
+    padding: 18px;
+  }
+
+  .email-phone-modal-title-row {
+    gap: 11px;
+  }
+
+  .email-phone-modal-icon {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .email-phone-modal-header h3 {
+    font-size: 18px;
+  }
+}
+/* =========================================================
+   AWASAR NEPAL — PROFILE PRIVACY PROFESSIONAL MODAL
+========================================================= */
+
+.privacy-modal {
+  width: 100%;
+  max-width: 470px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(59, 130, 246, 0.14);
+  background:
+    linear-gradient(
+      145deg,
+      #f8fbff 0%,
+      #eef5ff 48%,
+      #f8fafc 100%
+    );
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.28),
+    0 12px 35px rgba(37, 99, 235, 0.12);
+  animation: privacyModalIn 0.22s ease-out;
+}
+
+@keyframes privacyModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---------- HEADER ---------- */
+
+.privacy-modal-header {
+  position: relative;
+  padding: 24px 24px 21px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(219, 234, 254, 0.92),
+      rgba(239, 246, 255, 0.78)
+    );
+  border-bottom: 1px solid rgba(59, 130, 246, 0.12);
+}
+
+.privacy-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-right: 35px;
+}
+
+.privacy-icon {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: rgba(37, 99, 235, 0.11);
+  border: 1px solid rgba(37, 99, 235, 0.10);
+  font-size: 22px;
+  box-shadow:
+    0 6px 16px rgba(37, 99, 235, 0.08);
+}
+
+.privacy-modal-header h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 750;
+  letter-spacing: -0.2px;
+}
+
+.privacy-modal-header p {
+  margin: 5px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ---------- CLOSE ---------- */
+
+.privacy-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 35px;
+  height: 35px;
+  border: 0;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #64748b;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.privacy-modal-close:hover {
+  background: #ffffff;
+  color: #2563eb;
+  transform: rotate(4deg);
+}
+
+/* ---------- BODY ---------- */
+
+.privacy-modal-body {
+  padding: 22px 24px 24px;
+}
+
+/* ---------- PRIVACY CARD ---------- */
+
+.privacy-setting-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 17px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  box-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.privacy-setting-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  background: #eff6ff;
+  border: 1px solid rgba(59, 130, 246, 0.10);
+  font-size: 19px;
+}
+
+.privacy-setting-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.privacy-setting-content strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.privacy-setting-content p {
+  margin: 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ---------- TOGGLE ---------- */
+
+.privacy-toggle {
+  position: relative;
+  width: 48px;
+  height: 27px;
+  flex: 0 0 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.privacy-toggle:hover {
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.privacy-toggle.active {
+  background: #2563eb;
+  box-shadow: 0 5px 14px rgba(37, 99, 235, 0.22);
+}
+
+.privacy-toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
+  transition: transform 0.2s ease;
+}
+
+.privacy-toggle.active .privacy-toggle-knob {
+  transform: translateX(21px);
+}
+
+/* ---------- INFORMATION BOX ---------- */
+
+.privacy-info-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 13px 14px;
+  border-radius: 14px;
+  background: rgba(219, 234, 254, 0.58);
+  border: 1px solid rgba(59, 130, 246, 0.10);
+}
+
+.privacy-info-box > span {
+  flex: 0 0 auto;
+  font-size: 16px;
+}
+
+.privacy-info-box p {
+  margin: 0;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* ---------- DONE BUTTON ---------- */
+
+.privacy-done-btn {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 17px;
+  border: 0;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.20);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.privacy-done-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 11px 25px rgba(37, 99, 235, 0.27);
+}
+
+.privacy-done-btn:active {
+  transform: translateY(0);
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+  .privacy-modal {
+    max-width: 100%;
+    border-radius: 20px;
+  }
+
+  .privacy-modal-header {
+    padding: 20px 18px 18px;
+  }
+
+  .privacy-modal-body {
+    padding: 18px;
+  }
+
+  .privacy-title-row {
+    gap: 11px;
+  }
+
+  .privacy-icon {
+    width: 43px;
+    height: 43px;
+    flex-basis: 43px;
+  }
+
+  .privacy-modal-header h3 {
+    font-size: 18px;
+  }
+
+  .privacy-setting-card {
+    padding: 14px;
+  }
+}
+/* =========================================================
+   AWASAR NEPAL — NOTIFICATIONS MODAL
+   Professional Settings Design
+========================================================= */
+
+.notifications-modal {
+  width: 100%;
+  max-width: 470px;
+  max-height: 90vh;
+  margin: auto;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #f8fbff 100%
+  );
+
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 24px;
+
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.28),
+    0 12px 35px rgba(37, 99, 235, 0.12);
+
+  overflow: hidden;
+
+  animation: notificationsModalIn 0.22s ease-out;
+}
+
+@keyframes notificationsModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.notifications-modal-header {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 22px 22px 20px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(239, 246, 255, 0.95),
+    rgba(248, 250, 252, 0.95)
+  );
+
+  border-bottom: 1px solid rgba(37, 99, 235, 0.09);
+}
+
+.notifications-title-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+.notifications-icon {
+  width: 48px;
+  height: 48px;
+
+  flex: 0 0 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #3b82f6
+  );
+
+  color: #ffffff;
+
+  font-size: 22px;
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.22);
+}
+
+.notifications-modal-header h3 {
+  margin: 0;
+
+  font-size: 18px;
+  font-weight: 750;
+  line-height: 1.25;
+
+  color: #0f172a;
+}
+
+.notifications-modal-header p {
+  margin: 5px 0 0;
+
+  font-size: 13px;
+  line-height: 1.45;
+
+  color: #64748b;
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.notifications-modal-close {
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 10px;
+
+  background: rgba(226, 232, 240, 0.65);
+
+  color: #475569;
+
+  font-size: 23px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.notifications-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+.notifications-modal-body {
+  padding: 20px;
+}
+
+
+/* =========================
+   NOTIFICATION CARDS
+========================= */
+
+.notification-setting-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 16px;
+
+  margin-bottom: 12px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 17px;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.045);
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.notification-setting-card:hover {
+  border-color: rgba(37, 99, 235, 0.18);
+
+  box-shadow:
+    0 8px 22px rgba(37, 99, 235, 0.08);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   CARD ICON
+========================= */
+
+.notification-setting-icon {
+  width: 42px;
+  height: 42px;
+
+  flex: 0 0 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #eff6ff;
+
+  font-size: 19px;
+
+  border: 1px solid rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.notification-setting-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-setting-content strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #1e293b;
+}
+
+.notification-setting-content p {
+  margin: 0;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #64748b;
+}
+
+
+/* =========================
+   TOGGLE
+========================= */
+
+.notification-toggle {
+  position: relative;
+
+  width: 46px;
+  height: 26px;
+
+  flex: 0 0 46px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #cbd5e1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.notification-toggle:hover {
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.notification-toggle.active {
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #3b82f6
+  );
+
+  box-shadow:
+    0 4px 12px rgba(37, 99, 235, 0.22);
+}
+
+.notification-toggle-knob {
+  position: absolute;
+
+  top: 3px;
+  left: 3px;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 2px 5px rgba(15, 23, 42, 0.18);
+
+  transition:
+    transform 0.22s ease;
+}
+
+.notification-toggle.active
+.notification-toggle-knob {
+  transform: translateX(20px);
+}
+
+
+/* =========================
+   INFORMATION BOX
+========================= */
+
+.notifications-info-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  margin-top: 16px;
+  padding: 13px 14px;
+
+  border-radius: 14px;
+
+  background: #eff6ff;
+
+  border: 1px solid rgba(37, 99, 235, 0.10);
+}
+
+.notifications-info-box > span {
+  flex: 0 0 auto;
+
+  font-size: 16px;
+}
+
+.notifications-info-box p {
+  margin: 0;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #475569;
+}
+
+
+/* =========================
+   DONE BUTTON
+========================= */
+
+.notifications-done-btn {
+  width: 100%;
+
+  margin-top: 18px;
+  padding: 13px 18px;
+
+  border: none;
+  border-radius: 13px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 18px rgba(37, 99, 235, 0.20);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.notifications-done-btn:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 11px 24px rgba(37, 99, 235, 0.26);
+}
+
+.notifications-done-btn:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .notifications-modal {
+    max-width: 100%;
+    border-radius: 20px;
+  }
+
+  .notifications-modal-header {
+    padding: 18px;
+  }
+
+  .notifications-modal-body {
+    padding: 16px;
+  }
+
+  .notifications-icon {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+
+    border-radius: 13px;
+  }
+
+  .notifications-modal-header h3 {
+    font-size: 17px;
+  }
+
+  .notifications-modal-header p {
+    font-size: 12px;
+  }
+
+  .notification-setting-card {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .notification-setting-icon {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+
+  .notification-setting-content strong {
+    font-size: 13px;
+  }
+
+  .notification-setting-content p {
+    font-size: 11px;
+  }
+
+  .notification-toggle {
+    width: 44px;
+    height: 25px;
+    flex-basis: 44px;
+  }
+
+  .notification-toggle-knob {
+    width: 19px;
+    height: 19px;
+  }
+
+  .notification-toggle.active
+  .notification-toggle-knob {
+    transform: translateX(19px);
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .notifications-modal-header {
+    padding: 16px;
+  }
+
+  .notifications-modal-body {
+    padding: 13px;
+  }
+
+  .notification-setting-card {
+    padding: 12px;
+  }
+
+  .notification-setting-content p {
+    font-size: 10.5px;
+  }
+
+  .notifications-icon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+}
+/* =========================================================
+   AWASAR NEPAL — DELETE ACCOUNT MODAL
+========================================================= */
+
+.delete-account-modal {
+  width: 100%;
+  max-width: 450px;
+  max-height: 90vh;
+  margin: auto;
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(239, 68, 68, 0.12);
+  border-radius: 24px;
+
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.28),
+    0 12px 35px rgba(239, 68, 68, 0.10);
+
+  overflow: hidden;
+
+  animation: deleteAccountModalIn 0.22s ease-out;
+}
+
+@keyframes deleteAccountModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.delete-account-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 22px 22px 18px;
+
+  background: linear-gradient(
+    135deg,
+    #fff7f7,
+    #ffffff
+  );
+
+  border-bottom: 1px solid rgba(239, 68, 68, 0.08);
+}
+
+.delete-account-icon {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: #fef2f2;
+
+  border: 1px solid rgba(239, 68, 68, 0.12);
+
+  font-size: 23px;
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.delete-account-close {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #f1f5f9;
+
+  color: #475569;
+
+  font-size: 23px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.delete-account-close:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  transform: rotate(90deg);
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+.delete-account-body {
+  padding: 22px;
+}
+
+.delete-account-body h3 {
+  margin: 0 0 8px;
+
+  color: #0f172a;
+
+  font-size: 20px;
+  font-weight: 750;
+}
+
+.delete-account-warning {
+  margin: 0 0 18px;
+
+  color: #475569;
+
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+
+/* =========================
+   WARNING BOX
+========================= */
+
+.delete-account-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+
+  padding: 14px;
+
+  margin-bottom: 22px;
+
+  border-radius: 15px;
+
+  background: #fff7ed;
+
+  border: 1px solid rgba(249, 115, 22, 0.15);
+}
+
+.delete-account-info > span {
+  flex: 0 0 auto;
+
+  font-size: 18px;
+}
+
+.delete-account-info p {
+  margin: 0;
+
+  color: #7c2d12;
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.delete-account-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.delete-account-cancel,
+.delete-account-confirm {
+  flex: 1;
+
+  min-height: 44px;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.delete-account-cancel {
+  border: 1px solid #cbd5e1;
+
+  background: #ffffff;
+
+  color: #475569;
+}
+
+.delete-account-cancel:hover {
+  background: #f8fafc;
+
+  transform: translateY(-1px);
+}
+
+.delete-account-confirm {
+  border: 1px solid #dc2626;
+
+  background: #dc2626;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 16px rgba(220, 38, 38, 0.18);
+}
+
+.delete-account-confirm:hover {
+  background: #b91c1c;
+
+  box-shadow:
+    0 10px 22px rgba(220, 38, 38, 0.24);
+
+  transform: translateY(-1px);
+}
+
+.delete-account-cancel:active,
+.delete-account-confirm:active {
+  transform: translateY(0);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .delete-account-modal {
+    max-width: 100%;
+    border-radius: 20px;
+  }
+
+  .delete-account-header {
+    padding: 18px;
+  }
+
+  .delete-account-body {
+    padding: 18px;
+  }
+
+  .delete-account-body h3 {
+    font-size: 18px;
+  }
+
+  .delete-account-warning {
+    font-size: 13px;
+  }
+
+  .delete-account-actions {
+    flex-direction: column-reverse;
+  }
+
+  .delete-account-cancel,
+  .delete-account-confirm {
+    width: 100%;
+  }
+}
+/* =========================================================
+   AWASAR NEPAL — DELETE ACCOUNT OVERLAY FIX
+========================================================= */
+
+.delete-account-modal.password-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  z-index: 9999999 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 20px !important;
+  box-sizing: border-box !important;
+
+  background: rgba(15, 23, 42, 0.52) !important;
+
+  overflow-y: auto !important;
+}
+/* =========================================================
+   AWASAR NEPAL — DELETE ACCOUNT OVERLAY
+========================================================= */
+
+.delete-account-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  z-index: 9999999 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 20px !important;
+  box-sizing: border-box !important;
+
+  background: rgba(15, 23, 42, 0.52) !important;
+
+  overflow-y: auto !important;
+}
+
+.delete-account-overlay .delete-account-modal {
+  position: relative !important;
+  z-index: 10000000 !important;
+
+  width: 100% !important;
+  max-width: 450px !important;
+  max-height: 90vh !important;
+
+  margin: auto !important;
+  box-sizing: border-box !important;
+
+  overflow-y: auto !important;
+}
