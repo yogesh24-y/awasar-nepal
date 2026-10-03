@@ -4,7 +4,718 @@ import { supabase } from "./supabase";
 import logo from "./assets/IMG-20260903-WA0000.jpg";
 import founderPhoto from "./assets/yogesh.jpg";
 
+const translations = {
+  english: {
+    chooseLanguage: "Choose your language",
+    chooseLanguageNepali: "आफ्नो सुविधाअनुसार भाषा छान्नुहोस्",
+    selectLanguage: "Select your preferred language to continue.",
+    continue: "Continue",
+    continueEnglish: "Continue in English",
+    continueNepali: "नेपालीमा जारी राख्नुहोस्",
+    changeLanguageAnytime: "You can change your language anytime.",
+    back: "← Back",
+    close: "Close",
+    opportunityForEveryone: "Opportunity for everyone",
+    opportunity: "Opportunity",
+    displayAccessibility: "DISPLAY & ACCESSIBILITY",
+    aboutAwasarNepal: "ABOUT AWASAR NEPAL",
+    heroBadge: "🇳🇵 Built for Nepal · Open opportunities for everyone",
+    heroTitle: "Find the opportunity",
+    heroTitleAccent: " made for you.",
+    heroTitleMain: "Find the opportunity",
+    heroDescription: "Scholarships, jobs, internships, training, competitions and more — discover opportunities that match your goals.",
+    builtForNepal: "🇳🇵 Built for Nepal · Open opportunities for everyone",
+    getStarted: "Get Started",
+    scholarshipShort: "Scholarship",
+    internshipShort: "Internship",
+    jobShort: "Job",
+    trainingShort: "Training",
+    newJob: "New Job",
+    justAdded: "Just added",
+    forYou: "For you",
+    opportunities: "Opportunities",
+    organizations: "Organizations",
+    categories: "Categories",
+    madeForNepal: "Made for Nepal",
+    heroDescription: "Scholarships, jobs, internships, training, competitions and more — discover opportunities that match your goals.",
+    searchOpportunities: "Search opportunities...",
+    search: "Search",
+    exploreOpportunities: "🔎 Explore Opportunities",
+    findMyOpportunity: "🤖 Find My Opportunity",
+    popular: "Popular:",
+    exploreBackHome: "← Back to Home",
+    exploreBadge: "AWASAR NEPAL OPPORTUNITIES",
+    exploreTitleMain: "Find your next",
+    exploreTitleAccent: " opportunity.",
+    exploreDescription: "Explore scholarships, jobs, internships, training, competitions and business opportunities in one place.",
+    exploreSearchPlaceholder: "Search opportunities, organizations or locations...",
+    exploreDiscover: "DISCOVER",
+    exploreOpportunitiesForYou: "Opportunities for you",
+    exploreOpportunitiesFound: "opportunities found",
+    exploreAllCategories: "All Categories",
+    exploreAllLocations: "All Locations",
+    exploreNepal: "Nepal",
+    exploreKathmandu: "Kathmandu",
+    exploreLalitpur: "Lalitpur",
+    exploreInternational: "International",
+    exploreOnline: "Online",
+    exploreClearFilters: "Clear Filters",
+    exploreNoOpportunities: "No opportunities found",
+    exploreTryAnotherSearch: "Try another search or change your filters.",
+    exploreNew: "New",
+    exploreAwasarPartner: "Awasar Nepal Partner",
+    scholarship: "Scholarship",
+    internship: "Internship",
+    job: "Job",
+    training: "Training",
+    categoryScholarships: "Scholarships",
+    categoryScholarshipsText: "Find scholarships & funding",
+    categoryJobs: "Jobs",
+    categoryJobsText: "Discover your next career",
+    categoryInternships: "Internships",
+    categoryInternshipsText: "Build real-world experience",
+    categoryTraining: "Training",
+    categoryTrainingText: "Learn new skills for free",
+    categoryCompetitions: "Competitions",
+    categoryCompetitionsText: "Show your talent",
+    categoryBusiness: "Business",
+    categoryBusinessText: "Grow your business ideas",
+    explore: "EXPLORE",
+    whatLookingFor: "What are you looking for?",
+    viewAll: "View all",
+    discover: "DISCOVER",
+    opportunitiesForYou: "Opportunities for you",
+    showLess: "Show Less",
+    exploreAll: "Explore All",
+    allCategories: "All Categories",
+    scholarships: "Scholarships",
+    jobs: "Jobs",
+    internships: "Internships",
+    training: "Training",
+    competitions: "Competitions",
+    business: "Business",
+    allLocations: "All Locations",
+    nepal: "Nepal",
+    kathmandu: "Kathmandu",
+    lalitpur: "Lalitpur",
+    international: "International",
+    online: "Online",
+    remote: "Remote",
+    clearFilters: "Clear Filters",
+    noOpportunitiesFound: "No opportunities found. Try another search.",
+    match: "Match",
+    awasarNepalPartner: "Awasar Nepal Partner",
+    viewOpportunity: "View Opportunity",
+    aiPoweredMatching: "AI POWERED MATCHING",
+    opportunitiesMatched: "Opportunities matched for you.",
+    basedOnProfile: "Based on your education, location, interests and goals, here are your best matches.",
+    whyMatchesYou: "Why this matches you",
+    unlockMoreOpportunities: "Unlock more opportunities.",
+    premiumDescription: "Get powerful tools to help you find, save and manage opportunities more easily.",
+    aiOpportunityFinder: "AI Opportunity Finder",
+    aiOpportunityFinderText: "Tell us your goals and discover opportunities that match you.",
+    tryNow: "Try Now",
+    resumeChecker: "Resume Checker",
+    resumeCheckerText: "Get helpful feedback to improve your CV and resume.",
+    comingSoon: "Coming Soon",
+    personalizedMatches: "Personalized Matches",
+    personalizedMatchesText: "Get opportunity recommendations based on your interests.",
+    savedOpportunities: "Saved Opportunities",
+    savedOpportunitiesText: "Save opportunities and keep track of the ones you love.",
+    saved: "Saved",
+    morePowerfulFeatures: "More powerful features are coming soon 🚀",
+    getPremium: "Get Premium",
+    yourNextStep: "YOUR NEXT STEP",
+    stopSearchingEverywhere: "Stop searching everywhere.",
+    ctaDescription: "Create your profile and let Awasar Nepal help you discover opportunities that fit you.",
+    myDashboard: "My Dashboard",
+    settingsPrivacy: "Settings & Privacy",
+accountSecurity: "Account & Security",
+profilePrivacy: "Profile Privacy",
+notifications: "Notifications",
+accountManagement: "Account Management",
+changePassword: "Change Password",
+changePasswordDescription: "Update your password to keep your account secure.",
+newPassword: "New Password",
+enterNewPassword: "Enter new password",
+confirmNewPassword: "Confirm New Password",
+confirmNewPasswordPlaceholder: "Confirm new password",
+passwordRequirement: "Password must be at least 6 characters.",
+enterConfirmPasswordAlert: "Please enter and confirm your new password.",
+passwordMinLengthAlert: "Password must be at least 6 characters.",
+passwordMismatchAlert: "Passwords do not match.",
+emailPhone: "Email & Phone",
+loginSecurity: "Login & Security",
+profileVisibility: "Profile Visibility",
+personalInformation: "Personal Information",
+opportunityAlerts: "Opportunity Alerts",
+applicationUpdates: "Application Updates",
+emailNotifications: "Email Notifications",
+downloadMyData: "Download My Data",
+deleteAccount: "Delete Account",
+deleteAccountWarning: "Are you sure you want to delete your Awasar Nepal account?",
+deleteAccountInfo: "Account deletion is a permanent action. Your account information may no longer be available after deletion.",
+cancel: "Cancel",
+accountDeletionUnavailable: "Account deletion is not available yet. Your account has not been deleted.",
+youMustBeLoggedIn: "You must be logged in.",
+loginSecurityComingSoon: "Login & Security settings are coming soon.",
+profileVisibilityComingSoon: "Profile Visibility settings are coming soon.",
+personalInformationComingSoon: "Personal Information settings are coming soon.",
+opportunityAlertsComingSoon: "Opportunity Alerts settings are coming soon.",
+applicationUpdatesComingSoon: "Application Updates settings are coming soon.",
+emailNotificationsComingSoon: "Email Notifications settings are coming soon.",
+accountDataDownloaded: "Your Awasar Nepal account data has been downloaded.",
+location: "Location",
+deadline: "Deadline",
+education: "Education",
+fundingSalary: "Funding / Salary",
+aboutThisOpportunity: "About this opportunity",
+whoCanApply: "Who can apply?",
+requirements: "Requirements",
+requirementsProvidedByOrganization: "Please follow the requirements provided by the organization.",
+submitOpportunityTitle: "Submit an Opportunity",
+submitOpportunityDescription: "Share a genuine opportunity with the Awasar Nepal community. Every submission is reviewed before publishing.",
+opportunityTitleLabel: "Opportunity Title",
+opportunityTitlePlaceholder: "Example: Global Scholarship 2026",
+organizationNameLabel: "Organization Name",
+organizationNamePlaceholder: "Organization offering this opportunity",
+selectCategory: "Select Category",
+locationPlaceholder: "Example: Kathmandu / Online / International",
+applicationDeadline: "Application Deadline",
+opportunityDescriptionLabel: "Opportunity Description",
+opportunityDescriptionPlaceholder: "Describe the opportunity...",
+officialApplicationLink: "Official Application Link",
+submitForReview: "Submit for Review →",
+aiFinderTitle: "AI Opportunity Finder",
+aiFinderDescription: "Tell us about yourself and we’ll find opportunities that match you.",
+educationLevel: "Education Level",
+selectYourEducation: "Select your education",
+plusTwoHighSchool: "+2 / High School",
+bachelor: "Bachelor",
+master: "Master",
+graduate: "Graduate",
+preferredLocation: "Preferred Location",
+selectLocation: "Select location",
+online: "Online",
+abroad: "Abroad",
+opportunityType: "Opportunity Type",
+selectOpportunityType: "Select opportunity type",
+yourInterest: "Your Interest",
+interestPlaceholder: "Example: IT, programming, business, marketing...",
+yourGoal: "Your Goal",
+goalPlaceholder: "Example: I want to gain experience and build my career...",
+completeRequiredFields: "Please complete all required fields.",
+findMyOpportunities: "Find My Opportunities →",
+    helpSupport: "Help & Support",
+    giveFeedback: "Give Feedback",
+rateYourExperience: "Rate Your Experience",
+suggestAFeature: "Suggest a Feature",
+reportABug: "Report a Bug",
+generalFeedback: "General Feedback",
+rateExperienceComingSoon: "Rate Your Experience is coming soon.",
+suggestFeatureComingSoon: "Suggest a Feature is coming soon.",
+reportBugComingSoon: "Report a Bug is coming soon.",
+generalFeedbackComingSoon: "General Feedback is coming soon.",
+editProfile: "Edit Profile",
+myApplications: "My Applications",
+recentlyViewed: "Recently Viewed",
+myDeadlineAlerts: "My Deadline Alerts",
+recentlyViewedComingSoon: "Recently Viewed is coming soon.",
+myDeadlineAlertsComingSoon: "My Deadline Alerts is coming soon.",
+    logOut: "Log Out",
+    helpCenter: "Help Center",
+    contactSupport: "Contact Support",
+    reportProblem: "Report a Problem",
+    howAwasarWorks: "How Awasar Nepal Works",
+    appearance: "Appearance",
+    language: "Language",
+    textSize: "Text Size",
+    accessibility: "Accessibility",
+    helpCenterDescription: "Find answers and learn how to use Awasar Nepal.",
+    searchHelp: "Search help...",
+    backToHelpCenter: "← Back to Help Center",
+gettingStarted: "Getting Started",
+howToCreateAccount: "How to create an account",
+howToFindOpportunities: "How to find opportunities",
+howToSaveOpportunities: "How to save opportunities",
+howToApply: "How to apply",
+findingOpportunities: "Finding Opportunities",
+browseOpportunitiesByCategory: "Browse opportunities by category",
+searchFilterOpportunities: "Search & filter opportunities",
+checkOpportunityDeadlines: "Check opportunity deadlines",
+frequentlyAskedQuestions: "Frequently Asked Questions",
+faqWhatIsAwasar: "What is Awasar Nepal?",
+faqWhatIsAwasarAnswer:
+  "Awasar Nepal is a platform designed to help students and job seekers find and manage scholarships, jobs, internships, training, competitions and other opportunities.",
+faqCreateAccount: "How do I create an account?",
+faqCreateAccountAnswer:
+  "Open Sign Up from the Profile menu and create your account by entering the required basic information.",
+faqFindOpportunity: "How do I find an opportunity?",
+faqFindOpportunityAnswer:
+  "Use the search box and category filters to find the opportunities you need.",
+stillNeedHelp: "Still need help?",
+contactSupportTeam: "Contact our support team for assistance.",
+contactSupportComingSoon: "Contact Support is coming soon.",
+textSizeComingSoon: "Text Size settings are coming soon.",
+accessibilityComingSoon: "Accessibility settings are coming soon.",
+howWorksTitle: "How Awasar Nepal Works",
+howWorksIntro:
+  "Awasar Nepal helps students and job seekers easily find different opportunities.",
+howWorksStep1Title: "1. Find Opportunities",
+howWorksStep1Text:
+  "Find opportunities such as Scholarships, Jobs, Internships, Training and Competitions.",
+howWorksStep2Title: "2. Filter What You Need",
+howWorksStep2Text:
+  "Use categories, search and available filters to find the opportunities you need.",
+howWorksStep3Title: "3. Check the Details",
+howWorksStep3Text:
+  "Check the opportunity description, requirements and deadline to see if it is suitable for you.",
+howWorksStep4Title: "4. Apply",
+howWorksStep4Text:
+  "After finding a suitable opportunity, follow the organization's application process.",
+howWorksNote: "A platform that makes it easier to find opportunities.",
+exploreOpportunities: "Explore Opportunities",
+reportProblemTitle: "Report a Problem",
+reportProblemDescription:
+  "Tell us about a problem you experienced while using Awasar Nepal.",
+selectProblemType: "Select a problem type",
+problemType: "Problem Type",
+websiteBug: "Website Bug",
+loginAccountProblem: "Login / Account Problem",
+opportunityInformation: "Opportunity Information",
+searchFilterProblem: "Search / Filter Problem",
+savedOpportunitiesProblem: "Saved Opportunities",
+otherProblem: "Other",
+describeProblem: "Describe the Problem",
+problemDescriptionPlaceholder: "Please describe what went wrong...",
+submitReport: "Submit Report",
+reportProblemValidation:
+  "Please select a problem type and describe the problem.",
+reportProblemSubmitError:
+  "Could not submit your report. Please try again.",
+reportProblemSuccess:
+  "Thank you! Your problem report has been received.",
+    createAccountTitle: "How to create an account",
+    createAccountDescription: "Create your Awasar Nepal account in a few simple steps.",
+    signUpOption: "Sign Up",
+    enterBasicInformation: "Enter your basic information.",
+    chooseSecurePassword: "Choose a secure password.",
+    submitRegistrationForm: "Submit the registration form.",
+    afterSigningUp: "After signing up, you can use your account to save and manage opportunities.",
+    findOpportunitiesTitle: "How to find opportunities",
+    findOpportunitiesDescription:
+      "Find scholarships, jobs, internships, training programs and other opportunities on Awasar Nepal.",
+    openAwasarHomepage: "Open the Awasar Nepal homepage.",
+    useSearchBox: "Use the search box to search for an opportunity.",
+    selectOpportunityCategory:
+      "Select a category such as Scholarships, Jobs or Internships.",
+    useFiltersToNarrow:
+      "Use filters to narrow down the opportunities.",
+    openOpportunityDetails:
+      "Open an opportunity to view its details and deadline.",
+    saveOpportunitiesTitle: "How to save opportunities",
+    saveOpportunitiesDescription:
+      "Save opportunities that you want to check again later.",
+    openInterestedOpportunity: "Open an opportunity you are interested in.",
+    clickSaveOption: "Click the Save option.",
+    opportunityAddedToSavedList:
+      "The opportunity will be added to your saved list.",
+    openDashboardSavedOpportunities:
+      "Open your Dashboard to view your saved opportunities.",
+    applyTitle: "How to apply",
+    applyDescription:
+      "Apply for opportunities by following the application instructions provided by the organization.",
+    openOpportunityToApply:
+      "Open the opportunity you want to apply for.",
+    readEligibilityRequirements:
+      "Read the eligibility requirements carefully.",
+    checkApplicationDeadline:
+      "Check the application deadline.",
+    clickApplicationLink:
+      "Click the application link or Apply option.",
+    completeApplicationOfficialPlatform:
+      "Complete the application on the organization's official platform.",
+    browseCategoriesTitle: "Browse opportunities by category",
+    openOpportunitiesSection: "Open the opportunities section.",
+    selectCategory:
+      "Select a category such as Scholarships, Jobs, Internships or Training.",
+    browseAvailableOpportunities:
+      "Browse the available opportunities in that category.",
+    browseOpenOpportunityDetails:
+      "Open an opportunity to view its details and deadline.",
+    searchFilterTitle: "How to search & filter opportunities",
+    openAwasarHomepageSearch: "Open the Awasar Nepal homepage.",
+    enterKeywordSearchBox: "Enter a keyword in the search box.",
+    selectSearchCategory:
+      "Select a category such as Scholarships, Jobs, Internships or Training.",
+    useAvailableFilters:
+      "Use the available filters to narrow down the results.",
+    openOpportunityEligibility:
+      "Open an opportunity to view its details, eligibility and deadline.",
+    english: "English",
+    nepali: "नेपाली",
+  },
+
+  nepali: {
+    chooseLanguage: "आफ्नो भाषा छान्नुहोस्",
+    chooseLanguageNepali: "आफ्नो सुविधाअनुसार भाषा छान्नुहोस्",
+    selectLanguage: "जारी राख्न आफ्नो मनपर्ने भाषा छान्नुहोस्।",
+    continue: "जारी राख्नुहोस्",
+    continueEnglish: "English मा जारी राख्नुहोस्",
+    continueNepali: "नेपालीमा जारी राख्नुहोस्",
+    changeLanguageAnytime: "तपाईंले आफ्नो भाषा जुनसुकै बेला परिवर्तन गर्न सक्नुहुन्छ।",
+    back: "← पछाडि",
+    close: "बन्द गर्नुहोस्",
+    opportunityForEveryone: "सबैका लागि अवसर",
+    opportunity: "अवसर",
+    displayAccessibility: "प्रदर्शन तथा पहुँच",
+    aboutAwasarNepal: "अवसर नेपाल बारे",
+    heroBadge: "🇳🇵 नेपालका लागि निर्मित · सबैका लागि खुला अवसरहरू",
+    heroTitle: "तपाईंका लागि बनाइएको",
+    heroTitleAccent: " अवसर खोज्नुहोस्।",
+    heroTitleMain: "तपाईंका लागि बनाइएको",
+    heroDescription: "छात्रवृत्ति, जागिर, इन्टर्नशिप, तालिम, प्रतियोगिता तथा अन्य अवसरहरू — तपाईंका लक्ष्यसँग मिल्ने अवसरहरू खोज्नुहोस्।",
+    builtForNepal: "🇳🇵 नेपालका लागि निर्मित · सबैका लागि खुला अवसरहरू",
+    getStarted: "सुरु गर्नुहोस्",
+    scholarshipShort: "छात्रवृत्ति",
+    internshipShort: "इन्टर्नशिप",
+    jobShort: "जागिर",
+    trainingShort: "तालिम",
+    newJob: "नयाँ जागिर",
+    justAdded: "भर्खरै थपिएको",
+    forYou: "तपाईंका लागि",
+    opportunities: "अवसरहरू",
+    organizations: "संस्थाहरू",
+    categories: "श्रेणीहरू",
+    madeForNepal: "नेपालका लागि निर्मित",
+    heroDescription: "छात्रवृत्ति, जागिर, इन्टर्नशिप, तालिम, प्रतियोगिता तथा अन्य अवसरहरू — तपाईंका लक्ष्यसँग मिल्ने अवसरहरू खोज्नुहोस्।",
+    searchOpportunities: "अवसरहरू खोज्नुहोस्...",
+    search: "खोज्नुहोस्",
+    exploreOpportunities: "🔎 अवसरहरू हेर्नुहोस्",
+    findMyOpportunity: "🤖 मेरो अवसर खोज्नुहोस्",
+    popular: "लोकप्रिय:",
+    exploreBackHome: "← गृहपृष्ठमा फर्कनुहोस्",
+    exploreBadge: "अवसर नेपालका अवसरहरू",
+    exploreTitleMain: "आफ्नो अर्को",
+    exploreTitleAccent: " अवसर खोज्नुहोस्।",
+    exploreDescription: "छात्रवृत्ति, जागिर, इन्टर्नशिप, तालिम, प्रतियोगिता तथा व्यवसायिक अवसरहरू एउटै ठाउँमा खोज्नुहोस्।",
+    exploreSearchPlaceholder: "अवसर, संस्था वा स्थान खोज्नुहोस्...",
+    exploreDiscover: "खोज्नुहोस्",
+    exploreOpportunitiesForYou: "तपाईंका लागि अवसरहरू",
+    exploreOpportunitiesFound: "अवसरहरू भेटिए",
+    exploreAllCategories: "सबै श्रेणी",
+    exploreAllLocations: "सबै स्थान",
+    exploreNepal: "नेपाल",
+    exploreKathmandu: "काठमाडौं",
+    exploreLalitpur: "ललितपुर",
+    exploreInternational: "अन्तर्राष्ट्रिय",
+    exploreOnline: "अनलाइन",
+    exploreClearFilters: "फिल्टर हटाउनुहोस्",
+    exploreNoOpportunities: "कुनै अवसर भेटिएन",
+    exploreTryAnotherSearch: "अर्को खोज प्रयास गर्नुहोस् वा आफ्नो फिल्टर परिवर्तन गर्नुहोस्।",
+    exploreNew: "नयाँ",
+    exploreAwasarPartner: "अवसर नेपाल साझेदार",
+    scholarship: "छात्रवृत्ति",
+    internship: "इन्टर्नशिप",
+    job: "जागिर",
+    training: "तालिम",
+    categoryScholarships: "छात्रवृत्ति",
+    categoryScholarshipsText: "छात्रवृत्ति तथा आर्थिक सहयोग खोज्नुहोस्",
+    categoryJobs: "जागिर",
+    categoryJobsText: "आफ्नो अर्को करियर अवसर खोज्नुहोस्",
+    categoryInternships: "इन्टर्नशिप",
+    categoryInternshipsText: "वास्तविक कामको अनुभव हासिल गर्नुहोस्",
+    categoryTraining: "तालिम",
+    categoryTrainingText: "निःशुल्क नयाँ सीपहरू सिक्नुहोस्",
+    categoryCompetitions: "प्रतियोगिता",
+    categoryCompetitionsText: "आफ्नो प्रतिभा प्रदर्शन गर्नुहोस्",
+    categoryBusiness: "व्यवसाय",
+    categoryBusinessText: "आफ्ना व्यवसायिक विचारहरू अगाडि बढाउनुहोस्",
+    explore: "अन्वेषण गर्नुहोस्",
+    whatLookingFor: "तपाईं के खोज्दै हुनुहुन्छ?",
+    viewAll: "सबै हेर्नुहोस्",
+    discover: "खोज्नुहोस्",
+    opportunitiesForYou: "तपाईंका लागि अवसरहरू",
+    showLess: "कम देखाउनुहोस्",
+    exploreAll: "सबै अवसर हेर्नुहोस्",
+    allCategories: "सबै श्रेणी",
+    scholarships: "छात्रवृत्ति",
+    jobs: "जागिर",
+    internships: "इन्टर्नशिप",
+    training: "तालिम",
+    competitions: "प्रतियोगिता",
+    business: "व्यवसाय",
+    allLocations: "सबै स्थान",
+    nepal: "नेपाल",
+    kathmandu: "काठमाडौं",
+    lalitpur: "ललितपुर",
+    international: "अन्तर्राष्ट्रिय",
+    online: "अनलाइन",
+    remote: "रिमोट",
+    clearFilters: "फिल्टर हटाउनुहोस्",
+    noOpportunitiesFound: "कुनै अवसर भेटिएन। अर्को खोज प्रयास गर्नुहोस्।",
+    match: "मिल्दो",
+    awasarNepalPartner: "अवसर नेपाल साझेदार",
+    viewOpportunity: "अवसर हेर्नुहोस्",
+    aiPoweredMatching: "AI द्वारा मिलान",
+    opportunitiesMatched: "तपाईंका लागि मिल्ने अवसरहरू।",
+    basedOnProfile: "तपाईंको शिक्षा, स्थान, रुचि तथा लक्ष्यका आधारमा यहाँ तपाईंका लागि सबैभन्दा मिल्ने अवसरहरू छन्।",
+    whyMatchesYou: "यो तपाईंका लागि किन मिल्छ",
+    unlockMoreOpportunities: "अझ धेरै अवसरहरू अनलक गर्नुहोस्।",
+    premiumDescription: "अवसरहरू अझ सजिलै खोज्न, सुरक्षित गर्न तथा व्यवस्थापन गर्न उपयोगी शक्तिशाली उपकरणहरू प्रयोग गर्नुहोस्।",
+    aiOpportunityFinder: "AI अवसर खोजकर्ता",
+    aiOpportunityFinderText: "आफ्ना लक्ष्यहरू बताउनुहोस् र तपाईंलाई मिल्ने अवसरहरू खोज्नुहोस्।",
+    tryNow: "अहिले प्रयास गर्नुहोस्",
+    resumeChecker: "रिजुमे जाँचकर्ता",
+    resumeCheckerText: "आफ्नो CV तथा रिजुमे सुधार गर्न उपयोगी सुझावहरू प्राप्त गर्नुहोस्।",
+    comingSoon: "चाँडै आउँदैछ",
+    personalizedMatches: "व्यक्तिगत मिलान",
+    personalizedMatchesText: "आफ्ना रुचिका आधारमा अवसरहरूको सिफारिस प्राप्त गर्नुहोस्।",
+    savedOpportunities: "सुरक्षित गरिएका अवसरहरू",
+    savedOpportunitiesText: "अवसरहरू सुरक्षित गर्नुहोस् र आफूलाई मन परेका अवसरहरूको रेकर्ड राख्नुहोस्।",
+    saved: "सुरक्षित",
+    morePowerfulFeatures: "अझ शक्तिशाली सुविधाहरू चाँडै आउँदैछन् 🚀",
+    getPremium: "Premium लिनुहोस्",
+    yourNextStep: "तपाईंको अर्को कदम",
+    stopSearchingEverywhere: "जहाँतहीँ खोज्न छोड्नुहोस्।",
+    ctaDescription: "आफ्नो प्रोफाइल बनाउनुहोस् र तपाईंलाई मिल्ने अवसरहरू खोज्न अवसर नेपाललाई सहयोग गर्न दिनुहोस्।",
+    myDashboard: "मेरो ड्यासबोर्ड",
+    settingsPrivacy: "सेटिङ तथा गोपनीयता",
+accountSecurity: "खाता तथा सुरक्षा",
+profilePrivacy: "प्रोफाइल गोपनीयता",
+notifications: "सूचनाहरू",
+accountManagement: "खाता व्यवस्थापन",
+changePassword: "पासवर्ड परिवर्तन गर्नुहोस्",
+changePasswordDescription: "आफ्नो खाता सुरक्षित राख्न पासवर्ड अपडेट गर्नुहोस्।",
+newPassword: "नयाँ पासवर्ड",
+enterNewPassword: "नयाँ पासवर्ड लेख्नुहोस्",
+confirmNewPassword: "नयाँ पासवर्ड पुष्टि गर्नुहोस्",
+confirmNewPasswordPlaceholder: "नयाँ पासवर्ड फेरि लेख्नुहोस्",
+passwordRequirement: "पासवर्ड कम्तीमा ६ अक्षरको हुनुपर्छ।",
+enterConfirmPasswordAlert: "कृपया नयाँ पासवर्ड लेख्नुहोस् र पुष्टि गर्नुहोस्।",
+passwordMinLengthAlert: "पासवर्ड कम्तीमा ६ अक्षरको हुनुपर्छ।",
+passwordMismatchAlert: "पासवर्डहरू मेल खाएनन्।",
+emailPhone: "इमेल तथा फोन",
+loginSecurity: "लगइन तथा सुरक्षा",
+profileVisibility: "प्रोफाइल दृश्यता",
+personalInformation: "व्यक्तिगत जानकारी",
+opportunityAlerts: "अवसर सूचनाहरू",
+applicationUpdates: "आवेदन अपडेटहरू",
+emailNotifications: "इमेल सूचनाहरू",
+downloadMyData: "मेरो डेटा डाउनलोड गर्नुहोस्",
+deleteAccount: "खाता मेटाउनुहोस्",
+deleteAccountWarning: "के तपाईं आफ्नो अवसर नेपाल खाता मेटाउन चाहनुहुन्छ?",
+deleteAccountInfo: "खाता मेटाउनु स्थायी प्रक्रिया हो। खाता मेटाएपछि तपाईंको खाता सम्बन्धी जानकारी उपलब्ध नहुन सक्छ।",
+cancel: "रद्द गर्नुहोस्",
+accountDeletionUnavailable: "खाता मेटाउने सुविधा अझै उपलब्ध छैन। तपाईंको खाता मेटिएको छैन।",
+youMustBeLoggedIn: "तपाईं लगइन भएको हुनुपर्छ।",
+loginSecurityComingSoon: "लगइन तथा सुरक्षा सम्बन्धी सेटिङहरू छिट्टै उपलब्ध हुनेछन्।",
+profileVisibilityComingSoon: "प्रोफाइल दृश्यता सम्बन्धी सेटिङहरू छिट्टै उपलब्ध हुनेछन्।",
+personalInformationComingSoon: "व्यक्तिगत जानकारी सम्बन्धी सेटिङहरू छिट्टै उपलब्ध हुनेछन्।",
+opportunityAlertsComingSoon: "अवसर सूचनाहरू सम्बन्धी सेटिङहरू छिट्टै उपलब्ध हुनेछन्।",
+applicationUpdatesComingSoon: "आवेदन अपडेट सम्बन्धी सेटिङहरू छिट्टै उपलब्ध हुनेछन्।",
+emailNotificationsComingSoon: "इमेल सूचनाहरू सम्बन्धी सेटिङहरू छिट्टै उपलब्ध हुनेछन्।",
+accountDataDownloaded: "तपाईंको अवसर नेपाल खाता डेटा डाउनलोड भएको छ।",
+location: "स्थान",
+deadline: "अन्तिम मिति",
+education: "शिक्षा",
+fundingSalary: "आर्थिक सहयोग / तलब",
+aboutThisOpportunity: "यस अवसरबारे",
+whoCanApply: "कसले आवेदन दिन सक्छ?",
+requirements: "आवश्यकताहरू",
+requirementsProvidedByOrganization: "सम्बन्धित संस्थाले दिएको आवश्यकताहरू पालना गर्नुहोस्।",
+submitOpportunityTitle: "अवसर बुझाउनुहोस्",
+submitOpportunityDescription: "अवसर नेपाल समुदायसँग वास्तविक अवसर साझा गर्नुहोस्। प्रकाशन गर्नुअघि प्रत्येक बुझाइएको अवसरको समीक्षा गरिन्छ।",
+opportunityTitleLabel: "अवसरको शीर्षक",
+opportunityTitlePlaceholder: "उदाहरण: ग्लोबल छात्रवृत्ति २०२६",
+organizationNameLabel: "संस्थाको नाम",
+organizationNamePlaceholder: "यो अवसर प्रदान गर्ने संस्थाको नाम",
+selectCategory: "श्रेणी छान्नुहोस्",
+locationPlaceholder: "उदाहरण: काठमाडौं / अनलाइन / अन्तर्राष्ट्रिय",
+applicationDeadline: "आवेदन दिने अन्तिम मिति",
+opportunityDescriptionLabel: "अवसरको विवरण",
+opportunityDescriptionPlaceholder: "अवसरको विवरण लेख्नुहोस्...",
+officialApplicationLink: "आधिकारिक आवेदन लिंक",
+submitForReview: "समीक्षाका लागि बुझाउनुहोस् →",
+aiFinderTitle: "AI अवसर खोजकर्ता",
+aiFinderDescription: "आफ्नो बारेमा जानकारी दिनुहोस् र हामी तपाईंका लागि मिल्ने अवसरहरू खोज्नेछौँ।",
+educationLevel: "शिक्षाको स्तर",
+selectYourEducation: "आफ्नो शिक्षा छान्नुहोस्",
+plusTwoHighSchool: "+२ / उच्च माध्यमिक",
+bachelor: "स्नातक",
+master: "स्नातकोत्तर",
+graduate: "ग्राजुएट",
+preferredLocation: "रुचाइएको स्थान",
+selectLocation: "स्थान छान्नुहोस्",
+online: "अनलाइन",
+abroad: "विदेश",
+opportunityType: "अवसरको प्रकार",
+selectOpportunityType: "अवसरको प्रकार छान्नुहोस्",
+yourInterest: "तपाईंको रुचि",
+interestPlaceholder: "उदाहरण: IT, प्रोग्रामिङ, व्यवसाय, मार्केटिङ...",
+yourGoal: "तपाईंको लक्ष्य",
+goalPlaceholder: "उदाहरण: म अनुभव हासिल गरेर आफ्नो करियर बनाउन चाहन्छु...",
+completeRequiredFields: "कृपया आवश्यक सबै जानकारी भर्नुहोस्।",
+findMyOpportunities: "मेरा अवसरहरू खोज्नुहोस् →",
+    helpSupport: "सहायता तथा समर्थन",
+    giveFeedback: "प्रतिक्रिया दिनुहोस्",
+rateYourExperience: "आफ्नो अनुभव मूल्याङ्कन गर्नुहोस्",
+suggestAFeature: "सुविधा सुझाव दिनुहोस्",
+reportABug: "समस्या रिपोर्ट गर्नुहोस्",
+generalFeedback: "सामान्य प्रतिक्रिया",
+rateExperienceComingSoon: "आफ्नो अनुभव मूल्याङ्कन गर्ने सुविधा छिट्टै उपलब्ध हुनेछ।",
+suggestFeatureComingSoon: "सुविधा सुझाव दिने विकल्प छिट्टै उपलब्ध हुनेछ।",
+reportBugComingSoon: "समस्या रिपोर्ट गर्ने सुविधा छिट्टै उपलब्ध हुनेछ।",
+generalFeedbackComingSoon: "सामान्य प्रतिक्रिया दिने सुविधा छिट्टै उपलब्ध हुनेछ।",
+editProfile: "प्रोफाइल सम्पादन गर्नुहोस्",
+myApplications: "मेरा आवेदनहरू",
+recentlyViewed: "हालै हेरिएका",
+myDeadlineAlerts: "मेरा अन्तिम मिति सूचनाहरू",
+recentlyViewedComingSoon: "हालै हेरिएका सुविधा छिट्टै उपलब्ध हुनेछ।",
+myDeadlineAlertsComingSoon: "अन्तिम मिति सूचनाहरूको सुविधा छिट्टै उपलब्ध हुनेछ।",
+    logOut: "लग आउट",
+    helpCenter: "सहायता केन्द्र",
+    contactSupport: "सम्पर्क सहायता",
+    reportProblem: "समस्या रिपोर्ट गर्नुहोस्",
+    howAwasarWorks: "अवसर नेपालले कसरी काम गर्छ",
+    appearance: "देखावट",
+    language: "भाषा",
+    textSize: "अक्षरको आकार",
+    accessibility: "पहुँचयोग्यता",
+    helpCenterDescription: "जवाफहरू खोज्नुहोस् र अवसर नेपाल कसरी प्रयोग गर्ने भन्ने सिक्नुहोस्।",
+    searchHelp: "सहायता खोज्नुहोस्...",
+    backToHelpCenter: "← सहायता केन्द्रमा फर्कनुहोस्",
+gettingStarted: "सुरुवात गर्नुहोस्",
+howToCreateAccount: "खाता कसरी बनाउने",
+howToFindOpportunities: "अवसरहरू कसरी खोज्ने",
+howToSaveOpportunities: "अवसरहरू कसरी सुरक्षित गर्ने",
+howToApply: "कसरी आवेदन दिने",
+findingOpportunities: "अवसरहरू खोज्नुहोस्",
+browseOpportunitiesByCategory: "श्रेणीअनुसार अवसरहरू खोज्नुहोस्",
+searchFilterOpportunities: "अवसरहरू खोज्नुहोस् र फिल्टर गर्नुहोस्",
+checkOpportunityDeadlines: "अवसरहरूको अन्तिम मिति जाँच गर्नुहोस्",
+frequentlyAskedQuestions: "बारम्बार सोधिने प्रश्नहरू",
+faqWhatIsAwasar: "अवसर नेपाल भनेको के हो?",
+faqWhatIsAwasarAnswer:
+  "अवसर नेपाल विद्यार्थी तथा जागिर खोज्नेहरूलाई छात्रवृत्ति, जागिर, इन्टर्नशिप, तालिम, प्रतियोगिता तथा अन्य अवसरहरू खोज्न र व्यवस्थापन गर्न मद्दत गर्ने प्लेटफर्म हो।",
+faqCreateAccount: "खाता कसरी बनाउने?",
+faqCreateAccountAnswer:
+  "प्रोफाइल मेनुबाट साइन अप खोल्नुहोस् र आवश्यक आधारभूत जानकारी भरेर आफ्नो खाता बनाउनुहोस्।",
+faqFindOpportunity: "अवसर कसरी खोज्ने?",
+faqFindOpportunityAnswer:
+  "आफूलाई आवश्यक अवसरहरू खोज्न खोजी बाकस र श्रेणी फिल्टरहरू प्रयोग गर्नुहोस्।",
+stillNeedHelp: "अझै सहायता चाहिन्छ?",
+contactSupportTeam: "सहायताका लागि हाम्रो समर्थन टोलीसँग सम्पर्क गर्नुहोस्।",
+contactSupportComingSoon: "सम्पर्क सहायता सुविधा छिट्टै उपलब्ध हुनेछ।",
+textSizeComingSoon: "अक्षरको आकार सम्बन्धी सेटिङहरू छिट्टै उपलब्ध हुनेछन्।",
+accessibilityComingSoon: "पहुँचयोग्यता सम्बन्धी सेटिङहरू छिट्टै उपलब्ध हुनेछन्।",
+howWorksTitle: "अवसर नेपालले कसरी काम गर्छ",
+howWorksIntro:
+  "अवसर नेपालले विद्यार्थी तथा जागिर खोज्नेहरूलाई विभिन्न अवसरहरू सजिलै खोज्न मद्दत गर्छ।",
+howWorksStep1Title: "१. अवसरहरू खोज्नुहोस्",
+howWorksStep1Text:
+  "छात्रवृत्ति, जागिर, इन्टर्नशिप, तालिम तथा प्रतियोगिता जस्ता अवसरहरू खोज्नुहोस्।",
+howWorksStep2Title: "२. आफूलाई चाहिएको अवसर छान्नुहोस्",
+howWorksStep2Text:
+  "आफूलाई आवश्यक अवसर खोज्न श्रेणी, खोजी तथा उपलब्ध फिल्टरहरू प्रयोग गर्नुहोस्।",
+howWorksStep3Title: "३. विवरण जाँच गर्नुहोस्",
+howWorksStep3Text:
+  "अवसरको विवरण, आवश्यकताहरू तथा अन्तिम मिति हेरेर यो तपाईंका लागि उपयुक्त छ कि छैन जाँच गर्नुहोस्।",
+howWorksStep4Title: "४. आवेदन दिनुहोस्",
+howWorksStep4Text:
+  "आफूलाई उपयुक्त अवसर भेटेपछि सम्बन्धित संस्थाको आवेदन प्रक्रिया पालना गर्नुहोस्।",
+howWorksNote: "अवसरहरू खोज्न सजिलो बनाउने प्लेटफर्म।",
+exploreOpportunities: "अवसरहरू खोज्नुहोस्",
+reportProblemTitle: "समस्या रिपोर्ट गर्नुहोस्",
+reportProblemDescription:
+  "अवसर नेपाल प्रयोग गर्दा तपाईंले अनुभव गर्नुभएको समस्याबारे हामीलाई जानकारी दिनुहोस्।",
+selectProblemType: "समस्याको प्रकार छान्नुहोस्",
+problemType: "समस्याको प्रकार",
+websiteBug: "वेबसाइट समस्या",
+loginAccountProblem: "लगइन / खाता समस्या",
+opportunityInformation: "अवसर सम्बन्धी जानकारी",
+searchFilterProblem: "खोजी / फिल्टर समस्या",
+savedOpportunitiesProblem: "सुरक्षित अवसर सम्बन्धी समस्या",
+otherProblem: "अन्य",
+describeProblem: "समस्याको विवरण दिनुहोस्",
+problemDescriptionPlaceholder: "के समस्या भयो कृपया विवरण दिनुहोस्...",
+submitReport: "रिपोर्ट बुझाउनुहोस्",
+reportProblemValidation:
+  "कृपया समस्याको प्रकार छान्नुहोस् र समस्याको विवरण दिनुहोस्।",
+reportProblemSubmitError:
+  "तपाईंको रिपोर्ट बुझाउन सकिएन। कृपया फेरि प्रयास गर्नुहोस्।",
+reportProblemSuccess:
+  "धन्यवाद! तपाईंको समस्या रिपोर्ट प्राप्त भएको छ।",
+    createAccountTitle: "खाता कसरी बनाउने",
+    createAccountDescription: "केही सरल चरणमा आफ्नो अवसर नेपाल खाता बनाउनुहोस्।",
+    signUpOption: "साइन अप",
+    enterBasicInformation: "आफ्नो आधारभूत जानकारी भर्नुहोस्।",
+    chooseSecurePassword: "सुरक्षित पासवर्ड छान्नुहोस्।",
+    submitRegistrationForm: "दर्ता फारम बुझाउनुहोस्।",
+    afterSigningUp: "साइन अप गरेपछि तपाईं आफ्नो खाता प्रयोग गरेर अवसरहरू सुरक्षित तथा व्यवस्थापन गर्न सक्नुहुन्छ।",
+    findOpportunitiesTitle: "अवसरहरू कसरी खोज्ने",
+    findOpportunitiesDescription:
+      "अवसर नेपालमा छात्रवृत्ति, जागिर, इन्टर्नशिप, तालिम कार्यक्रम तथा अन्य अवसरहरू खोज्नुहोस्।",
+    openAwasarHomepage: "अवसर नेपालको गृहपृष्ठ खोल्नुहोस्।",
+    useSearchBox: "अवसर खोज्न खोजी बाकस प्रयोग गर्नुहोस्।",
+    selectOpportunityCategory:
+      "छात्रवृत्ति, जागिर वा इन्टर्नशिप जस्ता श्रेणी चयन गर्नुहोस्।",
+    useFiltersToNarrow: "अवसरहरूलाई सीमित गर्न फिल्टरहरू प्रयोग गर्नुहोस्।",
+    openOpportunityDetails:
+      "अवसरको विवरण र अन्तिम मिति हेर्न त्यसलाई खोल्नुहोस्।",
+    saveOpportunitiesTitle: "अवसरहरू कसरी सुरक्षित गर्ने",
+    saveOpportunitiesDescription:
+      "पछि फेरि हेर्न चाहनुभएका अवसरहरू सुरक्षित गर्नुहोस्।",
+    openInterestedOpportunity:
+      "आफूलाई रुचि लागेको अवसर खोल्नुहोस्।",
+    clickSaveOption: "सुरक्षित गर्नुहोस् भन्ने विकल्पमा क्लिक गर्नुहोस्।",
+    opportunityAddedToSavedList:
+      "उक्त अवसर तपाईंको सुरक्षित सूचीमा थपिनेछ।",
+    openDashboardSavedOpportunities:
+      "आफूले सुरक्षित गरेका अवसरहरू हेर्न आफ्नो ड्यासबोर्ड खोल्नुहोस्।",
+    applyTitle: "कसरी आवेदन दिने",
+    applyDescription:
+      "संस्थाले दिएको आवेदन प्रक्रियाका निर्देशनहरू पालना गरेर अवसरका लागि आवेदन दिनुहोस्।",
+    openOpportunityToApply:
+      "आवेदन दिन चाहनुभएको अवसर खोल्नुहोस्।",
+    readEligibilityRequirements:
+      "योग्यता सम्बन्धी आवश्यकताहरू ध्यानपूर्वक पढ्नुहोस्।",
+    checkApplicationDeadline:
+      "आवेदन दिने अन्तिम मिति जाँच गर्नुहोस्।",
+    clickApplicationLink:
+      "आवेदन लिंक वा आवेदन दिने विकल्पमा क्लिक गर्नुहोस्।",
+    completeApplicationOfficialPlatform:
+      "संस्थाको आधिकारिक प्लेटफर्ममा आवेदन प्रक्रिया पूरा गर्नुहोस्।",
+    browseCategoriesTitle: "श्रेणीअनुसार अवसरहरू खोज्नुहोस्",
+    openOpportunitiesSection: "अवसरहरूको सेक्सन खोल्नुहोस्।",
+    selectCategory:
+      "छात्रवृत्ति, जागिर, इन्टर्नशिप वा तालिम जस्ता श्रेणी चयन गर्नुहोस्।",
+    browseAvailableOpportunities:
+      "त्यो श्रेणीमा उपलब्ध अवसरहरू हेर्नुहोस्।",
+    browseOpenOpportunityDetails:
+      "अवसरको विवरण र अन्तिम मिति हेर्न त्यसलाई खोल्नुहोस्।",
+    searchFilterTitle: "अवसरहरू कसरी खोज्ने र फिल्टर गर्ने",
+    openAwasarHomepageSearch: "अवसर नेपालको गृहपृष्ठ खोल्नुहोस्।",
+    enterKeywordSearchBox: "खोजी बाकसमा कुनै शब्द लेख्नुहोस्।",
+    selectSearchCategory:
+      "छात्रवृत्ति, जागिर, इन्टर्नशिप वा तालिम जस्ता श्रेणी चयन गर्नुहोस्।",
+    useAvailableFilters:
+      "नतिजाहरूलाई सीमित गर्न उपलब्ध फिल्टरहरू प्रयोग गर्नुहोस्।",
+    openOpportunityEligibility:
+      "अवसरको विवरण, योग्यता तथा अन्तिम मिति हेर्न त्यसलाई खोल्नुहोस्।",
+    english: "English",
+    nepali: "नेपाली",
+    nepali: "नेपाली",
+  },
+};
+
+const getTranslation = (language, key) => {
+  return translations[language]?.[key] ?? translations.english[key] ?? key;
+};
+
 const categories = [
+
+
   {
     icon: "🎓",
     title: "Scholarships",
@@ -195,11 +906,17 @@ function App() {
   const [databaseOpportunities, setDatabaseOpportunities] = useState([]);
   const [loadingOpportunities, setLoadingOpportunities] = useState(true);
 
-  const [showAboutLanguage, setShowAboutLanguage] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [aboutLanguage, setAboutLanguage] = useState(
-    localStorage.getItem("awasarAboutLanguage") || "",
+
+  const [siteLanguage, setSiteLanguage] = useState(
+    localStorage.getItem("awasarSiteLanguage") || "english",
   );
+
+  const [pendingLanguage, setPendingLanguage] = useState(
+    localStorage.getItem("awasarSiteLanguage") || "english",
+  );
+
+  const t = (key) => getTranslation(siteLanguage, key);
 
   const [savedOpportunities, setSavedOpportunities] = useState(() => {
     const saved = localStorage.getItem("awasarNepalSavedOpportunities");
@@ -225,9 +942,50 @@ function App() {
   const [loginMessage, setLoginMessage] = useState("");
   const [loggedInUser, setLoggedInUser] = useState("");
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [showAppearanceSettings, setShowAppearanceSettings] = useState(false);
+  const [showLanguageSettings, setShowLanguageSettings] = useState(false);
+
+  const [theme, setTheme] = useState(() => localStorage.getItem("awasarTheme") || "system");
+
+  useEffect(() => {
+    const root = document.documentElement;
+
+    const applyTheme = () => {
+      const isDark =
+        theme === "dark" ||
+        (theme === "system" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+      root.setAttribute("data-theme", isDark ? "dark" : "light");
+    };
+
+    applyTheme();
+    localStorage.setItem("awasarTheme", theme);
+
+    if (theme !== "system") return;
+
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = () => applyTheme();
+
+    media.addEventListener?.("change", handleChange);
+
+    return () => {
+      media.removeEventListener?.("change", handleChange);
+    };
+  }, [theme]);
+
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [showDeleteAccountModal, setShowDeleteAccountModal] = useState(false);
   const [showHelpCenter, setShowHelpCenter] = useState(false);
+  const [showReportProblem, setShowReportProblem] = useState(false);
+  const [showHowAwasarWorks, setShowHowAwasarWorks] = useState(false);
+
+  const [reportProblemType, setReportProblemType] = useState("");
+  const [reportProblemDescription, setReportProblemDescription] = useState("");
+  const [helpArticle, setHelpArticle] = useState(null);
+const [openFaq, setOpenFaq] = useState(null);
+const [showFaq, setShowFaq] = useState(false);
+
   const [newPassword, setNewPassword] = useState("");
   const [showNewPassword, setShowNewPassword] = useState(false);
 const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -333,6 +1091,10 @@ const [acceptingInvitation, setAcceptingInvitation] = useState(false);
 const [invitationResult, setInvitationResult] = useState(null);
 
 const [adminPage, setAdminPage] = useState("dashboard");
+const [problemReports, setProblemReports] = useState([]);
+const [loadingProblemReports, setLoadingProblemReports] = useState(false);
+const [selectedProblemReport, setSelectedProblemReport] = useState(null);
+
   const [opportunityFilter, setOpportunityFilter] =
   useState("pending");
 
@@ -382,6 +1144,28 @@ const [loadingAdminInvitations, setLoadingAdminInvitations] = useState(false);
 
     fetchSubmissions();
   }, []);
+
+  useEffect(() => {
+  const fetchProblemReports = async () => {
+    setLoadingProblemReports(true);
+
+    const { data, error } = await supabase
+      .from("problem_reports")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("Error loading problem reports:", error);
+      setLoadingProblemReports(false);
+      return;
+    }
+
+    setProblemReports(data || []);
+    setLoadingProblemReports(false);
+  };
+
+  fetchProblemReports();
+}, []);
 
   useEffect(() => {
   const params = new URLSearchParams(window.location.search);
@@ -499,12 +1283,12 @@ useEffect(() => {
     }
 
     if (signupPassword.length < 6) {
-      alert("Password must be at least 6 characters.");
+      alert(t("passwordMinLengthAlert"));
       return;
     }
 
     if (signupPassword !== confirmPassword) {
-      alert("Passwords do not match.");
+      alert(t("passwordMismatchAlert"));
       return;
     }
 
@@ -1042,161 +1826,6 @@ useEffect(() => {
 
   </div>
 )}
-      {showAboutLanguage && (
-  <div className="about-language-overlay">
-
-    <div className="about-language-bg-circle circle-one"></div>
-    <div className="about-language-bg-circle circle-two"></div>
-    <div className="about-language-bg-circle circle-three"></div>
-
-    <div className="about-language-modal">
-<div className="about-language-topbar">
-
-  <button
-    className="about-language-back"
-    onClick={() => {
-      setShowAboutLanguage(false);
-      window.scrollTo(0, 0);
-    }}
-  >
-    ← Back
-  </button>
-
-  <button
-    className="about-language-close"
-    onClick={() => setShowAboutLanguage(false)}
-    aria-label="Close"
-  >
-    ×
-  </button>
-
-</div>
-
-      <div className="about-language-brand">
-        <div className="about-language-icon">
-          🌐
-        </div>
-
-        <div>
-          <strong>AWASAR NEPAL</strong>
-          <span>Opportunity for everyone</span>
-        </div>
-      </div>
-
-      <div className="about-language-heading">
-        <span className="about-language-label">
-          ABOUT AWASAR NEPAL
-        </span>
-
-        <h2>Choose your language</h2>
-
-        <p>
-          आफ्नो सुविधाअनुसार भाषा छान्नुहोस्
-        </p>
-
-        <small>
-          Select your preferred language to continue.
-        </small>
-      </div>
-
-      <div className="about-language-options">
-
-        {/* ENGLISH */}
-
-        <button
-          className={`about-language-option ${
-            aboutLanguage === "english" ? "selected" : ""
-          }`}
-          onClick={() => setAboutLanguage("english")}
-        >
-          <div className="language-option-left">
-
-            <div className="language-flag">
-              🇬🇧
-            </div>
-
-            <div className="language-option-text">
-              <h3>English</h3>
-              <p>Continue in English</p>
-            </div>
-
-          </div>
-
-          <div className="language-radio">
-            {aboutLanguage === "english" && "✓"}
-          </div>
-        </button>
-
-
-        {/* NEPALI */}
-
-        <button
-          className={`about-language-option ${
-            aboutLanguage === "nepali" ? "selected" : ""
-          }`}
-          onClick={() => setAboutLanguage("nepali")}
-        >
-          <div className="language-option-left">
-
-            <div className="language-flag">
-              🇳🇵
-            </div>
-
-            <div className="language-option-text">
-              <h3>नेपाली</h3>
-              <p>नेपालीमा जारी राख्नुहोस्</p>
-            </div>
-
-          </div>
-
-          <div className="language-radio">
-            {aboutLanguage === "nepali" && "✓"}
-          </div>
-        </button>
-
-      </div>
-
-
-      <button
-        className="about-language-continue"
-        disabled={!aboutLanguage}
-        onClick={() => {
-
-          localStorage.setItem(
-            "awasarAboutLanguage",
-            aboutLanguage
-          );
-
-          setShowAboutLanguage(false);
-
-          setCurrentPage("about");
-
-          window.scrollTo(0, 0);
-        }}
-      >
-        <span>
-          Continue
-        </span>
-
-        <span className="continue-arrow">
-          →
-        </span>
-      </button>
-
-
-      <div className="about-language-footer">
-
-        <span>🔒</span>
-
-        <p>
-          You can change your language anytime.
-        </p>
-
-      </div>
-
-    </div>
-  </div>
-)}
 
       <header className="navbar">
         <a className="logo" href="#home">
@@ -1260,8 +1889,9 @@ useEffect(() => {
   <button
     className="nav-about-btn"
     onClick={() => {
-      setShowAboutLanguage(true);
+      setCurrentPage("about");
       setMobileMenuOpen(false);
+      window.scrollTo(0, 0);
     }}
   >
     ℹ️ About
@@ -1293,6 +1923,7 @@ useEffect(() => {
           )}
 
           {loggedInUser ? (
+              <>
             <div className="user-menu-container">
 
               <button
@@ -1332,7 +1963,7 @@ useEffect(() => {
         onClick={() => setAccountMenuPage("dashboard")}
       >
         <span className="account-menu-icon">👤</span>
-        <span className="account-menu-label">My Dashboard</span>
+        <span className="account-menu-label">{t("myDashboard")}</span>
         <span className="account-menu-arrow">›</span>
       </button>
 
@@ -1341,7 +1972,7 @@ useEffect(() => {
         onClick={() => setAccountMenuPage("settings")}
       >
         <span className="account-menu-icon">⚙️</span>
-        <span className="account-menu-label">Settings & Privacy</span>
+        <span className="account-menu-label">{t("settingsPrivacy")}</span>
         <span className="account-menu-arrow">›</span>
       </button>
 
@@ -1350,7 +1981,7 @@ useEffect(() => {
         onClick={() => setAccountMenuPage("help")}
       >
         <span className="account-menu-icon">❓</span>
-        <span className="account-menu-label">Help & Support</span>
+        <span className="account-menu-label">{t("helpSupport")}</span>
         <span className="account-menu-arrow">›</span>
       </button>
 
@@ -1370,7 +2001,7 @@ useEffect(() => {
         onClick={() => setAccountMenuPage("feedback")}
       >
         <span className="account-menu-icon">💬</span>
-        <span className="account-menu-label">Give Feedback</span>
+        <span className="account-menu-label">{t("giveFeedback")}</span>
         <span className="account-menu-arrow">›</span>
       </button>
 
@@ -1392,7 +2023,7 @@ useEffect(() => {
         }}
       >
         <span className="account-menu-icon">🚪</span>
-        <span className="account-menu-label">Log Out</span>
+        <span className="account-menu-label">{t("logOut")}</span>
       </button>
     </>
   )}
@@ -1412,7 +2043,7 @@ useEffect(() => {
         </button>
 
         <span className="account-submenu-title">
-          💬 Give Feedback
+          💬 {t("giveFeedback")}
         </span>
       </div>
 
@@ -1423,11 +2054,11 @@ useEffect(() => {
           onClick={() => {
             setShowUserMenu(false);
             setAccountMenuPage("main");
-            alert("Rate Your Experience is coming soon.");
+            alert(t("rateExperienceComingSoon"));
           }}
         >
           <span>⭐</span>
-          <span>Rate Your Experience</span>
+          <span>{t("rateYourExperience")}</span>
         </button>
 
         <button
@@ -1435,11 +2066,11 @@ useEffect(() => {
           onClick={() => {
             setShowUserMenu(false);
             setAccountMenuPage("main");
-            alert("Suggest a Feature is coming soon.");
+            alert(t("suggestFeatureComingSoon"));
           }}
         >
           <span>💡</span>
-          <span>Suggest a Feature</span>
+          <span>{t("suggestAFeature")}</span>
         </button>
 
         <button
@@ -1447,11 +2078,11 @@ useEffect(() => {
           onClick={() => {
             setShowUserMenu(false);
             setAccountMenuPage("main");
-            alert("Report a Bug is coming soon.");
+            alert(t("reportBugComingSoon"));
           }}
         >
           <span>🐛</span>
-          <span>Report a Bug</span>
+          <span>{t("reportABug")}</span>
         </button>
 
         <button
@@ -1459,11 +2090,11 @@ useEffect(() => {
           onClick={() => {
             setShowUserMenu(false);
             setAccountMenuPage("main");
-            alert("General Feedback is coming soon.");
+            alert(t("generalFeedbackComingSoon"));
           }}
         >
           <span>💬</span>
-          <span>General Feedback</span>
+          <span>{t("generalFeedback")}</span>
         </button>
 
       </div>
@@ -1485,7 +2116,7 @@ useEffect(() => {
         </button>
 
         <span className="account-submenu-title">
-          👤 My Dashboard
+          👤 {t("myDashboard")}
         </span>
       </div>
 
@@ -1500,7 +2131,7 @@ useEffect(() => {
           }}
         >
           <span>✏️</span>
-          <span>Edit Profile</span>
+          <span>{t("editProfile")}</span>
         </button>
 
         <button
@@ -1512,7 +2143,7 @@ useEffect(() => {
 }}
         >
           <span>❤️</span>
-          <span>Saved Opportunities</span>
+          <span>{t("savedOpportunities")}</span>
         </button>
 
         <button
@@ -1524,29 +2155,29 @@ useEffect(() => {
           }}
         >
           <span>📋</span>
-          <span>My Applications</span>
+          <span>{t("myApplications")}</span>
         </button>
 
         <button
           className="account-submenu-item"
           onClick={() => {
             setShowUserMenu(false);
-            alert("Recently Viewed is coming soon.");
+            alert(t("recentlyViewedComingSoon"));
           }}
         >
           <span>🕐</span>
-          <span>Recently Viewed</span>
+          <span>{t("recentlyViewed")}</span>
         </button>
 
         <button
           className="account-submenu-item"
           onClick={() => {
             setShowUserMenu(false);
-            alert("My Deadline Alerts is coming soon.");
+            alert(t("myDeadlineAlertsComingSoon"));
           }}
         >
           <span>🔔</span>
-          <span>My Deadline Alerts</span>
+          <span>{t("myDeadlineAlerts")}</span>
         </button>
 
       </div>
@@ -1568,7 +2199,7 @@ useEffect(() => {
       </button>
 
       <span className="account-submenu-title">
-        ⚙️ Settings & Privacy
+        ⚙️ {t("settingsPrivacy")}
       </span>
     </div>
 
@@ -1579,7 +2210,7 @@ useEffect(() => {
         onClick={() => setAccountMenuPage("security")}
       >
         <span>🔐</span>
-        <span>Account & Security</span>
+        <span>{t("accountSecurity")}</span>
         <span className="account-menu-arrow">›</span>
       </button>
 
@@ -1591,7 +2222,7 @@ useEffect(() => {
   }}
 >
   <span>👤</span>
-  <span>Profile Privacy</span>
+  <span>{t("profilePrivacy")}</span>
   <span className="account-menu-arrow">›</span>
 </button>
 
@@ -1603,7 +2234,7 @@ useEffect(() => {
   }}
 >
   <span>🔔</span>
-  <span>Notifications</span>
+  <span>{t("notifications")}</span>
   <span className="account-menu-arrow">›</span>
 </button>
 
@@ -1612,7 +2243,7 @@ useEffect(() => {
         onClick={() => setAccountMenuPage("account-management")}
       >
         <span>🗑️</span>
-        <span>Account Management</span>
+        <span>{t("accountManagement")}</span>
         <span className="account-menu-arrow">›</span>
       </button>
 
@@ -1633,7 +2264,7 @@ useEffect(() => {
       </button>
 
       <span className="account-submenu-title">
-        🔐 Account & Security
+        🔐 {t("accountSecurity")}
       </span>
     </div>
 
@@ -1647,7 +2278,7 @@ useEffect(() => {
   }}
 >
   <span>🔑</span>
-  <span>Change Password</span>
+  <span>{t("changePassword")}</span>
 </button>
 
      <button
@@ -1658,7 +2289,7 @@ useEffect(() => {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      alert("You must be logged in.");
+      alert(t("youMustBeLoggedIn"));
       return;
     }
 
@@ -1668,7 +2299,7 @@ useEffect(() => {
   }}
 >
   <span>📧</span>
-  <span>Email & Phone</span>
+  <span>{t("emailPhone")}</span>
   <span className="account-menu-arrow">›</span>
 </button>
 
@@ -1676,11 +2307,11 @@ useEffect(() => {
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          alert("Login & Security settings are coming soon.");
+          alert(t("loginSecurityComingSoon"));
         }}
       >
         <span>🔒</span>
-        <span>Login & Security</span>
+        <span>{t("loginSecurity")}</span>
       </button>
 
     </div>
@@ -1700,7 +2331,7 @@ useEffect(() => {
       </button>
 
       <span className="account-submenu-title">
-        👤 Profile Privacy
+        👤 {t("profilePrivacy")}
       </span>
     </div>
 
@@ -1710,22 +2341,22 @@ useEffect(() => {
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          alert("Profile Visibility settings are coming soon.");
+          alert(t("profileVisibilityComingSoon"));
         }}
       >
         <span>👁️</span>
-        <span>Profile Visibility</span>
+        <span>{t("profileVisibility")}</span>
       </button>
 
       <button
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          alert("Personal Information settings are coming soon.");
+          alert(t("personalInformationComingSoon"));
         }}
       >
         <span>🪪</span>
-        <span>Personal Information</span>
+        <span>{t("personalInformation")}</span>
       </button>
 
     </div>
@@ -1745,7 +2376,7 @@ useEffect(() => {
       </button>
 
       <span className="account-submenu-title">
-        🔔 Notifications
+        🔔 {t("notifications")}
       </span>
     </div>
 
@@ -1755,33 +2386,33 @@ useEffect(() => {
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          alert("Opportunity Alerts settings are coming soon.");
+          alert(t("opportunityAlertsComingSoon"));
         }}
       >
         <span>🎯</span>
-        <span>Opportunity Alerts</span>
+        <span>{t("opportunityAlerts")}</span>
       </button>
 
       <button
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          alert("Application Updates settings are coming soon.");
+          alert(t("applicationUpdatesComingSoon"));
         }}
       >
         <span>📋</span>
-        <span>Application Updates</span>
+        <span>{t("applicationUpdates")}</span>
       </button>
 
       <button
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          alert("Email Notifications settings are coming soon.");
+          alert(t("emailNotificationsComingSoon"));
         }}
       >
         <span>📧</span>
-        <span>Email Notifications</span>
+        <span>{t("emailNotifications")}</span>
       </button>
 
     </div>
@@ -1801,7 +2432,7 @@ useEffect(() => {
       </button>
 
       <span className="account-submenu-title">
-        🗑️ Account Management
+        🗑️ {t("accountManagement")}
       </span>
     </div>
 
@@ -1815,7 +2446,7 @@ useEffect(() => {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      alert("You must be logged in.");
+      alert(t("youMustBeLoggedIn"));
       return;
     }
 
@@ -1848,11 +2479,11 @@ useEffect(() => {
 
     setShowUserMenu(false);
 
-    alert("Your Awasar Nepal account data has been downloaded.");
+    alert(t("accountDataDownloaded"));
   }}
 >
   <span>⬇️</span>
-  <span>Download My Data</span>
+  <span>{t("downloadMyData")}</span>
 </button>
 <button
   className="account-submenu-item account-menu-danger"
@@ -1862,7 +2493,7 @@ useEffect(() => {
   }}
 >
   <span>🗑️</span>
-  <span>Delete Account</span>
+  <span>{t("deleteAccount")}</span>
 </button>
      
     </div>
@@ -1883,7 +2514,7 @@ useEffect(() => {
       </button>
 
       <span className="account-submenu-title">
-        ❓ Help & Support
+        ❓ {t("helpSupport")}
       </span>
     </div>
 
@@ -1897,51 +2528,41 @@ useEffect(() => {
         }}
       >
         <span>❓</span>
-        <span>Help Center</span>
+        <span>{t("helpCenter")}</span>
       </button>
+
 
       <button
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          alert("Frequently Asked Questions are coming soon.");
-        }}
-      >
-        <span>📖</span>
-        <span>Frequently Asked Questions (FAQ)</span>
-      </button>
-
-      <button
-        className="account-submenu-item"
-        onClick={() => {
-          setShowUserMenu(false);
-          alert("Contact Support is coming soon.");
+          alert(t("contactSupportComingSoon"));
         }}
       >
         <span>📩</span>
-        <span>Contact Support</span>
+        <span>{t("contactSupport")}</span>
       </button>
 
       <button
         className="account-submenu-item"
-        onClick={() => {
-          setShowUserMenu(false);
-          alert("Report a Problem is coming soon.");
-        }}
+       onClick={() => {
+  setShowUserMenu(false);
+  setShowReportProblem(true);
+}}
       >
         <span>🐛</span>
-        <span>Report a Problem</span>
+        <span>{t("reportProblem")}</span>
       </button>
 
       <button
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          alert("How Awasar Nepal Works is coming soon.");
+          setShowHowAwasarWorks(true);
         }}
       >
         <span>📚</span>
-        <span>How Awasar Nepal Works</span>
+        <span>{t("howAwasarWorks")}</span>
       </button>
 
     </div>
@@ -1961,7 +2582,7 @@ useEffect(() => {
       </button>
 
       <span className="account-submenu-title">
-        🖥️ Display & Accessibility
+        🖥️ {t("displayAccessibility")}
       </span>
     </div>
 
@@ -1971,35 +2592,35 @@ useEffect(() => {
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          alert("Appearance settings are coming soon.");
+          setShowAppearanceSettings(true);
         }}
       >
         <span>🌙</span>
-        <span>Appearance</span>
+        <span>{t("appearance")}</span>
         <span className="account-menu-arrow">›</span>
       </button>
+
+      <button
+  className="account-submenu-item"
+  onClick={() => {
+    setShowUserMenu(false);
+    setShowLanguageSettings(true);
+  }}
+>
+  <span>🌐</span>
+  <span>{t("language")}</span>
+  <span className="account-menu-arrow">›</span>
+</button>
 
       <button
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          alert("Language settings are coming soon.");
-        }}
-      >
-        <span>🌐</span>
-        <span>Language</span>
-        <span className="account-menu-arrow">›</span>
-      </button>
-
-      <button
-        className="account-submenu-item"
-        onClick={() => {
-          setShowUserMenu(false);
-          alert("Text Size settings are coming soon.");
+          alert(t("textSizeComingSoon"));
         }}
       >
         <span>🔤</span>
-        <span>Text Size</span>
+        <span>{t("textSize")}</span>
         <span className="account-menu-arrow">›</span>
       </button>
 
@@ -2007,11 +2628,11 @@ useEffect(() => {
         className="account-submenu-item"
         onClick={() => {
           setShowUserMenu(false);
-          alert("Accessibility settings are coming soon.");
+          alert(t("accessibilityComingSoon"));
         }}
       >
         <span>♿</span>
-        <span>Accessibility</span>
+        <span>{t("accessibility")}</span>
         <span className="account-menu-arrow">›</span>
       </button>
 
@@ -2022,19 +2643,26 @@ useEffect(() => {
        </div>
 )}
 
+
+
 {showHelpCenter && (
   <div className="help-center-overlay">
     <div className="help-center-modal">
 
       <div className="help-center-header">
         <div>
-          <h3>❓ Help Center</h3>
-          <p>Find answers and learn how to use Awasar Nepal.</p>
+          <h3>❓ {t("helpCenter")}</h3>
+          <p>{t("helpCenterDescription")}</p>
         </div>
 
         <button
           className="help-center-close"
-          onClick={() => setShowHelpCenter(false)}
+          onClick={() => {
+            setShowHelpCenter(false);
+            setHelpArticle(null);
+            setAccountMenuPage("main");
+            setShowUserMenu(true);
+          }}
           aria-label="Close"
         >
           ×
@@ -2045,44 +2673,634 @@ useEffect(() => {
         <span>🔍</span>
         <input
           type="text"
-          placeholder="Search help..."
+          placeholder={t("searchHelp")}
         />
       </div>
 
-      <div className="help-center-section">
-        <h4>🚀 Getting Started</h4>
+{helpArticle === "create-account" && (
+  <div className="help-article">
+    <button
+      className="help-article-back"
+      onClick={() => setHelpArticle(null)}
+    >
+      ← Back to Help Center
+    </button>
 
-        <button className="help-center-item">
-          <span>👤</span>
-          <span>How to create an account</span>
-          <span>›</span>
+    <h3>👤 {t("createAccountTitle")}</h3>
+
+    <p>
+      Create your Awasar Nepal account in a few simple steps.
+    </p>
+
+    <ol>
+      <li>Click the <strong>{t("signUpOption")}</strong> option.</li>
+      <li>Enter your basic information.</li>
+      <li>Choose a secure password.</li>
+      <li>Submit the registration form.</li>
+      <li>After signing up, you can use your account to save and manage opportunities.</li>
+    </ol>
+  </div>
+)}
+
+{helpArticle === "find-opportunities" && (
+  <div className="help-article">
+    <button
+      className="help-article-back"
+      onClick={() => setHelpArticle(null)}
+    >
+      {t("backToHelpCenter")}
+    </button>
+
+    <h3>🔎 {t("findOpportunitiesTitle")}</h3>
+
+    <p>
+      {t("findOpportunitiesDescription")}
+    </p>
+
+    <ol>
+      <li>{t("openAwasarHomepage")}</li>
+      <li>{t("useSearchBox")}</li>
+      <li>{t("selectOpportunityCategory")}</li>
+      <li>{t("useFiltersToNarrow")}</li>
+      <li>{t("openOpportunityDetails")}</li>
+    </ol>
+  </div>
+)}
+
+{helpArticle === "save-opportunities" && (
+  <div className="help-article">
+    <button
+      className="help-article-back"
+      onClick={() => setHelpArticle(null)}
+    >
+      {t("backToHelpCenter")}
+    </button>
+
+    <h3>❤️ {t("saveOpportunitiesTitle")}</h3>
+
+    <p>
+      {t("saveOpportunitiesDescription")}
+    </p>
+
+    <ol>
+      <li>{t("openInterestedOpportunity")}</li>
+      <li>{t("clickSaveOption")}</li>
+      <li>{t("opportunityAddedToSavedList")}</li>
+      <li>{t("openDashboardSavedOpportunities")}</li>
+    </ol>
+  </div>
+)}
+
+{helpArticle === "apply" && (
+  <div className="help-article">
+    <button
+      className="help-article-back"
+      onClick={() => setHelpArticle(null)}
+    >
+      {t("backToHelpCenter")}
+    </button>
+
+    <h3>📩 {t("applyTitle")}</h3>
+
+    <p>
+      {t("applyDescription")}
+    </p>
+
+    <ol>
+      <li>{t("openOpportunityToApply")}</li>
+      <li>{t("readEligibilityRequirements")}</li>
+      <li>{t("checkApplicationDeadline")}</li>
+      <li>{t("clickApplicationLink")}</li>
+      <li>{t("completeApplicationOfficialPlatform")}</li>
+    </ol>
+  </div>
+)}
+{helpArticle === "browse-categories" && (
+  <div className="help-article">
+    <button
+      className="help-article-back"
+      onClick={() => setHelpArticle(null)}
+    >
+      {t("backToHelpCenter")}
+    </button>
+
+    <h3>📚 {t("browseCategoriesTitle")}</h3>
+
+    <p>
+      Awasar Nepal मा विभिन्न प्रकारका opportunities category अनुसार सजिलै खोज्न सकिन्छ।
+    </p>
+
+    <ol>
+      <li>{t("openOpportunitiesSection")}</li>
+      <li>{t("selectCategory")}</li>
+      <li>{t("browseAvailableOpportunities")}</li>
+      <li>{t("browseOpenOpportunityDetails")}</li>
+    </ol>
+  </div>
+)}
+
+        {helpArticle === "search-filter" && (
+    <div className="help-article">
+      <button
+        className="help-article-back"
+        onClick={() => setHelpArticle(null)}
+      >
+        {t("backToHelpCenter")}
+      </button>
+
+      <h3>🔎 {t("searchFilterTitle")}</h3>
+
+      <p>
+        Awasar Nepal मा आफ्नो आवश्यकता अनुसार opportunities खोज्न र filter गर्न सकिन्छ।
+      </p>
+
+      <ol>
+        <li>{t("openAwasarHomepageSearch")}</li>
+        <li>{t("enterKeywordSearchBox")}</li>
+        <li>{t("selectSearchCategory")}</li>
+        <li>{t("useAvailableFilters")}</li>
+        <li>{t("openOpportunityEligibility")}</li>
+      </ol>
+    </div>
+  )}
+
+  {!helpArticle && (
+          <>
+            <div className="help-center-section">
+              <h4>🚀 {t("gettingStarted")}</h4>
+
+              <button
+                className="help-center-item"
+                onClick={() => setHelpArticle("create-account")}
+              >
+                <span>👤</span>
+                <span>{t("howToCreateAccount")}</span>
+                <span>›</span>
+              </button>
+
+              <button
+                className="help-center-item"
+                onClick={() => setHelpArticle("find-opportunities")}
+              >
+                <span>🔎</span>
+                <span>{t("howToFindOpportunities")}</span>
+                <span>›</span>
+              </button>
+
+                <button
+                  className="help-center-item"
+                  onClick={() => setHelpArticle("save-opportunities")}
+                >
+                  <span>❤️</span>
+                  <span>{t("howToSaveOpportunities")}</span>
+                  <span>›</span>
+                </button>
+
+                <button
+                  className="help-center-item"
+                  onClick={() => setHelpArticle("apply")}
+                >
+                  <span>📩</span>
+                  <span>{t("howToApply")}</span>
+                  <span>›</span>
+                </button>
+              </div>
+
+              <div className="help-center-section">
+                <h4>🎯 {t("findingOpportunities")}</h4>
+
+                <button
+                  className="help-center-item"
+                  onClick={() => setHelpArticle("browse-categories")}
+                >
+                  <span>📚</span>
+                  <span>{t("browseOpportunitiesByCategory")}</span>
+                  <span>›</span>
+                </button>
+
+                <button
+                  className="help-center-item"
+                  onClick={() => setHelpArticle("search-filter")}
+                >
+                  <span>🔎</span>
+                  <span>{t("searchFilterOpportunities")}</span>
+                  <span>›</span>
+                </button>
+
+                <button
+                  className="help-center-item"
+                  onClick={() => setHelpArticle("check-deadline")}
+                >
+                  <span>⏰</span>
+                  <span>{t("checkOpportunityDeadlines")}</span>
+                  <span>›</span>
+                </button>
+              </div>
+
+              <div className="help-center-section">
+                <h4>📚 {t("frequentlyAskedQuestions")}</h4>
+
+              <div className="faq-list">
+
+                <button
+                  className="faq-question"
+                  onClick={() => setOpenFaq(openFaq === 1 ? null : 1)}
+                >
+                  <span>{t("faqWhatIsAwasar")}</span>
+                  <span>{openFaq === 1 ? "⌃" : "⌄"}</span>
+                </button>
+
+                {openFaq === 1 && (
+                  <div className="faq-answer">
+                    {t("faqWhatIsAwasarAnswer")}
+                  </div>
+                )}
+
+                <button
+                  className="faq-question"
+                  onClick={() => setOpenFaq(openFaq === 2 ? null : 2)}
+                >
+                  <span>{t("faqCreateAccount")}</span>
+                  <span>{openFaq === 2 ? "⌃" : "⌄"}</span>
+                </button>
+
+                {openFaq === 2 && (
+                  <div className="faq-answer">
+                    {t("faqCreateAccountAnswer")}
+                  </div>
+                )}
+
+                <button
+                  className="faq-question"
+                  onClick={() => setOpenFaq(openFaq === 3 ? null : 3)}
+                >
+                  <span>{t("faqFindOpportunity")}</span>
+                  <span>{openFaq === 3 ? "⌃" : "⌄"}</span>
+                </button>
+
+                {openFaq === 3 && (
+                  <div className="faq-answer">
+                    {t("faqFindOpportunityAnswer")}
+                  </div>
+                )}
+
+              </div>
+            </div>
+
+            <div className="help-center-contact">
+              <span>📩</span>
+              <div>
+                <strong>{t("stillNeedHelp")}</strong>
+                <p>{t("contactSupportTeam")}</p>
+              </div>
+            </div>
+          </>
+        )}
+        </div>
+      </div>
+    )}
+
+   {showHowAwasarWorks && (
+  <div className="how-works-overlay">
+    <div className="how-works-modal">
+
+      <button
+        className="login-close"
+        onClick={() => setShowHowAwasarWorks(false)}
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div className="how-works-icon">📚</div>
+
+      <h2>{t("howWorksTitle")}</h2>
+
+      <p className="how-works-intro">
+        {t("howWorksIntro")}
+      </p>
+
+      <div className="how-works-steps">
+
+        <div className="how-works-step">
+          <div className="how-works-step-icon">🔎</div>
+          <div>
+            <h3>{t("howWorksStep1Title")}</h3>
+            <p>
+              {t("howWorksStep1Text")}
+            </p>
+          </div>
+        </div>
+
+        <div className="how-works-step">
+          <div className="how-works-step-icon">🎯</div>
+          <div>
+            <h3>{t("howWorksStep2Title")}</h3>
+            <p>
+              {t("howWorksStep2Text")}
+            </p>
+          </div>
+        </div>
+
+        <div className="how-works-step">
+          <div className="how-works-step-icon">📖</div>
+          <div>
+            <h3>{t("howWorksStep3Title")}</h3>
+            <p>
+              {t("howWorksStep3Text")}
+            </p>
+          </div>
+        </div>
+
+        <div className="how-works-step">
+          <div className="how-works-step-icon">🚀</div>
+          <div>
+            <h3>{t("howWorksStep4Title")}</h3>
+            <p>
+              {t("howWorksStep4Text")}
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div className="how-works-note">
+        🇳🇵 <strong>Awasar Nepal</strong> — {t("howWorksNote")}
+      </div>
+<button
+  className="hero-primary-btn"
+  onClick={() => {
+    setShowHowAwasarWorks(false);
+    setCurrentPage("opportunities");
+  }}
+>
+  🔎 Explore Opportunities
+</button>
+    </div>
+  </div>
+)}
+
+{showReportProblem && (
+  <div className="report-problem-overlay">
+    <div className="report-problem-modal">
+
+      <button
+        className="login-close"
+        onClick={() => {
+          setShowReportProblem(false);
+          setReportProblemType("");
+          setReportProblemDescription("");
+          setAccountMenuPage("help");
+          setShowUserMenu(true);
+        }}
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div className="login-logo">🐛</div>
+
+      <h2>{t("reportProblemTitle")}</h2>
+
+      <p>
+        {t("reportProblemDescription")}
+      </p>
+
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+
+          if (!reportProblemType || !reportProblemDescription.trim()) {
+            alert(t("reportProblemValidation"));
+            return;
+          }
+
+         const { error } = await supabase
+  .from("problem_reports")
+  .insert([
+    {
+      reporter_name: loggedInUser || "Unknown User",
+      reporter_email: loggedInEmail || "Not available",
+      problem_type: reportProblemType,
+      description: reportProblemDescription.trim(),
+    },
+  ]);
+
+if (error) {
+  console.error("Report problem error:", error);
+  alert(t("reportProblemSubmitError"));
+  return;
+}
+
+alert(t("reportProblemSuccess"));
+
+setShowReportProblem(false);
+setReportProblemType("");
+setReportProblemDescription("");
+setAccountMenuPage("help");
+setShowUserMenu(true);
+        }}
+      >
+        <label>{t("problemType")}</label>
+
+        <select
+          value={reportProblemType}
+          onChange={(e) => setReportProblemType(e.target.value)}
+        >
+          <option value="">{t("selectProblemType")}</option>
+          <option value="Website Bug">{t("websiteBug")}</option>
+          <option value="Login / Account Problem">{t("loginAccountProblem")}</option>
+          <option value="Opportunity Information">{t("opportunityInformation")}</option>
+          <option value="Search / Filter Problem">{t("searchFilterProblem")}</option>
+          <option value="Saved Opportunities">{t("savedOpportunitiesProblem")}</option>
+          <option value="Other">{t("otherProblem")}</option>
+        </select>
+
+        <label>{t("describeProblem")}</label>
+
+        <textarea
+          rows="5"
+          placeholder={t("problemDescriptionPlaceholder")}
+          value={reportProblemDescription}
+          onChange={(e) => setReportProblemDescription(e.target.value)}
+        />
+
+        <button type="submit" className="login-submit">
+          {t("submitReport")}
         </button>
+      </form>
 
-        <button className="help-center-item">
-          <span>🔎</span>
-          <span>How to find opportunities</span>
-          <span>›</span>
-        </button>
+    </div>
+  </div>
+)}
 
-        <button className="help-center-item">
-          <span>❤️</span>
-          <span>How to save opportunities</span>
-          <span>›</span>
-        </button>
+{selectedProblemReport && (
+  <div className="report-detail-overlay">
+    <div className="report-detail-modal">
 
-        <button className="help-center-item">
-          <span>📩</span>
-          <span>How to apply</span>
-          <span>›</span>
+      <div className="report-detail-top">
+        <div className="report-detail-title-area">
+          <div className="report-detail-icon">
+            🐛
+          </div>
+
+          <div>
+            <div className="report-detail-label">
+              USER REPORT
+            </div>
+
+            <div className="report-detail-title">
+              {selectedProblemReport.problem_type || "Problem Report"}
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          className="report-detail-close"
+          onClick={() => setSelectedProblemReport(null)}
+        >
+          ×
         </button>
       </div>
 
-      <div className="help-center-contact">
-        <span>📩</span>
-        <div>
-          <strong>Still need help?</strong>
-          <p>Contact our support team for assistance.</p>
+      <div className="report-detail-divider"></div>
+
+      <div className="report-detail-content">
+
+        <div className="report-detail-block">
+          <div className="report-detail-block-title">
+            Reporter Information
+          </div>
+
+          <div className="report-detail-reporter">
+
+            <div className="report-detail-field">
+              <span className="report-detail-field-icon">👤</span>
+
+              <div>
+                <div className="report-detail-field-label">
+                  Reported by
+                </div>
+
+                <div className="report-detail-field-value">
+                  {selectedProblemReport.reporter_name || "Unknown User"}
+                </div>
+              </div>
+            </div>
+
+            <div className="report-detail-field">
+              <span className="report-detail-field-icon">✉️</span>
+
+              <div>
+                <div className="report-detail-field-label">
+                  Email
+                </div>
+
+                <div className="report-detail-field-value">
+                  {selectedProblemReport.reporter_email || "No email"}
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
+
+        <div className="report-detail-block">
+
+          <div className="report-detail-block-title">
+            Report Status
+          </div>
+
+          <div className="report-detail-status-row">
+
+            <div className="report-detail-status-card">
+              <div className="report-detail-field-label">
+                Status
+              </div>
+
+              <span className="report-status-badge">
+                {selectedProblemReport.status || "New"}
+              </span>
+            </div>
+
+            <div className="report-detail-status-card">
+              <div className="report-detail-field-label">
+                Priority
+              </div>
+
+              <span className="report-priority-badge">
+                {selectedProblemReport.priority || "Normal"}
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div className="report-detail-block">
+
+          <div className="report-detail-block-title">
+            Problem Description
+          </div>
+
+          <div className="report-description-box">
+            {selectedProblemReport.description || "No description provided."}
+          </div>
+
+        </div>
+
+      </div>
+
+      <div className="report-detail-actions">
+        <button
+          type="button"
+          className="report-delete-button"
+          onClick={async () => {
+            const confirmed = window.confirm(
+              "Are you sure you want to delete this report?"
+            );
+
+            if (!confirmed) {
+              return;
+            }
+
+            const { error } = await supabase
+  .from("problem_reports")
+  .delete()
+  .eq("id", selectedProblemReport.id);
+
+if (error) {
+  console.error("Error deleting report:", error);
+  alert("Failed to delete report. Please try again.");
+  return;
+}
+
+setProblemReports((prevReports) =>
+  prevReports.filter(
+    (report) => report.id !== selectedProblemReport.id
+  )
+);
+
+setSelectedProblemReport(null);
+
+alert("Report deleted successfully.");
+          }}
+        >
+          🗑️ Delete Report
+        </button>
+      </div>
+
+      <div className="report-detail-bottom">
+        <span>🕒 Reported on</span>
+
+        <strong>
+          {selectedProblemReport.created_at
+            ? new Date(
+                selectedProblemReport.created_at
+              ).toLocaleString()
+            : "Unknown"}
+        </strong>
       </div>
 
     </div>
@@ -2112,18 +3330,17 @@ useEffect(() => {
 
       <div className="delete-account-body">
 
-        <h3>Delete Account</h3>
+        <h3>{t("deleteAccount")}</h3>
 
         <p className="delete-account-warning">
-          Are you sure you want to delete your Awasar Nepal account?
+          {t("deleteAccountWarning")}
         </p>
 
         <div className="delete-account-info">
           <span>⚠️</span>
 
           <p>
-            Account deletion is a permanent action. Your account
-            information may no longer be available after deletion.
+            {t("deleteAccountInfo")}
           </p>
         </div>
 
@@ -2134,19 +3351,17 @@ useEffect(() => {
             className="delete-account-cancel"
             onClick={() => setShowDeleteAccountModal(false)}
           >
-            Cancel
+            {t("cancel")}
           </button>
 
           <button
             type="button"
             className="delete-account-confirm"
             onClick={() => {
-              alert(
-                "Account deletion is not available yet. Your account has not been deleted."
-              );
+              alert(t("accountDeletionUnavailable"));
             }}
           >
-            Delete Account
+            {t("deleteAccount")}
           </button>
 
         </div>
@@ -2164,8 +3379,8 @@ useEffect(() => {
 
       <div className="email-phone-modal-header">
         <div>
-          <h3>🔐 Change Password</h3>
-          <p>Update your password to keep your account secure.</p>
+          <h3>🔐 {t("changePassword")}</h3>
+          <p>{t("changePasswordDescription")}</p>
         </div>
 
         <button
@@ -2178,13 +3393,13 @@ useEffect(() => {
       </div>
 
       <div className="password-form-group">
-        <label>New Password</label>
+        <label>{t("newPassword")}</label>
 
         <div className="password-input-wrapper">
           
 <input
   type={showNewPassword ? "text" : "password"}
-  placeholder="Enter new password"
+  placeholder={t("enterNewPassword")}
   className="password-modal-input"
   value={newPassword}
   onChange={(e) => setNewPassword(e.target.value)}
@@ -2202,13 +3417,13 @@ useEffect(() => {
       </div>
 
       <div className="password-form-group">
-        <label>Confirm New Password</label>
+        <label>{t("confirmNewPassword")}</label>
 
         <div className="password-input-wrapper">
 
         <input
   type={showConfirmPassword ? "text" : "password"}
-  placeholder="Confirm new password"
+  placeholder={t("confirmNewPasswordPlaceholder")}
   className="password-modal-input"
   value={confirmPassword}
   onChange={(e) => setConfirmPassword(e.target.value)}
@@ -2232,7 +3447,7 @@ useEffect(() => {
   className="password-modal-save"
   onClick={async () => {
     if (!newPassword || !confirmPassword) {
-      alert("Please enter and confirm your new password.");
+      alert(t("enterConfirmPasswordAlert"));
       return;
     }
 
@@ -2276,8 +3491,9 @@ useEffect(() => {
     </div>
   </div>
 )}
+              </div>
+              </>
 
-            </div>
           ) : (
             <>
               <button className="login-btn" onClick={() => setShowLogin(true)}>
@@ -2288,7 +3504,7 @@ useEffect(() => {
                 className="signup-btn"
                 onClick={() => setShowSignup(true)}
               >
-                Get Started
+                {t("getStarted")}
               </button>
             </>
           )}
@@ -2320,24 +3536,21 @@ useEffect(() => {
             </div>
             <div className="hero-content">
               <div className="badge">
-                🇳🇵 Built for Nepal · Open opportunities for everyone
+                {t("builtForNepal")}
               </div>
 
               <h1>
-                Find the opportunity
-                <span> made for you.</span>
+                {t("heroTitleMain")}
+                <span>{t("heroTitleAccent")}</span>
               </h1>
 
-              <p>
-                Scholarships, jobs, internships, training, competitions and more
-                — discover opportunities that match your goals.
-              </p>
+              <p>{t("heroDescription")}</p>
 
               <div className="search-box">
                 <span>🔍</span>
                 <input
                   type="text"
-                  placeholder="Search opportunities..."
+                  placeholder={t("searchOpportunities")}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -2348,7 +3561,7 @@ useEffect(() => {
                       .scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  Search
+                  {t("search")}
                 </button>
               </div>
 
@@ -2357,19 +3570,19 @@ useEffect(() => {
                   className="hero-primary-btn"
                   onClick={() => setCurrentPage("opportunities")}
                 >
-                  🔎 Explore Opportunities
+                  {t("exploreOpportunities")}
                 </button>
 
                 <button
                   className="hero-secondary-btn"
                   onClick={() => setShowAIFinder(true)}
                 >
-                  🤖 Find My Opportunity
+                  {t("findMyOpportunity")}
                 </button>
               </div>
 
               <div className="quick-search">
-                <span>Popular:</span>
+                <span>{t("popular")}</span>
 
                 <button
                   onClick={() => {
@@ -2379,7 +3592,7 @@ useEffect(() => {
                       .scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  Scholarship
+                  {t("scholarshipShort")}
                 </button>
 
                 <button
@@ -2390,7 +3603,7 @@ useEffect(() => {
                       .scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  Internship
+                  {t("internshipShort")}
                 </button>
 
                 <button
@@ -2401,7 +3614,7 @@ useEffect(() => {
                       .scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  Job
+                  {t("jobShort")}
                 </button>
 
                 <button
@@ -2412,7 +3625,7 @@ useEffect(() => {
                       .scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  Training
+                  {t("trainingShort")}
                 </button>
               </div>
             </div>
@@ -2434,24 +3647,24 @@ useEffect(() => {
                 <div className="floating-card card-one">
                   <span>🎓</span>
                   <div>
-                    <b>Scholarship</b>
-                    <small>96% match</small>
+                    <b>{t("scholarshipShort")}</b>
+                    <small>96% {t("match")}</small>
                   </div>
                 </div>
 
                 <div className="floating-card card-two">
                   <span>💼</span>
                   <div>
-                    <b>New Job</b>
-                    <small>Just added</small>
+                    <b>{t("newJob")}</b>
+                    <small>{t("justAdded")}</small>
                   </div>
                 </div>
 
                 <div className="floating-card card-three">
                   <span>🚀</span>
                   <div>
-                    <b>Opportunity</b>
-                    <small>For you</small>
+                    <b>{t("opportunity")}</b>
+                    <small>{t("forYou")}</small>
                   </div>
                 </div>
               </div>
@@ -2461,29 +3674,29 @@ useEffect(() => {
           <section className="stats">
             <div>
               <strong>1,000+</strong>
-              <span>Opportunities</span>
+              <span>{t("opportunities")}</span>
             </div>
             <div>
               <strong>50+</strong>
-              <span>Organizations</span>
+              <span>{t("organizations")}</span>
             </div>
             <div>
               <strong>10+</strong>
-              <span>Categories</span>
+              <span>{t("categories")}</span>
             </div>
             <div>
               <strong>100%</strong>
-              <span>Made for Nepal</span>
+              <span>{t("madeForNepal")}</span>
             </div>
           </section>
 
           <section className="section categories-section" id="categories">
             <div className="section-heading">
               <div>
-                <span className="eyebrow">EXPLORE</span>
-                <h2>What are you looking for?</h2>
+                <span className="eyebrow">{t("explore")}</span>
+                <h2>{t("whatLookingFor")}</h2>
               </div>
-              <a href="#">View all →</a>
+              <a href="#">{t("viewAll")} →</a>
             </div>
 
             <div className="category-grid">
@@ -2500,8 +3713,36 @@ useEffect(() => {
                   }}
                 >
                   <div className="category-icon">{category.icon}</div>
-                  <h3>{category.title}</h3>
-                  <p>{category.text}</p>
+                  <h3>
+                    {t(
+                      category.type === "SCHOLARSHIP"
+                        ? "categoryScholarships"
+                        : category.type === "JOB"
+                          ? "categoryJobs"
+                          : category.type === "INTERNSHIP"
+                            ? "categoryInternships"
+                            : category.type === "TRAINING"
+                              ? "categoryTraining"
+                              : category.type === "COMPETITION"
+                                ? "categoryCompetitions"
+                                : "categoryBusiness"
+                    )}
+                  </h3>
+                  <p>
+                    {t(
+                      category.type === "SCHOLARSHIP"
+                        ? "categoryScholarshipsText"
+                        : category.type === "JOB"
+                          ? "categoryJobsText"
+                          : category.type === "INTERNSHIP"
+                            ? "categoryInternshipsText"
+                            : category.type === "TRAINING"
+                              ? "categoryTrainingText"
+                              : category.type === "COMPETITION"
+                                ? "categoryCompetitionsText"
+                                : "categoryBusinessText"
+                    )}
+                  </p>
                   <span className="arrow">→</span>
                 </article>
               ))}
@@ -2545,14 +3786,16 @@ useEffect(() => {
             ></div>
             <div className="section-heading">
               <div>
-                <span className="eyebrow">DISCOVER</span>
-                <h2>Opportunities for you</h2>
+                <span className="eyebrow">{t("discover")}</span>
+                <h2>{t("opportunitiesForYou")}</h2>
               </div>
               <button
                 className="explore-all-btn"
                 onClick={() => setShowAllOpportunities(!showAllOpportunities)}
               >
-                {showAllOpportunities ? "Show Less ↑" : "Explore All →"}
+                {showAllOpportunities
+                  ? `${t("showLess")} ↑`
+                  : `${t("exploreAll")} →`}
               </button>
             </div>
 
@@ -2561,27 +3804,27 @@ useEffect(() => {
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
               >
-                <option value="">All Categories</option>
-                <option value="SCHOLARSHIP">Scholarships</option>
-                <option value="JOB">Jobs</option>
-                <option value="INTERNSHIP">Internships</option>
-                <option value="TRAINING">Training</option>
-                <option value="COMPETITION">Competitions</option>
-                <option value="BUSINESS">Business</option>
+                <option value="">{t("allCategories")}</option>
+                <option value="SCHOLARSHIP">{t("scholarships")}</option>
+                <option value="JOB">{t("jobs")}</option>
+                <option value="INTERNSHIP">{t("internships")}</option>
+                <option value="TRAINING">{t("training")}</option>
+                <option value="COMPETITION">{t("competitions")}</option>
+                <option value="BUSINESS">{t("business")}</option>
               </select>
 
               <select
                 value={selectedLocation}
                 onChange={(e) => setSelectedLocation(e.target.value)}
               >
-                <option value="">📍 All Locations</option>
+                <option value="">📍 {t("allLocations")}</option>
 
-                <option value="Nepal">🇳🇵 Nepal</option>
-                <option value="Kathmandu">📍 Kathmandu</option>
-                <option value="Lalitpur">📍 Lalitpur</option>
-                <option value="International">🌍 International</option>
-                <option value="Online">🌐 Online</option>
-                <option value="Remote">🌐 Remote</option>
+                <option value="Nepal">🇳🇵 {t("nepal")}</option>
+                <option value="Kathmandu">📍 {t("kathmandu")}</option>
+                <option value="Lalitpur">📍 {t("lalitpur")}</option>
+                <option value="International">🌍 {t("international")}</option>
+                <option value="Online">🌐 {t("online")}</option>
+                <option value="Remote">🌐 {t("remote")}</option>
               </select>
 
               {(selectedCategory || selectedLocation || searchTerm) && (
@@ -2593,14 +3836,14 @@ useEffect(() => {
                     setSearchTerm("");
                   }}
                 >
-                  Clear Filters ✕
+                  {t("clearFilters")} ✕
                 </button>
               )}
             </div>
             <div className="opportunity-grid">
               {filteredOpportunities.length === 0 && (
                 <p className="no-results">
-                  😔 No opportunities found. Try another search.
+                  😔 {t("noOpportunitiesFound")}
                 </p>
               )}
               {(showAllOpportunities
@@ -2610,13 +3853,15 @@ useEffect(() => {
                 <article className="opportunity-card" key={item.title}>
                   <div className="opportunity-top">
                     <div className="opportunity-icon">{item.icon}</div>
-                    <span className="match">{item.match} Match</span>
+                    <span className="match">
+                      {item.match} {t("match")}
+                    </span>
                   </div>
 
                   <span className="opportunity-type">{item.type}</span>
                   <h3>{item.title}</h3>
                   <p className="opportunity-organization">
-                    🏢 {item.organization || "Awasar Nepal Partner"}
+                    🏢 {item.organization || t("awasarNepalPartner")}
                   </p>
 
                   <div className="opportunity-info">
@@ -2647,7 +3892,7 @@ useEffect(() => {
                         setSelectedOpportunity(getCompleteOpportunity(item))
                       }
                     >
-                      View Opportunity →
+                      {t("viewOpportunity")} →
                     </button>
                   </div>
                 </article>
@@ -2657,14 +3902,13 @@ useEffect(() => {
           {aiResults.length > 0 && (
             <section className="ai-results-section" id="ai-results">
               <div className="ai-results-heading">
-                <span className="premium-badge">🤖 AI POWERED MATCHING</span>
+                <span className="premium-badge">
+                  🤖 {t("aiPoweredMatching")}
+                </span>
 
-                <h2>Opportunities matched for you.</h2>
+                <h2>{t("opportunitiesMatched")}</h2>
 
-                <p>
-                  Based on your education, location, interests and goals, here
-                  are your best matches.
-                </p>
+                <p>{t("basedOnProfile")}</p>
               </div>
 
               <div className="ai-results-grid">
@@ -2695,7 +3939,7 @@ useEffect(() => {
                     </div>
 
                     <div className="ai-reasons">
-                      <strong>Why this matches you</strong>
+                      <strong>{t("whyMatchesYou")}</strong>
 
                       {item.aiReasons.slice(0, 3).map((reason, reasonIndex) => (
                         <span key={reasonIndex}>✓ {reason}</span>
@@ -2708,7 +3952,7 @@ useEffect(() => {
                         setSelectedOpportunity(getCompleteOpportunity(item))
                       }
                     >
-                      View Opportunity →
+                      {t("viewOpportunity")} →
                     </button>
                   </article>
                 ))}
@@ -2753,12 +3997,9 @@ useEffect(() => {
             <div className="premium-heading">
               <span className="premium-badge">💎 AWASAR NEPAL PREMIUM</span>
 
-              <h2>Unlock more opportunities.</h2>
+              <h2>{t("unlockMoreOpportunities")}</h2>
 
-              <p>
-                Get powerful tools to help you find, save and manage
-                opportunities more easily.
-              </p>
+              <p>{t("premiumDescription")}</p>
             </div>
 
             <div className="premium-grid">
@@ -2769,62 +4010,57 @@ useEffect(() => {
               >
                 <div className="premium-icon">🤖</div>
 
-                <h3>AI Opportunity Finder</h3>
+                <h3>{t("aiOpportunityFinder")}</h3>
 
-                <p>
-                  Tell us your goals and discover opportunities that match you.
-                </p>
+                <p>{t("aiOpportunityFinderText")}</p>
 
-                <span className="premium-status">Try Now →</span>
+                <span className="premium-status">{t("tryNow")} →</span>
               </article>
 
               <article className="premium-card">
                 <div className="premium-icon">📄</div>
 
-                <h3>Resume Checker</h3>
+                <h3>{t("resumeChecker")}</h3>
 
-                <p>Get helpful feedback to improve your CV and resume.</p>
+                <p>{t("resumeCheckerText")}</p>
 
-                <span className="premium-status">Coming Soon</span>
+                <span className="premium-status">{t("comingSoon")}</span>
               </article>
 
               <article className="premium-card">
                 <div className="premium-icon">🎯</div>
 
-                <h3>Personalized Matches</h3>
+                <h3>{t("personalizedMatches")}</h3>
 
-                <p>Get opportunity recommendations based on your interests.</p>
+                <p>{t("personalizedMatchesText")}</p>
 
-                <span className="premium-status">Coming Soon</span>
+                <span className="premium-status">{t("comingSoon")}</span>
               </article>
 
               <article className="premium-card">
                 <div className="premium-icon">❤️</div>
 
-                <h3>Saved Opportunities</h3>
+                <h3>{t("savedOpportunities")}</h3>
 
-                <p>Save opportunities and keep track of the ones you love.</p>
+                <p>{t("savedOpportunitiesText")}</p>
 
                 <strong className="saved-count">
-                  {savedOpportunities.length} Saved
+                  {savedOpportunities.length} {t("saved")}
                 </strong>
               </article>
             </div>
 
             <div className="premium-bottom">
-              <h3>More powerful features are coming soon 🚀</h3>
+              <h3>{t("morePowerfulFeatures")}</h3>
 
-              <button>Get Premium</button>
+              <button>{t("getPremium")}</button>
             </div>
           </section>
           <section className="cta" id="about">
             <div>
-              <span className="eyebrow">YOUR NEXT STEP</span>
-              <h2>Stop searching everywhere.</h2>
-              <p>
-                Create your profile and let Awasar Nepal help you discover
-                opportunities that fit you.
-              </p>
+              <span className="eyebrow">{t("yourNextStep")}</span>
+              <h2>{t("stopSearchingEverywhere")}</h2>
+              <p>{t("ctaDescription")}</p>
             </div>
             <button
               onClick={() => {
@@ -2890,6 +4126,14 @@ useEffect(() => {
           📩
           <span>Invitations</span>
         </button>
+
+<button
+  className={adminPage === "reports" ? "active" : ""}
+  onClick={() => setAdminPage("reports")}
+>
+  🐛
+  <span>Reports</span>
+</button>
 
         <button
           className={adminPage === "settings" ? "active" : ""}
@@ -3617,6 +4861,112 @@ useEffect(() => {
       )}
 
 
+{/* Reports */}
+{adminPage === "reports" && (
+
+  <div className="admin-section-page">
+
+    <div className="admin-section-title">
+
+      <div>
+        <span>USER REPORTS</span>
+
+        <h2>Reports Management</h2>
+
+        <p>
+          Review and manage problems reported by Awasar Nepal users.
+        </p>
+      </div>
+
+    </div>
+      <div className="admin-settings-card">
+
+        <div>
+          <strong>🐛 Total Reports</strong>
+
+          <p>
+            {loadingProblemReports
+              ? "Loading reports..."
+              : `${problemReports.length} report${
+                  problemReports.length === 1 ? "" : "s"
+                } received`}
+          </p>
+        </div>
+
+        <span className="settings-status">
+          {loadingProblemReports ? "Loading" : "Ready"}
+        </span>
+
+      </div>
+        <div className="admin-reports-list">
+
+          {loadingProblemReports ? (
+            <p>Loading reports...</p>
+          ) : problemReports.length === 0 ? (
+            <p>No reports found.</p>
+          ) : (
+            problemReports.map((report) => (
+              <button
+                key={report.id}
+                type="button"
+                className="admin-report-card"
+                onClick={() => setSelectedProblemReport(report)}
+              >
+                <div className="admin-report-main">
+                  <div className="admin-report-heading">
+                    <div className="admin-report-type">
+                      <span className="admin-report-icon">🐛</span>
+                      <strong>
+                        {report.problem_type || "Problem Report"}
+                      </strong>
+                    </div>
+
+                    <span className="settings-status">
+                      {report.status || "New"}
+                    </span>
+                  </div>
+
+                  <div className="admin-report-meta">
+                    <span>
+                      👤 {report.reporter_name || "Unknown User"}
+                    </span>
+
+                    <span>
+                      ✉️ {report.reporter_email || "No email"}
+                    </span>
+                  </div>
+
+                  <p className="admin-report-description">
+                    {report.description || "No description provided."}
+                  </p>
+
+                  <div className="admin-report-footer">
+                    <span>
+                      🕒{" "}
+                      {report.created_at
+                        ? new Date(report.created_at).toLocaleString()
+                        : "Unknown date"}
+                    </span>
+
+                    <span className="admin-report-priority">
+                      Priority: {report.priority || "Normal"}
+                    </span>
+
+                    <span className="admin-report-view">
+                      View Report ›
+                    </span>
+                  </div>
+                </div>
+              </button>
+            ))
+          )}
+
+        </div>
+
+  </div>
+
+)}
+
       {/* Settings */}
       {adminPage === "settings" && (
 
@@ -3690,27 +5040,24 @@ useEffect(() => {
                 window.scrollTo(0, 0);
               }}
             >
-              ← Back to Home
+              {t("exploreBackHome")}
             </button>
 
-            <span className="eyebrow">AWASAR NEPAL OPPORTUNITIES</span>
+            <span className="eyebrow">{t("exploreBadge")}</span>
 
             <h1>
-              Find your next
-              <span> opportunity.</span>
+              {t("exploreTitleMain")}
+              <span>{t("exploreTitleAccent")}</span>
             </h1>
 
-            <p>
-              Explore scholarships, jobs, internships, training, competitions
-              and business opportunities in one place.
-            </p>
+            <p>{t("exploreDescription")}</p>
 
             <div className="explore-search-box">
               <span>🔍</span>
 
               <input
                 type="text"
-                placeholder="Search opportunities, organizations or locations..."
+                placeholder={t("exploreSearchPlaceholder")}
                 value={exploreSearch}
                 onChange={(e) => setExploreSearch(e.target.value)}
               />
@@ -3720,11 +5067,11 @@ useEffect(() => {
           <section className="explore-content">
             <div className="explore-heading">
               <div>
-                <span className="eyebrow">DISCOVER</span>
+                <span className="eyebrow">{t("exploreDiscover")}</span>
 
-                <h2>Opportunities for you</h2>
+                <h2>{t("exploreOpportunitiesForYou")}</h2>
 
-                <p>{exploreFilteredOpportunities.length} opportunities found</p>
+                <p>{exploreFilteredOpportunities.length} {t("exploreOpportunitiesFound")}</p>
               </div>
             </div>
 
@@ -3733,36 +5080,36 @@ useEffect(() => {
                 value={exploreCategory}
                 onChange={(e) => setExploreCategory(e.target.value)}
               >
-                <option value="">All Categories</option>
+                <option value="">{t("exploreAllCategories")}</option>
 
-                <option value="SCHOLARSHIP">🎓 Scholarships</option>
+                <option value="SCHOLARSHIP">🎓 {t("scholarships")}</option>
 
-                <option value="JOB">💼 Jobs</option>
+                <option value="JOB">💼 {t("jobs")}</option>
 
-                <option value="INTERNSHIP">💻 Internships</option>
+                <option value="INTERNSHIP">💻 {t("internships")}</option>
 
-                <option value="TRAINING">📚 Training</option>
+                <option value="TRAINING">📚 {t("training")}</option>
 
-                <option value="COMPETITION">🏆 Competitions</option>
+                <option value="COMPETITION">🏆 {t("competitions")}</option>
 
-                <option value="BUSINESS">🚀 Business</option>
+                <option value="BUSINESS">🚀 {t("business")}</option>
               </select>
 
               <select
                 value={exploreLocation}
                 onChange={(e) => setExploreLocation(e.target.value)}
               >
-                <option value="">📍 All Locations</option>
+                <option value="">📍 {t("exploreAllLocations")}</option>
 
-                <option value="Nepal">🇳🇵 Nepal</option>
+                <option value="Nepal">🇳🇵 {t("exploreNepal")}</option>
 
-                <option value="Kathmandu">📍 Kathmandu</option>
+                <option value="Kathmandu">📍 {t("exploreKathmandu")}</option>
 
-                <option value="Lalitpur">📍 Lalitpur</option>
+                <option value="Lalitpur">📍 {t("exploreLalitpur")}</option>
 
-                <option value="International">🌍 International</option>
+                <option value="International">🌍 {t("exploreInternational")}</option>
 
-                <option value="Online">🌐 Online</option>
+                <option value="Online">🌐 {t("exploreOnline")}</option>
               </select>
 
               {(exploreSearch || exploreCategory || exploreLocation) && (
@@ -3774,7 +5121,7 @@ useEffect(() => {
                     setExploreLocation("");
                   }}
                 >
-                  Clear Filters ✕
+                  {t("exploreClearFilters")} ✕
                 </button>
               )}
             </div>
@@ -3783,9 +5130,9 @@ useEffect(() => {
               <div className="explore-empty">
                 <div>🔎</div>
 
-                <h3>No opportunities found</h3>
+                <h3>{t("exploreNoOpportunities")}</h3>
 
-                <p>Try another search or change your filters.</p>
+                <p>{t("exploreTryAnotherSearch")}</p>
               </div>
             ) : (
               <div className="explore-grid">
@@ -3806,7 +5153,7 @@ useEffect(() => {
                     <h3>{item.title}</h3>
 
                     <p className="explore-organization">
-                      🏢 {item.organization || "Awasar Nepal Partner"}
+                      🏢 {item.organization || t("exploreAwasarPartner")}
                     </p>
 
                     <div className="explore-card-info">
@@ -3851,7 +5198,7 @@ useEffect(() => {
       ) : (
   <main className="about-page">
 
-    {aboutLanguage === "english" ? (
+    {siteLanguage === "english" ? (
       <>
         {/* ================= ENGLISH ABOUT PAGE ================= */}
 
@@ -4071,13 +5418,6 @@ useEffect(() => {
             onClick={() => setCurrentPage("opportunities")}
           >
             Explore Opportunities →
-          </button>
-
-          <button
-            className="about-language-change-btn"
-            onClick={() => setShowAboutLanguage(true)}
-          >
-            🌐 Change Language
           </button>
 
         </section>
@@ -4342,13 +5682,6 @@ useEffect(() => {
             अवसरहरू हेर्नुहोस् →
           </button>
 
-          <button
-            className="about-language-change-btn"
-            onClick={() => setShowAboutLanguage(true)}
-          >
-            🌐 भाषा परिवर्तन गर्नुहोस्
-          </button>
-
         </section>
 
       </>
@@ -4387,7 +5720,7 @@ useEffect(() => {
               <div className="detail-info-card">
                 <span>📍</span>
                 <div>
-                  <small>Location</small>
+                  <small>{t("location")}</small>
                   <strong>{selectedOpportunity.location}</strong>
                 </div>
               </div>
@@ -4395,7 +5728,7 @@ useEffect(() => {
               <div className="detail-info-card">
                 <span>📅</span>
                 <div>
-                  <small>Deadline</small>
+                  <small>{t("deadline")}</small>
                   <strong>{selectedOpportunity.deadline}</strong>
                 </div>
               </div>
@@ -4403,7 +5736,7 @@ useEffect(() => {
               <div className="detail-info-card">
                 <span>🎓</span>
                 <div>
-                  <small>Education</small>
+                  <small>{t("education")}</small>
                   <strong>{selectedOpportunity.education}</strong>
                 </div>
               </div>
@@ -4411,14 +5744,14 @@ useEffect(() => {
               <div className="detail-info-card">
                 <span>💰</span>
                 <div>
-                  <small>Funding / Salary</small>
+                  <small>{t("fundingSalary")}</small>
                   <strong>{selectedOpportunity.funding}</strong>
                 </div>
               </div>
             </div>
 
             <div className="detail-section">
-              <h3>About this opportunity</h3>
+              <h3>{t("aboutThisOpportunity")}</h3>
 
               <p className="detail-description">
                 {selectedOpportunity.description}
@@ -4426,7 +5759,7 @@ useEffect(() => {
             </div>
 
             <div className="detail-section">
-              <h3>Who can apply?</h3>
+              <h3>{t("whoCanApply")}</h3>
 
               <ul className="requirements">
                 {(Array.isArray(selectedOpportunity.eligibility)
@@ -4439,7 +5772,7 @@ useEffect(() => {
             </div>
 
             <div className="detail-section">
-              <h3>Requirements</h3>
+              <h3>{t("requirements")}</h3>
 
               <ul className="requirements">
                 {(Array.isArray(selectedOpportunity.requirements)
@@ -4505,7 +5838,7 @@ useEffect(() => {
             <div className="submit-header">
               <div className="login-logo">➕</div>
 
-              <h2>Submit an Opportunity</h2>
+              <h2>{t("submitOpportunityTitle")}</h2>
 
               <p>
                 Share a genuine opportunity with the Awasar Nepal community.
@@ -4517,11 +5850,11 @@ useEffect(() => {
               className="submit-opportunity-form"
               onSubmit={handleSubmitOpportunity}
             >
-              <label>Opportunity Title</label>
+              <label>{t("opportunityTitleLabel")}</label>
 
               <input
                 type="text"
-                placeholder="Example: Global Scholarship 2026"
+                placeholder={t("opportunityTitlePlaceholder")}
                 value={submitForm.title}
                 onChange={(e) =>
                   setSubmitForm({
@@ -4531,11 +5864,11 @@ useEffect(() => {
                 }
               />
 
-              <label>Organization Name</label>
+              <label>{t("organizationNameLabel")}</label>
 
               <input
                 type="text"
-                placeholder="Organization offering this opportunity"
+                placeholder={t("organizationNamePlaceholder")}
                 value={submitForm.organization}
                 onChange={(e) =>
                   setSubmitForm({
@@ -4545,7 +5878,7 @@ useEffect(() => {
                 }
               />
 
-              <label>Category</label>
+              <label>{t("category")}</label>
 
               <select
                 value={submitForm.category}
@@ -4556,20 +5889,20 @@ useEffect(() => {
                   })
                 }
               >
-                <option value="">Select Category</option>
-                <option value="SCHOLARSHIP">Scholarship</option>
-                <option value="JOB">Job</option>
-                <option value="INTERNSHIP">Internship</option>
-                <option value="TRAINING">Training</option>
-                <option value="COMPETITION">Competition</option>
-                <option value="BUSINESS">Business</option>
+                <option value="">{t("selectCategory")}</option>
+                <option value="SCHOLARSHIP">{t("scholarships")}</option>
+                <option value="JOB">{t("jobs")}</option>
+                <option value="INTERNSHIP">{t("internships")}</option>
+                <option value="TRAINING">{t("training")}</option>
+                <option value="COMPETITION">{t("competitions")}</option>
+                <option value="BUSINESS">{t("business")}</option>
               </select>
 
-              <label>Location</label>
+              <label>{t("location")}</label>
 
               <input
                 type="text"
-                placeholder="Example: Kathmandu / Online / International"
+                placeholder={t("locationPlaceholder")}
                 value={submitForm.location}
                 onChange={(e) =>
                   setSubmitForm({
@@ -4579,7 +5912,7 @@ useEffect(() => {
                 }
               />
 
-              <label>Application Deadline</label>
+              <label>{t("applicationDeadline")}</label>
 
               <input
                 type="date"
@@ -4592,10 +5925,10 @@ useEffect(() => {
                 }
               />
 
-              <label>Opportunity Description</label>
+              <label>{t("opportunityDescriptionLabel")}</label>
 
               <textarea
-                placeholder="Describe the opportunity..."
+                placeholder={t("opportunityDescriptionPlaceholder")}
                 rows="5"
                 value={submitForm.description}
                 onChange={(e) =>
@@ -4606,7 +5939,7 @@ useEffect(() => {
                 }
               />
 
-              <label>Official Application Link</label>
+              <label>{t("officialApplicationLink")}</label>
 
               <input
                 type="url"
@@ -4909,7 +6242,7 @@ useEffect(() => {
               Awasar Nepal.
             </p>
 
-            <label>Email Address</label>
+            <label>{t("emailAddress")}</label>
 
             <input
               type="email"
@@ -5027,49 +6360,46 @@ useEffect(() => {
 
             <div className="login-logo">🤖</div>
 
-            <h2>AI Opportunity Finder</h2>
+            <h2>{t("aiFinderTitle")}</h2>
 
-            <p>
-              Tell us about yourself and we’ll find opportunities that match
-              you.
-            </p>
+            <p>{t("aiFinderDescription")}</p>
 
             {/* Education */}
-            <label>🎓 Education Level</label>
+            <label>🎓 {t("educationLevel")}</label>
 
             <select
               value={aiEducation}
               onChange={(e) => setAiEducation(e.target.value)}
             >
-              <option value="">Select your education</option>
-              <option value="+2">+2 / High School</option>
-              <option value="Bachelor">Bachelor</option>
-              <option value="Master">Master</option>
-              <option value="Graduate">Graduate</option>
+              <option value="">{t("selectYourEducation")}</option>
+              <option value="+2">{t("plusTwoHighSchool")}</option>
+              <option value="Bachelor">{t("bachelor")}</option>
+              <option value="Master">{t("master")}</option>
+              <option value="Graduate">{t("graduate")}</option>
             </select>
 
             {/* Location */}
-            <label>📍 Preferred Location</label>
+            <label>📍 {t("preferredLocation")}</label>
 
             <select
               value={aiLocation}
               onChange={(e) => setAiLocation(e.target.value)}
             >
-              <option value="">Select location</option>
-              <option value="Nepal">Nepal</option>
-              <option value="Kathmandu">Kathmandu</option>
-              <option value="Online">Online</option>
-              <option value="Abroad">Abroad</option>
+              <option value="">{t("selectLocation")}</option>
+              <option value="Nepal">{t("nepal")}</option>
+              <option value="Kathmandu">{t("kathmandu")}</option>
+              <option value="Online">{t("online")}</option>
+              <option value="Abroad">{t("abroad")}</option>
             </select>
 
             {/* Category */}
-            <label>🎯 Opportunity Type</label>
+            <label>🎯 {t("opportunityType")}</label>
 
             <select
               value={aiCategory}
               onChange={(e) => setAiCategory(e.target.value)}
             >
-              <option value="">Select opportunity type</option>
+              <option value="">{t("selectOpportunityType")}</option>
               <option value="SCHOLARSHIP">Scholarship</option>
               <option value="JOB">Job</option>
               <option value="INTERNSHIP">Internship</option>
@@ -5079,21 +6409,21 @@ useEffect(() => {
             </select>
 
             {/* Interest */}
-            <label>💻 Your Interest</label>
+            <label>💻 {t("yourInterest")}</label>
 
             <textarea
               rows="4"
-              placeholder="Example: IT, programming, business, marketing..."
+              placeholder={t("interestPlaceholder")}
               value={aiInterest}
               onChange={(e) => setAiInterest(e.target.value)}
             />
 
             {/* Goal */}
-            <label>🚀 Your Goal</label>
+            <label>🚀 {t("yourGoal")}</label>
 
             <textarea
               rows="3"
-              placeholder="Example: I want to gain experience and build my career..."
+              placeholder={t("goalPlaceholder")}
               value={aiGoal}
               onChange={(e) => setAiGoal(e.target.value)}
             />
@@ -5107,7 +6437,7 @@ useEffect(() => {
                   !aiCategory ||
                   !aiInterest.trim()
                 ) {
-                  alert("Please complete all required fields.");
+                  alert(t("completeRequiredFields"));
                   return;
                 }
 
@@ -5129,9 +6459,14 @@ useEffect(() => {
       {showDashboard && (
         <div className="login-overlay">
           <div className="dashboard-modal">
+
             <button
               className="login-close"
-              onClick={() => setShowDashboard(false)}
+              onClick={() => {
+                setShowDashboard(false);
+                setAccountMenuPage("main");
+                setShowUserMenu(true);
+              }}
             >
               ×
             </button>
@@ -5190,7 +6525,7 @@ useEffect(() => {
             <div className="dashboard-stats">
               <div className="dashboard-stat">
                 <strong>{savedOpportunities.length}</strong>
-                <span>Saved Opportunities</span>
+                <span>{t("savedOpportunities")}</span>
               </div>
 
               <div className="dashboard-stat">
@@ -5280,6 +6615,7 @@ useEffect(() => {
           </div>
         </div>
       )}
+
       {showEditProfile && (
         <div className="login-overlay">
           <div className="login-modal">
@@ -5292,30 +6628,30 @@ useEffect(() => {
 
             <div className="login-logo">👤</div>
 
-            <h2>Edit Profile</h2>
+            <h2>{t("editProfile")}</h2>
 
-            <p>Update your Awasar Nepal profile information.</p>
+            <p>{t("editProfileDescription")}</p>
 
             <form onSubmit={handleSaveProfile}>
-              <label>👤 Full Name</label>
+              <label>👤 {t("fullName")}</label>
 
               <input
                 type="text"
-                placeholder="Enter your full name"
+                placeholder={t("enterFullName")}
                 value={editName}
                 onChange={(e) => setEditName(e.target.value)}
               />
 
-              <label>📧 Email Address</label>
+              <label>📧 {t("emailAddress")}</label>
 
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t("enterYourEmail")}
                 value={editEmail}
                 onChange={(e) => setEditEmail(e.target.value)}
               />
 
-              <label>📱 Mobile Number</label>
+              <label>📱 {t("mobileNumber")}</label>
 
               <input
                 type="tel"
@@ -5326,7 +6662,7 @@ useEffect(() => {
               />
 
               <button type="submit" className="login-submit">
-                Save Changes →
+                {t("saveChanges")} →
               </button>
             </form>
           </div>
@@ -5345,8 +6681,8 @@ useEffect(() => {
           </div>
 
           <div>
-            <h3>Email & Phone</h3>
-            <p>Manage your account contact information.</p>
+            <h3>{t("emailPhone")}</h3>
+            <p>{t("manageContactInfo")}</p>
           </div>
         </div>
 
@@ -5376,12 +6712,12 @@ useEffect(() => {
             </span>
 
             <span className="contact-info-value">
-              {currentUserEmail || "No email available"}
+              {currentUserEmail || t("noEmailAvailable")}
             </span>
           </div>
 
           <span className="contact-verified">
-            ✓ Verified
+            ✓ {t("verified")}
           </span>
 
         </div>
@@ -5398,11 +6734,11 @@ useEffect(() => {
           <div className="contact-info-content">
 
             <span className="contact-info-label">
-              Phone Number
+              {t("phoneNumber")}
             </span>
 
             <span className="contact-info-value">
-              Not added
+              {t("notAdded")}
             </span>
 
           </div>
@@ -5415,7 +6751,7 @@ useEffect(() => {
           </span>
 
           <span>
-            Phone number management will be available soon.
+            {t("phoneManagementComingSoon")}
           </span>
         </div>
 
@@ -5684,6 +7020,7 @@ useEffect(() => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
+
               ) : (
                 <input
                   type="tel"
@@ -5787,6 +7124,220 @@ useEffect(() => {
           </div>
         </div>
       )}
+{showAppearanceSettings && (
+  <div className="appearance-settings-overlay">
+    <div className="appearance-settings-modal">
+
+      <button
+        className="login-close"
+        onClick={() => setShowAppearanceSettings(false)}
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div className="appearance-settings-icon">🌙</div>
+
+      <h2>Appearance</h2>
+
+      <p className="appearance-settings-intro">
+        Choose how Awasar Nepal looks on your device.
+      </p>
+
+      <div className="appearance-settings-options">
+
+        <button
+          className={`appearance-settings-option ${theme === "light" ? "active" : ""}`}
+          onClick={() => setTheme("light")}
+        >
+          <span>☀️</span>
+          <span>
+            <strong>Light</strong>
+            <small>Use the light appearance</small>
+          </span>
+          {theme === "light" && <span className="appearance-settings-check">✓</span>}
+        </button>
+
+        <button
+          className={`appearance-settings-option ${theme === "dark" ? "active" : ""}`}
+          onClick={() => setTheme("dark")}
+        >
+          <span>🌙</span>
+          <span>
+            <strong>Dark</strong>
+            <small>Use the dark appearance</small>
+          </span>
+          {theme === "dark" && <span className="appearance-settings-check">✓</span>}
+        </button>
+
+        <button
+          className={`appearance-settings-option ${theme === "system" ? "active" : ""}`}
+          onClick={() => setTheme("system")}
+        >
+          <span>💻</span>
+          <span>
+            <strong>System</strong>
+            <small>Follow your device settings</small>
+          </span>
+          {theme === "system" && <span className="appearance-settings-check">✓</span>}
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+)}
+
+    {showLanguageSettings && (
+      <div className="about-language-overlay">
+
+        <div className="about-language-bg-circle circle-one"></div>
+        <div className="about-language-bg-circle circle-two"></div>
+        <div className="about-language-bg-circle circle-three"></div>
+
+        <div className="about-language-modal">
+
+          <div className="about-language-topbar">
+
+            <button
+              className="about-language-back"
+              onClick={() => {
+                setShowLanguageSettings(false);
+                setShowUserMenu(true);
+              }}
+            >
+              {t("back")}
+            </button>
+
+            <button
+              className="about-language-close"
+              onClick={() => setShowLanguageSettings(false)}
+              aria-label={t("close")}
+            >
+              ×
+            </button>
+
+          </div>
+
+          <div className="about-language-brand">
+
+            <div className="about-language-icon">
+              🌐
+            </div>
+
+            <div>
+              <strong>AWASAR NEPAL</strong>
+              <span>{t("opportunityForEveryone")}</span>
+            </div>
+
+          </div>
+
+          <div className="about-language-heading">
+
+            <span className="about-language-label">
+              {t("displayAccessibility")}
+            </span>
+
+            <h2>{t("chooseLanguage")}</h2>
+
+            <p>
+              {t("chooseLanguageNepali")}
+            </p>
+
+            <small>
+              {t("selectLanguage")}
+            </small>
+
+          </div>
+
+          <div className="about-language-options">
+
+            <button
+              className={`about-language-option ${
+                pendingLanguage === "nepali" ? "selected" : ""
+              }`}
+              type="button"
+              onClick={() => setPendingLanguage("nepali")}
+            >
+              <div className="language-option-left">
+
+                <div className="language-flag">
+                  🇳🇵
+                </div>
+
+                <div className="language-option-text">
+                  <h3>{t("nepali")}</h3>
+                  <p>{t("continueNepali")}</p>
+                </div>
+
+              </div>
+
+              <div className="language-radio">
+                {pendingLanguage === "nepali" && "✓"}
+              </div>
+
+            </button>
+
+            <button
+              className={`about-language-option ${
+                pendingLanguage === "english" ? "selected" : ""
+              }`}
+              type="button"
+              onClick={() => setPendingLanguage("english")}
+            >
+              <div className="language-option-left">
+
+                <div className="language-flag">
+                  🇬🇧
+                </div>
+
+                <div className="language-option-text">
+                  <h3>{t("english")}</h3>
+                  <p>{t("continueEnglish")}</p>
+                </div>
+
+              </div>
+
+              <div className="language-radio">
+                {pendingLanguage === "english" && "✓"}
+              </div>
+
+            </button>
+
+          </div>
+
+          <button
+            className="about-language-continue"
+            type="button"
+            onClick={() => {
+              setSiteLanguage(pendingLanguage);
+              localStorage.setItem("awasarSiteLanguage", pendingLanguage);
+              setShowLanguageSettings(false);
+              setShowUserMenu(true);
+            }}
+          >
+            <span>
+              {t("continue")}
+            </span>
+
+            <span className="continue-arrow">
+              →
+            </span>
+          </button>
+
+          <div className="about-language-footer">
+
+            <span>🔒</span>
+
+            <p>
+              {t("changeLanguageAnytime")}
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    )}
       <footer>
         <div className="footer-logo">
           <img src={logo} alt="Awasar Nepal Logo" className="website-logo" />
