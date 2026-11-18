@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./index.css";
 import { supabase } from "./supabase";
-import logo from "./assets/IMG-20260903-WA0000.jpg";
+import logo from "./assets/awasar-logo-transparent.png";
 import founderPhoto from "./assets/yogesh.jpg";
 
 const translations = {

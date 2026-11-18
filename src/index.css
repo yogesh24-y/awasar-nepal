@@ -22718,3 +22718,133 @@ html[data-theme="light"] .about-page .about-cta .primary-btn:hover {
     transition: none !important;
   }
 }
+
+/* =========================================
+   AWASAR NEPAL — MOBILE HEADER LOGO UPGRADE
+   Clear brand + subtle orbit light
+========================================= */
+
+@media (max-width: 768px) {
+  .navbar .logo {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex: 0 1 auto;
+    flex-shrink: 1;
+    min-width: 0;
+    padding: 5px 9px 5px 5px;
+    margin-right: auto;
+    overflow: visible;
+    text-decoration: none;
+  }
+
+  .navbar .logo::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -3px;
+    top: 50%;
+    width: 57px;
+    height: 49px;
+    border: 1.4px solid rgba(225, 29, 72, 0.55);
+    border-radius: 50%;
+    transform: translateY(-50%) rotate(-22deg);
+    box-shadow:
+      0 0 8px rgba(225, 29, 72, 0.17),
+      inset 0 0 7px rgba(225, 29, 72, 0.07);
+    animation: awasarLogoRing 4.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .navbar .logo::after {
+    content: "✦";
+    position: absolute;
+    top: 0;
+    left: 43px;
+    color: #e11d48;
+    font-size: 12px;
+    text-shadow: 0 0 8px rgba(225, 29, 72, 0.55);
+    animation: awasarLogoSparkle 2.8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .navbar .website-logo {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 43px;
+    height: 43px;
+    min-width: 43px;
+    flex: 0 0 43px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 5px rgba(225, 29, 72, 0.22));
+  }
+
+  .navbar .logo span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 1.12;
+    white-space: nowrap;
+  }
+
+  .navbar .logo strong {
+    display: block;
+    color: #14213d;
+    font-size: 14px;
+    font-weight: 850;
+    letter-spacing: 0.45px;
+    line-height: 1.2;
+  }
+
+  .navbar .logo small {
+    display: block;
+    margin-top: 3px;
+    color: #e11d48;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    line-height: 1;
+  }
+
+  html[data-theme="dark"] .navbar .logo strong {
+    color: #f8fafc;
+  }
+
+  html[data-theme="dark"] .navbar .logo small {
+    color: #fb7185;
+  }
+}
+
+@media (max-width: 430px) {
+  .navbar .logo {
+    gap: 7px;
+    padding-right: 5px;
+  }
+
+  .navbar .website-logo {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    flex-basis: 40px;
+  }
+
+  .navbar .logo strong {
+    font-size: 13px;
+  }
+
+  .navbar .logo small {
+    font-size: 8px;
+    letter-spacing: 2.2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar .logo::before,
+  .navbar .logo::after {
+    animation: none !important;
+  }
+}
